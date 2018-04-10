@@ -1,0 +1,361 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+4 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_OPENPASS DIALOGEX 274, 92, 237, 98
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_DLGMODALFRAME
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "(0 Bits)",IDC_PASSWORDBITS1,60,47,163,8,NOT WS_GROUP
+    LTEXT           "Key strength :",-1,13,47,45,8,NOT WS_GROUP
+    EDITTEXT        IDC_PASSWORD,13,28,212,14,ES_PASSWORD | ES_AUTOHSCROLL
+    LTEXT           "Password:",-1,13,18,34,8
+    GROUPBOX        "Enter the password that was used to encrypt this data",-1,7,8,223,66
+    DEFPUSHBUTTON   "Ok",IDC_OK,187,79,43,14
+    PUSHBUTTON      "Cancel",IDC_CANCEL,139,79,43,14
+    CONTROL         "Use HardKey file?",IDC_USEGENERATEDKEY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,60,73,10
+END
+
+IDD_PROGRESS DIALOGEX 0, 0, 240, 70
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Please wait...",IDC_STATUSTEXT,11,15,217,8
+    CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",PBS_SMOOTH | WS_BORDER,33,28,172,7
+    DEFPUSHBUTTON   "Cancel",IDC_MULBUTTON,98,49,43,14
+    LTEXT           "Initializing",IDC_ACTION,11,7,217,8
+    CONTROL         "",IDC_FILEPROGRESS,"msctls_progress32",PBS_SMOOTH | WS_BORDER,33,36,172,7
+    CONTROL         "Run with Low-Priority",IDC_RUNINBACKGROUND,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,53,82,10
+END
+
+IDD_REPLACEFILE DIALOGEX 0, 0, 250, 138
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Yes",IDC_OPYES,7,117,50,14
+    PUSHBUTTON      "Yes to All",IDC_OPYESTOALL,69,117,50,14
+    DEFPUSHBUTTON   "No",IDC_OPNO,131,117,50,14
+    PUSHBUTTON      "Cancel",IDC_OPCANCEL,193,117,50,14
+    LTEXT           "#####################",IDC_REPTARGETNFO,47,98,196,8
+    LTEXT           "#####################",IDC_REPTARGET,47,86,196,8
+    LTEXT           "#####################",IDC_REPSOURCENFO,47,59,196,8
+    LTEXT           "#####################",IDC_REPSOURCE,47,47,196,8
+    LTEXT           "Would you like to replace the existing file (Size, Created, Modified)",IDC_REPLACECAP,22,33,221,8
+    LTEXT           "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",IDC_REPLACEQUE,7,18,236,14
+    LTEXT           "This folder already contains a file named:",IDC_REPLACEQUE2,7,7,236,8
+    ICON            IDI_MAIN,IDC_REPICO1,22,47,20,20
+    ICON            IDI_MAIN,IDC_REPICO2,22,86,20,20
+    LTEXT           "With this one?",IDC_STATIC,22,74,138,8
+END
+
+IDD_NETLOGO DIALOGEX 0, 0, 273, 87
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "IDD_NETLOGO"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    ICON            "",IDC_ABOUTICON,9,7,21,20
+    LTEXT           "IDC_APPNAME",IDC_APPNAME,84,7,159,8
+    LTEXT           "IDC_APPVERSION",IDC_APPVERSION,84,17,159,8
+    LTEXT           "IDC_APPCOPYRIGHT",IDC_APPCOPYRIGHT,44,53,192,8
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,40,63,234,1
+    DEFPUSHBUTTON   "OK",IDC_OKBUTTON,220,69,50,14
+    LTEXT           "IDC_BUILDTIMEDATE",IDC_BUILDTIMEDATE,84,27,159,8
+    LTEXT           "www.NetworkDLS.com",IDC_NETLINK,84,37,159,8
+    LTEXT           "Web site:",IDC_STATIC,44,37,31,8
+    LTEXT           "Application:",IDC_STATIC,44,7,38,8
+    LTEXT           "Version:",IDC_STATIC,44,17,26,8
+    LTEXT           "Build:",IDC_STATIC,44,27,18,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_OPENPASS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 230
+        TOPMARGIN, 8
+        BOTTOMMARGIN, 91
+    END
+
+    IDD_PROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 233
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 63
+    END
+
+    IDD_REPLACEFILE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 131
+    END
+
+    IDD_NETLOGO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        VERTGUIDE, 248
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 65
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_HANDCURSOR          CURSOR                  "HandCur.cur"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINMENU MENU
+BEGIN
+    POPUP "File"
+    BEGIN
+        MENUITEM "New",                         ID_FILE_FNEW
+        MENUITEM "Open",                        ID_FILE_FOPEN
+        MENUITEM SEPARATOR
+        MENUITEM "Exit",                        ID_FILE_EXIT
+    END
+    POPUP "Action"
+    BEGIN
+        MENUITEM "Add",                         ID_ACTION_ADD
+        MENUITEM "Delete",                      ID_ACTION_DELETE
+        MENUITEM "Extract",                     ID_ACTION_EXTRACT
+    END
+    POPUP "Options"
+    BEGIN
+        MENUITEM "Settings",                    ID_OPTIONS_SETTINGS
+        MENUITEM SEPARATOR
+        MENUITEM "Always On Top?",              ID_OPTIONS_ALWAYSONTOP
+    END
+    POPUP "Security"
+    BEGIN
+        MENUITEM "HardKey Generator",           ID_SECURITY_HARDKEYGENERATOR
+        MENUITEM "Securely Delete File",        ID_SECURITY_SECURELYDELETEFILE
+    END
+    POPUP "Help"
+    BEGIN
+        MENUITEM "Contents",                    ID_HELP_CONTENTS
+        MENUITEM SEPARATOR
+        MENUITEM "About",                       ID_HELP_ABOUT
+        MENUITEM "Enter Registration Code",     ID_HELP_ENTERREGISTRATIONCODE
+    END
+END
+
+IDR_FILE_LIST_POPUP MENU
+BEGIN
+    POPUP "FILE_LIST_POPUP"
+    BEGIN
+        MENUITEM "aaaa",                        ID_FILE_AAAA
+        MENUITEM "bbbb",                        ID_FILE_BBBB
+        MENUITEM "cccc",                        ID_FILE_CCCC
+        MENUITEM "dddd",                        ID_FILE_DDDD
+        MENUITEM "eeee",                        ID_FILE_EEEE
+        MENUITEM "ffff",                        ID_FILE_FFFF
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,6,1
+ PRODUCTVERSION 1,0,6,1
+ FILEFLAGSMASK 0x17L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40000L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "00000000"
+        BEGIN
+            VALUE "Comments", "Encrypted Self-Extractor"
+            VALUE "CompanyName", "NetworkDLS"
+            VALUE "FileDescription", "Encrypted Self-Extractor"
+            VALUE "FileVersion", "1.0.6.1"
+            VALUE "InternalName", "Secure Archive Self-Extractor"
+            VALUE "LegalCopyright", "Copyright © 2017 NetworkDLS"
+            VALUE "OriginalFilename", "SASE.exe"
+            VALUE "ProductName", "Secure Archive"
+            VALUE "ProductVersion", "1.0.6.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0, 0
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MAIN                ICON                    "MainIcon.ico"
+
+IDI_TRAYSTAT_15         ICON                    "TrayStat\\TrayStat (15).ico"
+
+IDI_TRAYSTAT_14         ICON                    "TrayStat\\TrayStat (14).ico"
+
+IDI_TRAYSTAT_13         ICON                    "TrayStat\\TrayStat (13).ico"
+
+IDI_TRAYSTAT_12         ICON                    "TrayStat\\TrayStat (12).ico"
+
+IDI_TRAYSTAT_11         ICON                    "TrayStat\\TrayStat (11).ico"
+
+IDI_TRAYSTAT_10         ICON                    "TrayStat\\TrayStat (10).ico"
+
+IDI_TRAYSTAT_09         ICON                    "TrayStat\\TrayStat (9).ico"
+
+IDI_TRAYSTAT_08         ICON                    "TrayStat\\TrayStat (8).ico"
+
+IDI_TRAYSTAT_07         ICON                    "TrayStat\\TrayStat (7).ico"
+
+IDI_TRAYSTAT_06         ICON                    "TrayStat\\TrayStat (6).ico"
+
+IDI_TRAYSTAT_05         ICON                    "TrayStat\\TrayStat (5).ico"
+
+IDI_TRAYSTAT_04         ICON                    "TrayStat\\TrayStat (4).ico"
+
+IDI_TRAYSTAT_03         ICON                    "TrayStat\\TrayStat (3).ico"
+
+IDI_TRAYSTAT_02         ICON                    "TrayStat\\TrayStat (2).ico"
+
+IDI_TRAYSTAT_01         ICON                    "TrayStat\\TrayStat (1).ico"
+
+IDI_TRAYSTAT_00         ICON                    "TrayStat\\TrayStat (0).ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_TITLECAPTION        "Secure Archive"
+    IDS_FILEVERSION         "1.0.6.1"
+    IDS_APPCOPYRIGHT        "Copyright © 2017 NetworkDLS. All rights reserved."
+    IDS_REGISTRYKEY         "Software\\NetworkDLS\\Secure Archive"
+    IDS_COMPATIBILITY       "Compatibility Version  000301x"
+    IDS_EMPTYPASSWORD       "Compatibility Password  000301x"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

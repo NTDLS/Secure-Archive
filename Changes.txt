@@ -1,0 +1,41 @@
+1.0.5.1
+1) Fix: Themed buttons on Windows XP, 2003 & Vista.
+2) Fix: Removed misleading message when cancelling a test archive job.
+3) Feature: Dropping a Self-Extractor onto the main dialog now opens the self-extracting archive.
+4) Fix: Corrected problem which caused the "Encrypt" button to remain disabled after creating a new folder via the Encrypt dialog.
+5) Feature: Added ability to view existing archives in the tree view on the Encryption Dialog.
+6) Fix: Corrected the file browser / treeviews show hidden/protected file behavior to mimic that of Explorer.
+
+1.0.5.2
+1) Feature: Added special "My" folders under "My Documents".
+2) Feature: Changed folder tree icons to match XP style.
+3) Feature: Added folder tree image support for USB drives.
+4) Feature: Added logical disk volume labels to the folder tree.
+5) Fix: Nolonger throws invalid DLL error when dropping a non-valid PE .exe file.
+6) Fix: Added PE exe MZ header checking for drad-n-drop exe files.
+7) Fix: Corrected message on temp folder selection in advanced settings.
+8) Feature: Now uses defaults from the registry as basis for command line automation settings.
+
+1.0.5.3
+1) Corrected CPU affinity problem that caused the application to not use the last core in a mulit-core environment.
+
+1.0.5.4
+1) Removed all registration functionality. The application is now free.
+
+1.0.5.5
+1) Fixed bug which could cause the program to crash while entering a hard-key password.
+
+1.0.5.6
+1) Resolved issue which prevented the creation of self extractors on 32bit systems.
+
+1.0.5.7
+1) Implemented the ability to securely delete source files upon encryption.
+2) Bound Enter and Escape keys to default dialog functions (eg. ok and cancel).
+3) Introduced secure deletion functionality to the explorer shell extension.
+4) Fixed issue which sometimes prevented toolbar icons from being redrawn correctly.
+5) Refined the secure delete wizard.
+
+1.0.6.1
+1) Added the ability to add files and folders to secure delete without drag and drop.
+2) Added the ability to selct all/none on the secue delete dialog.
+3) Resolved context menu transparency issues on windows Vista+

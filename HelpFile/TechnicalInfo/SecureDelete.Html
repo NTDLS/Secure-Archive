@@ -1,0 +1,189 @@
+<html>
+    <head>
+        <title>Technical Information - Secure Delete</title>
+        <link href="../style.css" type="text/css" rel="stylesheet">
+
+<meta name="MS-HKWD" content="Technical">
+<meta name="MS-HKWD" content="Algorithm">
+<meta name="MS-HKWD" content="Encryption">
+<meta name="MS-HKWD" content="Shredding">
+<meta name="MS-HKWD" content="Sanitization">
+<meta name="MS-HKWD" content="Degaussing">
+<meta name="MS-HKWD" content="Destruction">
+<meta name="MS-HKWD" content="Secure Delete">
+
+    </head>
+    <body>
+        <center>
+            <table width="100%" cellpadding="0" cellspacing="0" bgcolor="white" border="0">
+                <tbody>
+                    <tr>
+                        <td valign="middle">
+                            <table width="100%" cellpadding="0" cellspacing="0" bgcolor="white" border="0" height="50">
+                                <tr valign="middle">
+                                    <td width="100%" valign="middle">
+                                        <p class="TITLE">&nbsp;Technical Information - Secure Delete</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="1" bgcolor="#00bfff"><img height="0" src="pixil.gif" width="160" border="0"></td>
+                    </tr>
+                    <tr>
+                        <td height="10" bgcolor="white">
+                            <table class="body" width="100%" height="100%" cellspacing="4" cellpadding="20">
+                                <tbody>
+                                    <tr height="100%" valign="top">
+                                        <td width="100%">
+                                        <table>
+                                            <tr width="650" valign="top">
+                                                <td width="650">
+                                                    <p><Center><img src="../Images/AppLogo.gif"></Center><BR><HR><BR></p>
+<!-- ---------------------------------------------------(BEGIN CONTENT) --------------------------------------------------- -->
+<P>
+<b>US Dept of Defense Standard 5220.22-M</b><br />
+<b>National Industrial Security Program Operating Manual Description:</b><br />
+<br />
+
+Section 5. Software and Data Files........................................................8-5-1<br />
+<br />
+
+Subsection 8-5-3:<br />
+<b>1.</b> Overwriting Media. Overwriting is a software procedure that replaces the data previously
+stored on magnetic storage media with a predefined set of meaningless data. Overwriting is
+an acceptable method for clearing. Only approved overwriting software that is compatible
+with the specific hardware intended for overwriting will be used. Use of such software will
+be coordinated in advance with the Customer. The success of the overwrite procedure will be
+verified through random sampling of the overwritten media. The effectiveness of the overwrite
+procedure may be reduced by several factors: ineffectiveness of the overwrite procedures,
+equipment failure (e.g., misalignment of read/write heads), or inability to overwrite bad
+sectors or tracks or information in inter-record gaps. To clear magnetic disks, overwrite
+all locations three (3) times (first time with a character, second time with its complement,
+and the third time with a random character). Items which have been cleared must remain at the
+previous level of classification and remain in a secure, controlled environment.<br />
+<b>2.</b> Overwriting Procedure. The preferred method to clear magnetic disks is to overwrite all
+locations three (3) times (the first time with a random character, the second time with a specified
+character, the third time with the complement of that specified character).<br />
+<b>3.</b> Sanitizing Media. Sanitization removes information from media such that data recovery using
+any known technique or analysis is prevented. Sanitizing is a two-step process that includes
+removing data from the media in accordance with Table 3 and removing all classified labels,
+ markings, and activity logs.
+ 
+
+<i>From the NIST Standards</i>
+National Institute of Standards and Technology Description:<br />
+
+<br />
+
+<b>CSL BULLETIN</b><br />
+Advising users on computer systems technology<br />
+
+<br />
+
+<b>DISPOSITION OF SENSITIVE AUTOMATED INFORMATION</b><br />
+Sanitization means the removal of data from storage media so that, for all practical purposes,
+the data cannot be retrieved. Some instances in which sanitization must be considered include
+whenever media is transferred from one organization to another, when equipment is declared surplus,
+and when organizations dispose of media.<br />
+
+<br />
+
+<b>Sanitization: Why Be Concerned?</b><br />
+In the past, reports have surfaced that federal agencies have disposed of surplus information
+technology (IT) equipment without taking appropriate measures to erase the information stored
+on the system’s media. This can lead to the disclosure of sensitive information, embarrassment
+to the agency, costly investigations, and other consequences which could have been avoided.<br />
+
+<br />
+
+Employees throw away old diskettes believing that “erasing” the files on the diskette has made
+the data unretrievable. In reality, however, “erasing” a file simply removes the “pointer” to
+that file. The pointer tells the computer where the file is physically stored on the disk.
+Without this pointer, the files will not appear on a directory listing of the diskette's files.
+This does not mean that the file was removed from the diskette. (Commonly available utility
+programs can often retrieve information that is presumed “deleted.”) Fortunately, with foresight
+and appropriate planning, these situations can be avoided.<br />
+
+<br />
+
+<b>Techniques for Media Sanitization</b><br />
+Three techniques are commonly used for media sanitization: overwriting, degaussing, and destruction.
+Overwriting and degaussing are the methods recommended for disposition of sensitive automated information.
+(Users of classified systems may also have to be concerned with data remanence. This refers to the residual
+information left behind once media has been in some way erased.) Security officers should be consulted for
+appropriate guidance.<br />
+
+<br />
+
+<b>Overwriting</b><br />
+Overwriting is an effective method of clearing data from magnetic media. As the name implies, overwriting
+utilizes a program to write (1s, 0s, or a combination of both) onto the location of the media where the
+file to be sanitized is located. The number of times that media is overwritten depends on the level of
+sensitivity of the information. Overwriting should not be confused with merely deleting the pointer to a
+file, as discussed above.<br />
+
+<br />
+
+<b>Degaussing</b><br />
+Degaussing is a method to magnetically erase data from magnetic media. Two types of degaussers exist:
+strong magnets and electric degaussers. Degaussers are tested by the Department of Defence; those which
+meet their requirements are placed on the Degausser Products List (DPL) of the National Security Agency’s
+(NSA) Information Systems Security Products and Services Catalogue.<br />
+
+<br />
+
+<b>Destruction</b><br />
+The final method of sanitization is destruction of the media. NCSC-TG-025 provides specifics on this
+method and its applicability. Shredding diskettes, after removing the outer protective casing, is also
+an option for unclassified media.<br />
+
+<br />
+
+<b>Employee Training and Awareness</b><br />
+Most employees who utilize IT systems also use, and in fact are often the custodians of, magnetic
+media. It is therefore important for agencies to give the issue of media sanitization appropriate
+attention in the agency computer security training and awareness program.<br />
+
+<br />
+
+<b>Employees should understand the following essential elements:</b><br />
+<b>1.</b> Media containing sensitive information should not be released without appropriate sanitization.<br />
+<b>2.</b> File deletion functions (e.g., the DEL command on MS-DOS) usually can be expected to remove only
+    the pointer to a file (i.e., the file is often still recoverable).<br />
+<b>3.</b> When data is removed from storage media, every precaution should be taken to remove duplicate
+    versions that may exist on the same or other storage media, back-up files, temporary files, hidden
+    files, or extended memory.<br />
+<b>4.</b> Media in surplus equipment should be sanitized.<br />
+
+<br />
+</P>
+
+
+
+<!-- ----------------------------------------------------(END CONTENT) ---------------------------------------------------- -->
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="1" bgcolor="#00bfff"><img height="0" src="pixil.gif" width="160" border="0"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="bottom" cellspacing="0" cellpadding="5" width="100%" border="0" height="30" bgcolor="white">
+                <tbody>
+                    <tr bgcolor="white">
+                        <td>Copyright &copy; 2017 NetworkDLS. All rights reserved.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </center>
+    </body>
+</html>

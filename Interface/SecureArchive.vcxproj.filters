@@ -1,0 +1,810 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{710a7f9a-8f2a-4df1-9864-5d79f2cabedf}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Package">
+      <UniqueIdentifier>{3728e819-a0db-4355-bb1a-fb5f17032006}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DragDrop">
+      <UniqueIdentifier>{9ae04a42-208c-4f75-81d6-43385e581f39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core">
+      <UniqueIdentifier>{93c2e9a8-5ff8-41ab-8284-2b1a2854d3ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{3ca8cac4-13b7-4090-b02d-69d45c5fa37c}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\TreeView">
+      <UniqueIdentifier>{833c2e3b-1698-45d3-be15-b875892c859d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Animations">
+      <UniqueIdentifier>{5b455279-61a4-4e5b-b82b-74699c8e4115}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Icons">
+      <UniqueIdentifier>{2b68e418-4367-41de-a849-1eebffbb601b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Cursors">
+      <UniqueIdentifier>{452620e1-0b63-47b1-93b2-31af8b704594}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Sounds">
+      <UniqueIdentifier>{2155395c-bc74-413f-ab40-75cdbc0b4e0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Resources">
+      <UniqueIdentifier>{0bed3805-36cd-400e-9b35-466d6f6c64ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dialogs">
+      <UniqueIdentifier>{cdbe5a4c-63c5-47ed-ad8b-11944d2ded71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dialogs\Setup">
+      <UniqueIdentifier>{4da9d1f4-7442-48e5-a255-37d0efe17ab8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dialogs\HardKey">
+      <UniqueIdentifier>{24c6aaf0-9d21-4d92-bbcf-8154b1c1b0a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dialogs\Progress">
+      <UniqueIdentifier>{7749d28c-a3e1-46af-adde-95781d130a9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dialogs\Notification">
+      <UniqueIdentifier>{85bbd8c4-436c-4427-99da-9251e3b68198}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dialogs\Core">
+      <UniqueIdentifier>{18558103-0b5b-4feb-8392-a756bdc95332}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes and Modules">
+      <UniqueIdentifier>{5f7b7bd1-fe0e-4f23-82f4-af2f5e5132d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes and Modules\CNASCCL %28Stream%29">
+      <UniqueIdentifier>{022f7cd4-941d-475b-b3c4-bd722c155332}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes and Modules\Rijndael">
+      <UniqueIdentifier>{db741943-b145-4fee-be01-9695a9bbbd5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes and Modules\BlowFish">
+      <UniqueIdentifier>{f46ec9e4-33d2-4f0c-8813-f7c44c260c7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes and Modules\SecureDelete">
+      <UniqueIdentifier>{8877a9cb-96ea-48aa-92fd-bd7a89e3a944}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes and Modules\CCmdLine">
+      <UniqueIdentifier>{73012c22-cceb-45d4-92cb-0f11e636255a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes and Modules\CSHA1">
+      <UniqueIdentifier>{a693497a-8f50-4bae-8344-f5f2137a4bdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes and Modules\zLib">
+      <UniqueIdentifier>{b383ff7d-3c90-472c-8df6-66006a1daed1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes and Modules\CTrayIcon">
+      <UniqueIdentifier>{884f9730-2b63-480c-9224-619d8c792859}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes and Modules\CCRC32">
+      <UniqueIdentifier>{bac7f89d-94b1-4671-ae69-0c2bb2c6f354}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes and Modules\NSWFL">
+      <UniqueIdentifier>{c15376a9-d208-46d2-8846-b2abd7b4dbe5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Package.Cpp">
+      <Filter>Source Files\Package</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PackHeader.Cpp">
+      <Filter>Source Files\Package</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Workers.cpp">
+      <Filter>Source Files\Package</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DataObject.cpp">
+      <Filter>Source Files\DragDrop</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DragDrop.Cpp">
+      <Filter>Source Files\DragDrop</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DropSource.cpp">
+      <Filter>Source Files\DragDrop</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EnumFormat.cpp">
+      <Filter>Source Files\DragDrop</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Entry.Cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FolderTree.Cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\HardKey.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\IndexDir.Cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Init.Cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ListView.Cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Routines.Cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\TabAdvanced.Cpp">
+      <Filter>Dialogs\Setup</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\TabGeneral.cpp">
+      <Filter>Dialogs\Setup</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\TabLookAndFeel.Cpp">
+      <Filter>Dialogs\Setup</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\TabProcessors.Cpp">
+      <Filter>Dialogs\Setup</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\HardKeyDlg.Cpp">
+      <Filter>Dialogs\HardKey</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\HardKeyStatDlg.cpp">
+      <Filter>Dialogs\HardKey</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\ProgressDialog.Cpp">
+      <Filter>Dialogs\Progress</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\ReadingDlg.Cpp">
+      <Filter>Dialogs\Progress</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\NoSecurityDlg.Cpp">
+      <Filter>Dialogs\Notification</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\OverwriteOrAppend.Cpp">
+      <Filter>Dialogs\Notification</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\WeakPwdNotificationDlg.Cpp">
+      <Filter>Dialogs\Notification</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\AdvancedOptDlg.Cpp">
+      <Filter>Dialogs\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\ExtractDlg.Cpp">
+      <Filter>Dialogs\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\FileInfoDlg.Cpp">
+      <Filter>Dialogs\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\MainDlg.Cpp">
+      <Filter>Dialogs\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\NetLogoDlg.Cpp">
+      <Filter>Dialogs\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\NewFolderDlg.Cpp">
+      <Filter>Dialogs\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\NewPassDlg.Cpp">
+      <Filter>Dialogs\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\OpenPassDlg.Cpp">
+      <Filter>Dialogs\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\ReplaceFileDlg.Cpp">
+      <Filter>Dialogs\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\SearchDlg.Cpp">
+      <Filter>Dialogs\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\SecureDeleteDialog.Cpp">
+      <Filter>Dialogs\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogs\WeakPwdDialog.Cpp">
+      <Filter>Dialogs\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\Rijndael\AESTab.C">
+      <Filter>Classes and Modules\Rijndael</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\Rijndael\AESKeypp.C">
+      <Filter>Classes and Modules\Rijndael</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\Rijndael\AESCrypp.C">
+      <Filter>Classes and Modules\Rijndael</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\adler32.c">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\BlowFish\BlowFish.Cpp">
+      <Filter>Classes and Modules\BlowFish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\CCmdLine\CCmdLine.Cpp">
+      <Filter>Classes and Modules\CCmdLine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\CCRC32\CCRC32.Cpp">
+      <Filter>Classes and Modules\CCRC32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\CNASCCL (Stream)\CNASCCL.Cpp">
+      <Filter>Classes and Modules\CNASCCL %28Stream%29</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\CNASCCL (Stream)\CNASCCLBox.Cpp">
+      <Filter>Classes and Modules\CNASCCL %28Stream%29</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\CNASCCL (Stream)\CNASCCLKey.Cpp">
+      <Filter>Classes and Modules\CNASCCL %28Stream%29</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\compress.c">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\CSHA1\CSHA1.cpp">
+      <Filter>Classes and Modules\CSHA1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\CTrayIcon\CTrayIcon.Cpp">
+      <Filter>Classes and Modules\CTrayIcon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\inftrees.c">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\inflate.c">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\inffast.c">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\infback.c">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\gzio.c">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\deflate.c">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_Conversion.Cpp">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_Windows.Cpp">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_DateTime.Cpp">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_File.Cpp">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_KeyGeneration.Cpp">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_ListBox.Cpp">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_ListView.Cpp">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_Math.Cpp">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_Memory.Cpp">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_Menu.Cpp">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_Registry.Cpp">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_String.Cpp">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_System.Cpp">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_Types.Cpp">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\SecureDelete\SecureDelete.Cpp">
+      <Filter>Classes and Modules\SecureDelete</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\zutil.c">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\ZLibEncapsulation.Cpp">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\zLibcrc32.c">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\uncompr.c">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\trees.c">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Package.H">
+      <Filter>Source Files\Package</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\PackHeader.h">
+      <Filter>Source Files\Package</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Workers.H">
+      <Filter>Source Files\Package</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DragDrop.h">
+      <Filter>Source Files\DragDrop</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Entry.H">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FolderTree.H">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\HardKey.H">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\IndexDir.H">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Init.H">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ListView.H">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Routines.H">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\resource.h">
+      <Filter>Resource Files\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\TabAdvanced.H">
+      <Filter>Dialogs\Setup</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\TabGeneral.H">
+      <Filter>Dialogs\Setup</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\TabLookAndFeel.H">
+      <Filter>Dialogs\Setup</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\TabProcessors.H">
+      <Filter>Dialogs\Setup</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\HardKeyDlg.H">
+      <Filter>Dialogs\HardKey</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\HardKeyStatDlg.H">
+      <Filter>Dialogs\HardKey</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\ProgressDialog.H">
+      <Filter>Dialogs\Progress</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\ReadingDlg.H">
+      <Filter>Dialogs\Progress</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\NoSecurityDlg.h">
+      <Filter>Dialogs\Notification</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\OverwriteOrAppend.H">
+      <Filter>Dialogs\Notification</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\WeakPwdNotificationDlg.H">
+      <Filter>Dialogs\Notification</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\AdvancedOptDlg.H">
+      <Filter>Dialogs\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\ExtractDlg.H">
+      <Filter>Dialogs\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\FileInfoDlg.H">
+      <Filter>Dialogs\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\MainDlg.H">
+      <Filter>Dialogs\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\NetLogoDlg.H">
+      <Filter>Dialogs\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\NewFolderDlg.H">
+      <Filter>Dialogs\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\NewPassDlg.H">
+      <Filter>Dialogs\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\OpenPassDlg.H">
+      <Filter>Dialogs\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\ReplaceFileDlg.H">
+      <Filter>Dialogs\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\SearchDlg.H">
+      <Filter>Dialogs\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\SecureDeleteDialog.H">
+      <Filter>Dialogs\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogs\WeakPwdDialog.H">
+      <Filter>Dialogs\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\Rijndael\AES.H">
+      <Filter>Classes and Modules\Rijndael</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\Rijndael\AESOpt.H">
+      <Filter>Classes and Modules\Rijndael</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\BlowFish\BlowFish.H">
+      <Filter>Classes and Modules\BlowFish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\CCmdLine\CCmdLine.H">
+      <Filter>Classes and Modules\CCmdLine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\Compression\zLib\trees.h">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\Compression\zLib\zConf.h">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\Compression\zLib\zLib.h">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\Compression\zLib\zLibcrc32.h">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\Compression\zLib\ZLibEncapsulation.H">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\Compression\zLib\zutil.h">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\CCRC32\CCRC32.H">
+      <Filter>Classes and Modules\CCRC32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\CSHA1\CSHA1.h">
+      <Filter>Classes and Modules\CSHA1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\CNASCCL (Stream)\CNASCCL.H">
+      <Filter>Classes and Modules\CNASCCL %28Stream%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\CTrayIcon\CTrayIcon.H">
+      <Filter>Classes and Modules\CTrayIcon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\Compression\zLib\deflate.h">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\SecureDelete\Defrag.h">
+      <Filter>Classes and Modules\SecureDelete</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\Compression\zLib\inftrees.h">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\Compression\zLib\inflate.h">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\Compression\zLib\inffixed.h">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\Compression\zLib\inffast.h">
+      <Filter>Classes and Modules\zLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL.h">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_Conversion.H">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_DateTime.H">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_File.H">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_KeyGeneration.H">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_ListBox.H">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_ListView.H">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_Math.H">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_Memory.H">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_Menu.H">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_Registry.H">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_String.H">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_System.H">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_Types.H">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_Windows.H">
+      <Filter>Classes and Modules\NSWFL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\Rijndael\Rijndael.H">
+      <Filter>Classes and Modules\Rijndael</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\BlowFish\SBoxes.H">
+      <Filter>Classes and Modules\BlowFish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\%40Libraries\SecureDelete\SecureDelete.H">
+      <Filter>Classes and Modules\SecureDelete</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Archive.bmp">
+      <Filter>Resource Files\TreeView</Filter>
+    </None>
+    <None Include="Resources\CDRom Disk.bmp">
+      <Filter>Resource Files\TreeView</Filter>
+    </None>
+    <None Include="Resources\ClosedFolder.bmp">
+      <Filter>Resource Files\TreeView</Filter>
+    </None>
+    <None Include="Resources\Desktop.bmp">
+      <Filter>Resource Files\TreeView</Filter>
+    </None>
+    <None Include="Resources\Fixed.bmp">
+      <Filter>Resource Files\TreeView</Filter>
+    </None>
+    <None Include="Resources\MyComputer.bmp">
+      <Filter>Resource Files\TreeView</Filter>
+    </None>
+    <None Include="Resources\MyDocuments.bmp">
+      <Filter>Resource Files\TreeView</Filter>
+    </None>
+    <None Include="Resources\MyMovies.bmp">
+      <Filter>Resource Files\TreeView</Filter>
+    </None>
+    <None Include="Resources\MyMusic.bmp">
+      <Filter>Resource Files\TreeView</Filter>
+    </None>
+    <None Include="Resources\MyPictures.bmp">
+      <Filter>Resource Files\TreeView</Filter>
+    </None>
+    <None Include="Resources\Network Disk.bmp">
+      <Filter>Resource Files\TreeView</Filter>
+    </None>
+    <None Include="Resources\OpenFolder.bmp">
+      <Filter>Resource Files\TreeView</Filter>
+    </None>
+    <None Include="Resources\RamDrive.bmp">
+      <Filter>Resource Files\TreeView</Filter>
+    </None>
+    <None Include="Resources\Removable.bmp">
+      <Filter>Resource Files\TreeView</Filter>
+    </None>
+    <None Include="Resources\Unknown.bmp">
+      <Filter>Resource Files\TreeView</Filter>
+    </None>
+    <None Include="Resources\USBDisk.bmp">
+      <Filter>Resource Files\TreeView</Filter>
+    </None>
+    <None Include="Resources\Decrypt.avi">
+      <Filter>Resource Files\Animations</Filter>
+    </None>
+    <None Include="Resources\Delete.avi">
+      <Filter>Resource Files\Animations</Filter>
+    </None>
+    <None Include="Resources\Encrypt.avi">
+      <Filter>Resource Files\Animations</Filter>
+    </None>
+    <None Include="16x16Folder.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\16x16Folder.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Toolbar\AddFiles.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Toolbar\AddFiles_GS.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Toolbar\AddFiles_GS.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Advanced.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\AppIcon.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Toolbar\Configure.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Toolbar\Configure_GS.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Toolbar\Configure_GS.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\CPUSelect.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Crypto.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Toolbar\Delete.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Toolbar\Delete_GS.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Toolbar\Delete_GS.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Toolbar\exit.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Toolbar\Exit_GS.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Toolbar\Exit_GS.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Toolbar\Extract.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Toolbar\Extract_GS.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Toolbar\Extract_GS.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\FileBad.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\FileOK.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Toolbar\Find.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Toolbar\Find_GS.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Toolbar\Find_GS.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\General.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\HardKey.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Help.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Toolbar\Information.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Toolbar\Information_GS.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Toolbar\Information_GS.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\LookFeel.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\MainIcon.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Toolbar\New.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Toolbar\New_GS.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Toolbar\New_GS.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Toolbar\Open.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Toolbar\Open_GS.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Toolbar\Open_GS.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Password.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Security.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\SmCPU.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\TrayStat\TrayStat (0).ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\TrayStat\TrayStat (1).ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\TrayStat\TrayStat (10).ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\TrayStat\TrayStat (11).ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\TrayStat\TrayStat (12).ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\TrayStat\TrayStat (13).ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\TrayStat\TrayStat (14).ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\TrayStat\TrayStat (15).ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\TrayStat\TrayStat (16).ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\TrayStat\TrayStat (2).ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\TrayStat\TrayStat (3).ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\TrayStat\TrayStat (4).ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\TrayStat\TrayStat (5).ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\TrayStat\TrayStat (6).ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\TrayStat\TrayStat (7).ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\TrayStat\TrayStat (8).ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\TrayStat\TrayStat (9).ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Unknown.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Unknown16.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Toolbar\View.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Toolbar\View_GS.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\Toolbar\View_GS.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </None>
+    <None Include="Resources\HandCur.cur">
+      <Filter>Resource Files\Cursors</Filter>
+    </None>
+    <None Include="Resources\Click.Wav">
+      <Filter>Resource Files\Sounds</Filter>
+    </None>
+    <None Include="Resources\Tick.Wav">
+      <Filter>Resource Files\Sounds</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources\Resource.rc">
+      <Filter>Resource Files\Resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

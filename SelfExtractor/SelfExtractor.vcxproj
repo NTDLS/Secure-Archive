@@ -1,0 +1,465 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CFAAC6D6-7730-4D73-A6D4-76AA23DD3AE6}</ProjectGuid>
+    <RootNamespace>SelfExtractor</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\$(Configuration)\$(Platform)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <EmbedManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</EmbedManifest>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</PostBuildEventUseInBuild>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\$(Configuration)\$(Platform)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <EmbedManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</EmbedManifest>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</PostBuildEventUseInBuild>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\$(Configuration)\$(Platform)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <EmbedManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</EmbedManifest>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PostBuildEventUseInBuild>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\$(Configuration)\$(Platform)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <EmbedManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</EmbedManifest>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</PostBuildEventUseInBuild>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">SASE</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">SASE</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SASE</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SASE</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Release/SelfExtractor.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>MinSpace</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_SELFEXTRACTOR_APP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\$(Configuration)\$(Platform)\</AssemblerListingLocation>
+      <ObjectFileName>.\$(Configuration)\$(Platform)\</ObjectFileName>
+      <ProgramDataBaseFileName>.\$(Configuration)\$(Platform)\</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>ComCtl32.Lib;Wldap32.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(TargetPath)</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>libc.lib;msvcrt.lib;libcd.lib;libcmtd.lib;msvcrtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ProgramDatabaseFile>.\$(Configuration)\$(Platform)\SelfExtractor.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>Resources\CommonControls.manifest;%(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Command>copy "$(TargetDir)$(TargetFileName)" "C:\Program Files\NetworkDLS\Secure Archive" /Y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>X64</TargetEnvironment>
+      <TypeLibraryName>.\Release/SelfExtractor.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>MinSpace</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>WIN64;NDEBUG;_WINDOWS;_SELFEXTRACTOR_APP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\$(Configuration)\$(Platform)\</AssemblerListingLocation>
+      <ObjectFileName>.\$(Configuration)\$(Platform)\</ObjectFileName>
+      <ProgramDataBaseFileName>.\$(Configuration)\$(Platform)\</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>ComCtl32.Lib;Wldap32.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(TargetPath)</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>libc.lib;msvcrt.lib;libcd.lib;libcmtd.lib;msvcrtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ProgramDatabaseFile>.\$(Configuration)\$(Platform)\SelfExtractor.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>Resources\CommonControls.manifest;%(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Command>copy "$(TargetDir)$(TargetFileName)" "C:\Program Files\NetworkDLS\Secure Archive" /Y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Debug/SelfExtractor.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_SELFEXTRACTOR_APP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\$(Configuration)\$(Platform)\</AssemblerListingLocation>
+      <ObjectFileName>.\$(Configuration)\$(Platform)\</ObjectFileName>
+      <ProgramDataBaseFileName>.\$(Configuration)\$(Platform)\</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>ComCtl32.Lib;Wldap32.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(TargetPath)</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>libc.lib;libcmt.lib;msvcrt.lib;libcd.lib;msvcrtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\$(Configuration)\$(Platform)\SelfExtractor.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>Resources\CommonControls.manifest;%(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Command>copy "$(TargetDir)$(TargetFileName)" "C:\Program Files\NetworkDLS\Secure Archive" /Y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>X64</TargetEnvironment>
+      <TypeLibraryName>.\Debug/SelfExtractor.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN64;_DEBUG;_WINDOWS;_SELFEXTRACTOR_APP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\$(Configuration)\$(Platform)\</AssemblerListingLocation>
+      <ObjectFileName>..\$(Configuration)\$(Platform)\</ObjectFileName>
+      <ProgramDataBaseFileName>.\$(Configuration)\$(Platform)\</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>ComCtl32.Lib;Wldap32.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(TargetPath)</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>libc.lib;libcmt.lib;msvcrt.lib;libcd.lib;msvcrtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\$(Configuration)\$(Platform)\SelfExtractor.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>Resources\CommonControls.manifest;%(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Command>copy "$(TargetDir)$(TargetFileName)" "C:\Program Files\NetworkDLS\Secure Archive" /Y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\%40Libraries\CCRC32\CCRC32.Cpp" />
+    <ClCompile Include="..\Interface\Source\Entry.Cpp" />
+    <ClCompile Include="..\Interface\Source\HardKey.cpp" />
+    <ClCompile Include="..\Interface\Source\Init.Cpp" />
+    <ClCompile Include="..\Interface\Source\Routines.Cpp" />
+    <ClCompile Include="..\Interface\Source\Package.Cpp" />
+    <ClCompile Include="..\Interface\Source\PackHeader.Cpp" />
+    <ClCompile Include="..\Interface\Source\Workers.cpp" />
+    <ClCompile Include="..\Interface\Dialogs\NetLogoDlg.Cpp" />
+    <ClCompile Include="..\Interface\Dialogs\OpenPassDlg.Cpp" />
+    <ClCompile Include="..\Interface\Dialogs\ReplaceFileDlg.Cpp" />
+    <ClCompile Include="..\Interface\Dialogs\ProgressDialog.Cpp" />
+    <ClCompile Include="..\..\%40Libraries\CNASCCL (Stream)\CNASCCL.Cpp" />
+    <ClCompile Include="..\..\%40Libraries\CNASCCL (Stream)\CNASCCLBox.Cpp" />
+    <ClCompile Include="..\..\%40Libraries\CNASCCL (Stream)\CNASCCLKey.Cpp" />
+    <ClCompile Include="..\..\%40Libraries\Rijndael\AESCrypp.C" />
+    <ClCompile Include="..\..\%40Libraries\Rijndael\AESKeypp.C" />
+    <ClCompile Include="..\..\%40Libraries\Rijndael\AESTab.C" />
+    <ClCompile Include="..\..\%40Libraries\BlowFish\BlowFish.Cpp" />
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_Conversion.Cpp" />
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_DateTime.Cpp" />
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_File.Cpp" />
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_KeyGeneration.Cpp" />
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_ListBox.Cpp" />
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_ListView.Cpp" />
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_Math.Cpp" />
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_Memory.Cpp" />
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_Menu.Cpp" />
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_Registry.Cpp" />
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_String.Cpp" />
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_System.Cpp" />
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_Types.Cpp" />
+    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_Windows.Cpp" />
+    <ClCompile Include="..\..\%40Libraries\SecureDelete\SecureDelete.Cpp" />
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\adler32.c" />
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\compress.c" />
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\deflate.c" />
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\gzio.c" />
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\infback.c" />
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\inffast.c" />
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\inflate.c" />
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\inftrees.c" />
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\trees.c" />
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\uncompr.c" />
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\zLibcrc32.c" />
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\ZLibEncapsulation.Cpp" />
+    <ClCompile Include="..\..\%40Libraries\Compression\zLib\zutil.c" />
+    <ClCompile Include="..\..\%40Libraries\CCmdLine\CCmdLine.Cpp" />
+    <ClCompile Include="..\..\%40Libraries\CSHA1\CSHA1.cpp" />
+    <ClCompile Include="..\..\%40Libraries\CTrayIcon\CTrayIcon.Cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\%40Libraries\CCRC32\CCRC32.H" />
+    <ClInclude Include="..\Interface\Source\Entry.H" />
+    <ClInclude Include="..\Interface\Source\HardKey.H" />
+    <ClInclude Include="..\Interface\Source\Init.H" />
+    <ClInclude Include="..\Interface\Source\Routines.H" />
+    <ClInclude Include="..\Interface\Source\Package.H" />
+    <ClInclude Include="..\Interface\Source\PackHeader.h" />
+    <ClInclude Include="..\Interface\Source\Workers.H" />
+    <ClInclude Include="Resources\resource.h" />
+    <ClInclude Include="..\Interface\Dialogs\NetLogoDlg.H" />
+    <ClInclude Include="..\Interface\Dialogs\OpenPassDlg.H" />
+    <ClInclude Include="..\Interface\Dialogs\ReplaceFileDlg.H" />
+    <ClInclude Include="..\Interface\Dialogs\ProgressDialog.H" />
+    <ClInclude Include="..\..\%40Libraries\CNASCCL (Stream)\CNASCCL.H" />
+    <ClInclude Include="..\..\%40Libraries\Rijndael\AES.H" />
+    <ClInclude Include="..\..\%40Libraries\Rijndael\AESOpt.H" />
+    <ClInclude Include="..\..\%40Libraries\Rijndael\Rijndael.H" />
+    <ClInclude Include="..\..\%40Libraries\BlowFish\BlowFish.H" />
+    <ClInclude Include="..\..\%40Libraries\BlowFish\SBoxes.H" />
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL.h" />
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_Conversion.H" />
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_DateTime.H" />
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_File.H" />
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_KeyGeneration.H" />
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_ListBox.H" />
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_ListView.H" />
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_Math.H" />
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_Memory.H" />
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_Menu.H" />
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_Registry.H" />
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_String.H" />
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_System.H" />
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_Types.H" />
+    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_Windows.H" />
+    <ClInclude Include="..\..\%40Libraries\SecureDelete\Defrag.h" />
+    <ClInclude Include="..\..\%40Libraries\SecureDelete\SecureDelete.H" />
+    <ClInclude Include="..\..\%40Libraries\Compression\zLib\deflate.h" />
+    <ClInclude Include="..\..\%40Libraries\Compression\zLib\inffast.h" />
+    <ClInclude Include="..\..\%40Libraries\Compression\zLib\inffixed.h" />
+    <ClInclude Include="..\..\%40Libraries\Compression\zLib\inflate.h" />
+    <ClInclude Include="..\..\%40Libraries\Compression\zLib\inftrees.h" />
+    <ClInclude Include="..\..\%40Libraries\Compression\zLib\trees.h" />
+    <ClInclude Include="..\..\%40Libraries\Compression\zLib\zConf.h" />
+    <ClInclude Include="..\..\%40Libraries\Compression\zLib\zLib.h" />
+    <ClInclude Include="..\..\%40Libraries\Compression\zLib\zLibcrc32.h" />
+    <ClInclude Include="..\..\%40Libraries\Compression\zLib\ZLibEncapsulation.H" />
+    <ClInclude Include="..\..\%40Libraries\Compression\zLib\zutil.h" />
+    <ClInclude Include="..\..\%40Libraries\CCmdLine\CCmdLine.H" />
+    <ClInclude Include="..\..\%40Libraries\CSHA1\CSHA1.h" />
+    <ClInclude Include="..\..\%40Libraries\CTrayIcon\CTrayIcon.H" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources\Resource.rc">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Resources;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Resources;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Resources;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Resources;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TrayStat\TrayStat (0).ico" />
+    <None Include="Resources\TrayStat\TrayStat (1).ico" />
+    <None Include="Resources\TrayStat\TrayStat (10).ico" />
+    <None Include="Resources\TrayStat\TrayStat (11).ico" />
+    <None Include="Resources\TrayStat\TrayStat (12).ico" />
+    <None Include="Resources\TrayStat\TrayStat (13).ico" />
+    <None Include="Resources\TrayStat\TrayStat (14).ico" />
+    <None Include="Resources\TrayStat\TrayStat (15).ico" />
+    <None Include="Resources\TrayStat\TrayStat (16).ico" />
+    <None Include="Resources\TrayStat\TrayStat (2).ico" />
+    <None Include="Resources\TrayStat\TrayStat (3).ico" />
+    <None Include="Resources\TrayStat\TrayStat (4).ico" />
+    <None Include="Resources\TrayStat\TrayStat (5).ico" />
+    <None Include="Resources\TrayStat\TrayStat (6).ico" />
+    <None Include="Resources\TrayStat\TrayStat (7).ico" />
+    <None Include="Resources\TrayStat\TrayStat (8).ico" />
+    <None Include="Resources\TrayStat\TrayStat (9).ico" />
+    <None Include="Resources\MainIcon.ico" />
+    <None Include="Resources\HandCur.cur" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

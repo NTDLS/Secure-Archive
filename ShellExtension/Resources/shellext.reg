@@ -1,0 +1,21 @@
+REGEDIT4
+
+[HKEY_CLASSES_ROOT\CLSID\{3dc8ff6a-9aea-42a5-8d23-9e294bac33e5}]
+   @="Project Epsilon Shell Extension"
+[HKEY_CLASSES_ROOT\CLSID\{3dc8ff6a-9aea-42a5-8d23-9e294bac33e5}\InProcServer32]
+   @="C:\\ShellExt.Dll"
+     "ThreadingModel"="Apartment"
+
+[HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers]
+   @="Project_Epsilon_Handler"
+[HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\Project_Epsilon_Handler]
+   @="{3dc8ff6a-9aea-42a5-8d23-9e294bac33e5}"
+
+
+[HKEY_CLASSES_ROOT\directory\shellex\ContextMenuHandlers]
+   @="Project_Epsilon_Handler"
+[HKEY_CLASSES_ROOT\directory\shellex\ContextMenuHandlers\Project_Epsilon_Handler]
+   @="{3dc8ff6a-9aea-42a5-8d23-9e294bac33e5}"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved]
+   "{3dc8ff6a-9aea-42a5-8d23-9e294bac33e5}"="Project Epsilon Shell Extension"

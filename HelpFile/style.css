@@ -1,0 +1,188 @@
+body {
+	margin: 8px;
+	cursor: default;
+    font-family: tahoma;
+    font-size: 11px;
+    color: #414141;
+	background-color: #b0c4de
+}
+
+table.body {
+	background-color : #f0f8ff;
+	font-size: 9pt;
+	font-family: tahoma, arial, helvetica;
+}
+
+table.bottom {
+	background-color : #00bfff;
+	font-size: 9pt;
+	font-family: tahoma, arial, helvetica;
+	border : 0;
+}
+
+td {
+	font-size: 9pt; font-family: tahoma, arial, helvetica
+}
+td.capt {
+	font-weight: bold; font-size: 9pt; margin: 0px; color: #ffffff; line-height: 15pt; font-family: tahoma, arial, helvetica, sans serif
+}
+td.tcapt {
+	font-weight: bold; font-size: 8pt; margin: 0px; color: #000000; line-height: 10pt; font-family: tahoma, arial, helvetica, sans serif
+}
+td.frame {
+	background-color: #0066cc
+}
+td.body {
+	background-color: #ffffff
+}
+td.left {
+	background-color: #ccccff
+}
+tr.quote {
+	background-color: #eeeeee
+}
+td.quote {
+	background-color: #eeeeee
+}
+tr.essential {
+	background-color: #dddddd
+}
+td.essential {
+	background-color: #dddddd
+}
+tr.info {
+	background-color: #ccccff
+}
+td.info {
+	background-color: #ccccff
+}
+td.code {
+	background-color: #eeeeee
+}
+td.red {
+	background-color: #ff6600
+}
+td.banner_old {
+	background-color: #eeeeee
+}
+td.menu {
+	cursor: hand;
+	height: 20px;
+	background-color: white
+}
+td.cmenu {
+	font-weight: bold; height: 20px; background-color: #99ccff
+}
+td.formcaption {
+	font-weight: bold; color: #ffffff; height: 20px; background-color: #000000
+}
+td.copyright {
+	background-color: #ffffff;
+	border : 0;
+}
+td.extrasmall  {
+	font-size: 1pt; line-height: 1pt; font-family: tahoma, arial, helvetica
+}
+
+p {
+	margin-top: 6px; font-size: 9pt; margin-bottom: 6px; cursor: default; line-height: 14pt; font-family: arial, tahoma, helvetica
+}
+p.last {
+	margin-top: 6px; margin-bottom: 0px
+}
+p.list {
+	margin-top: 0px; margin-bottom: 0px; line-height: 12pt; text-align: justify
+}
+p.channellist {
+	margin-top: 3px; margin-bottom: 3px; line-height: 12pt; text-align: justify
+}
+p.quote {
+	margin-top: 0px; font-size: 8pt; margin-bottom: 0px; line-height: 13pt; font-family: comic sans ms, arial, tahoma, helvetica; text-align: justify
+}
+p.monospace {
+	margin-top: 0px; font-size: 10pt; margin-bottom: 0px; line-height: 13pt; font-family: courier new, courier
+}
+p.code {
+	font-size: 10pt; margin-left: 30px; color: maroon; line-height: 13pt; font-family: courier new, courier
+}
+p.essential {
+	margin-top: 0px; font-size: 9pt; margin-bottom: 0px; line-height: 14pt; font-family: arial, tahoma, helvetica; text-align: justify
+}
+p.title {
+	margin-top: 0px; font-weight: bold; font-size: 12pt; margin-bottom: 15px; color: #6666cc; font-family: tahoma, arial, helvetica
+}
+p.subtitle {
+	margin-top: 12px; font-weight: bold; font-size: 12pt; margin-bottom: 6px; color: #6666cc; font-family: arial, tahoma, helvetica
+}
+p.index {
+	margin-top: 15px; font-weight: bold; font-size: 14pt; margin-bottom: 6px; color: #3366cc; font-family: arial, tahoma, helvetica
+}
+a {
+	color: #006600; text-decoration: none
+}
+a:visited {
+	color: #6600cc; text-decoration: none
+}
+a:link {
+	color: #6600cc; text-decoration: none
+}
+a:hover {
+	color: #9999ff
+}
+a.menu {
+	color: black; text-decoration: none
+}
+a.menu:visited {
+	color: black; text-decoration: none
+}
+a.menu:link {
+	color: black; text-decoration: none
+}
+a.menu:hover {
+	color: black; text-decoration: none
+}
+a.mail {
+	color: maroon; text-decoration: none
+}
+a.mail:visited {
+	color: maroon; text-decoration: none
+}
+a.mail:link {
+	color: maroon; text-decoration: none
+}
+a.mail:hover {
+	color: #cc0000
+}
+input.btn {
+	font-weight: bold; font-size: 8pt; width: 100px; font-family: tahoma, arial, ms sans serif; height: 23px
+}
+input.regbtn {
+	font-weight: bold; font-size: 8pt; width: 150px; font-family: tahoma, arial, ms sans serif; height: 23px
+}
+.j {
+	text-align: justify
+}
+.red {
+	font-size: 9pt; color: maroon; font-family: tahoma, arial, helvetica
+}
+.mono {
+	font-size: 10pt; font-family: courier new, courier
+}
+.code {
+	font-size: 10pt; color: maroon; font-family: courier new, courier
+}
+.small {
+	font-size: 8pt; line-height: 9pt
+}
+.smallest {
+	font-size: 7pt; line-height: 8pt; font-family: tahoma, arial, helvetica
+}
+.channeltitle {
+	font-weight: bold; font-size: 8pt; font-family: tahoma, arial, helvetica
+}
+.symbol {
+	font-size: 10pt; font-family: symbol
+}
+.wingdings {
+	font-size: 10pt; font-family: wingdings
+}

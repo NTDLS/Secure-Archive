@@ -1,0 +1,1019 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+4 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MAIN DIALOGEX 0, 0, 398, 217
+STYLE DS_SETFONT | DS_SETFOREGROUND | DS_3DLOOK | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_ACCEPTFILES
+CAPTION "Dialog"
+MENU IDR_MAINMENU
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CTEXT           "New",IDI_TB_NEW_TXT,11,33,32,8,SS_CENTERIMAGE
+    CTEXT           "Open",IDI_TB_OPEN_TXT,47,33,32,8,SS_CENTERIMAGE
+    CTEXT           "Add",IDI_TB_ADDFILES_TXT,81,33,32,8,SS_CENTERIMAGE
+    CTEXT           "Delete",IDI_TB_DELETE_TXT,117,33,32,8,SS_CENTERIMAGE
+    CTEXT           "Extract",IDI_TB_EXTRACT_TXT,151,33,32,8,SS_CENTERIMAGE
+    CTEXT           "View",IDI_TB_VIEW_TXT,187,33,32,8,SS_CENTERIMAGE | NOT WS_VISIBLE
+    CTEXT           "Configure",IDI_TB_CONFIG_TXT,267,33,32,8,SS_CENTERIMAGE
+    CTEXT           "Find",IDI_TB_FIND_TXT,313,33,32,8,SS_CENTERIMAGE
+    CTEXT           "Exit",IDI_TB_EXIT_TXT,349,33,32,8,SS_CENTERIMAGE
+    CONTROL         "List2",IDC_FILELIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,71,88,320,122
+    ICON            IDI_NEW,IDI_TB_NEW,13,10,20,20,SS_CENTERIMAGE
+    ICON            IDI_OPEN,IDI_TB_OPEN,49,10,20,20,SS_CENTERIMAGE
+    ICON            IDI_ADDFILES,IDI_TB_ADDFILES,85,10,20,20,SS_CENTERIMAGE
+    ICON            IDI_DELETE,IDI_TB_DELETE,121,10,20,20,SS_CENTERIMAGE
+    ICON            IDI_EXTRACT,IDI_TB_EXTRACT,159,10,20,20,SS_CENTERIMAGE
+    ICON            IDI_VIEW,IDI_TB_VIEW,195,10,20,20,SS_CENTERIMAGE | NOT WS_VISIBLE
+    ICON            IDI_INFO,IDI_TB_INFO,233,10,20,20,SS_CENTERIMAGE
+    ICON            IDI_CONFIGURE,IDI_TB_CONFIG,269,10,20,20,SS_CENTERIMAGE
+    ICON            IDI_FIND,IDI_TB_FIND,307,10,20,20,SS_CENTERIMAGE
+    ICON            IDI_EXIT,IDI_TB_EXIT,343,10,20,20,SS_CENTERIMAGE
+    CONTROL         "",IDC_HORIZBAR,"Static",SS_ETCHEDHORZ,7,7,369,1
+    CTEXT           "Properties",IDI_TB_INFO_TXT,221,33,32,8,SS_CENTERIMAGE
+    ICON            IDI_NEW_GS,IDI_TB_NEW_GS,15,52,20,20,SS_CENTERIMAGE
+    ICON            IDI_OPEN_GS,IDI_TB_OPEN_GS,51,52,20,20,SS_CENTERIMAGE
+    ICON            IDI_ADDFILES_GS,IDI_TB_ADDFILES_GS,87,52,20,20,SS_CENTERIMAGE
+    ICON            IDI_DELETE_GS,IDI_TB_DELETE_GS,123,52,20,20,SS_CENTERIMAGE
+    ICON            IDI_EXTRACT_GS,IDI_TB_EXTRACT_GS,161,52,20,20,SS_CENTERIMAGE
+    ICON            IDI_VIEW_GS,IDI_TB_VIEW_GS,197,52,20,20,SS_CENTERIMAGE | NOT WS_VISIBLE
+    ICON            IDI_INFO_GS,IDI_TB_INFO_GS,235,52,20,20,SS_CENTERIMAGE
+    ICON            IDI_CONFIGURE_GS,IDI_TB_CONFIG_GS,271,52,20,20,SS_CENTERIMAGE
+    ICON            IDI_FIND_GS,IDI_TB_FIND_GS,309,52,20,20,SS_CENTERIMAGE
+    ICON            IDI_EXIT_GS,IDI_TB_EXIT_GS,345,52,20,20,SS_CENTERIMAGE
+END
+
+IDD_OPENPASS DIALOGEX 274, 92, 237, 98
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_DLGMODALFRAME
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "(0 Bits)",IDC_PASSWORDBITS1,60,47,163,8,NOT WS_GROUP
+    LTEXT           "Key strength :",-1,13,47,45,8,NOT WS_GROUP
+    EDITTEXT        IDC_PASSWORD,13,28,212,14,ES_PASSWORD | ES_AUTOHSCROLL
+    LTEXT           "Password:",-1,13,18,34,8
+    GROUPBOX        "Enter the password that was used to encrypt this data",-1,7,8,223,66
+    DEFPUSHBUTTON   "Ok",IDC_OK,187,79,43,14
+    PUSHBUTTON      "Cancel",IDC_CANCEL,139,79,43,14
+    CONTROL         "Use HardKey file?",IDC_USEGENERATEDKEY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,60,206,10
+    PUSHBUTTON      "Help",IDC_HELPBUTTON,7,79,52,14
+END
+
+IDD_NEWPASS DIALOGEX 274, 92, 399, 186
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_DLGMODALFRAME
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_PASSWORD1,12,28,135,14,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD2,12,55,135,14,ES_PASSWORD | ES_AUTOHSCROLL
+    CONTROL         "Use HardKey file?",IDC_USEGENERATEDKEY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,88,135,10
+    COMBOBOX        IDC_COMPRESSLEVEL,12,132,65,117,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_ENCRYPTALGO,85,132,62,120,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_SAVETOLOCATION,166,28,152,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Go",IDC_GOTO,320,28,15,14
+    CONTROL         "Tree1",IDC_BROWSETREE,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | TVS_SHOWSELALWAYS | WS_BORDER | WS_HSCROLL | WS_TABSTOP,166,45,169,103
+    EDITTEXT        IDC_SAVETOFILE,166,160,170,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Create",IDC_ENCRYPT,347,11,45,14
+    PUSHBUTTON      "Cancel",IDC_CANCEL,347,28,45,14
+    PUSHBUTTON      "Help",IDC_CMDHELP,347,45,45,14
+    PUSHBUTTON      "New Folder",IDC_NEWFOLDER,347,165,45,14
+    LTEXT           "(0 Bits, Empty)",IDC_PASSWORDBITS2,59,74,87,8,NOT WS_GROUP
+    LTEXT           "Key strength :",IDC_STATIC,12,74,45,8,NOT WS_GROUP
+    LTEXT           "Password:",IDC_PASSWORDLBL1,12,18,134,8
+    LTEXT           "Confirm Password: ",IDC_PASSWORDLBL2,12,46,135,8
+    GROUPBOX        "Enter a password to encrypt this data with",IDC_STATIC,7,7,147,97
+    GROUPBOX        "Save in",IDC_STATIC,160,7,182,173
+    LTEXT           "File name:",IDC_STATIC,166,150,170,8
+    LTEXT           "Folder name:",IDC_STATIC,166,18,150,8
+    GROUPBOX        "Archive options",IDC_STATIC,7,110,147,43
+    LTEXT           "Compression:",IDC_STATIC,12,121,65,8
+    LTEXT           "Algorithm:",IDC_STATIC,85,121,43,8
+    PUSHBUTTON      "Advanced Options",IDC_ADVANCEDOPT,7,159,75,14
+END
+
+IDD_READING DIALOGEX 0, 0, 216, 57
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CTEXT           "Please wait...",IDC_STATUSTEXT,7,8,202,8
+    CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",PBS_SMOOTH | WS_BORDER,7,20,202,9
+    DEFPUSHBUTTON   "Cancel",IDC_MULBUTTON,87,36,40,14
+END
+
+IDD_PROGRESS DIALOGEX 0, 0, 240, 97
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | WS_MINIMIZEBOX | WS_POPUP | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Please wait...",IDC_STATUSTEXT,11,65,217,8,SS_ENDELLIPSIS
+    CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",PBS_SMOOTH | WS_BORDER,33,38,172,7
+    DEFPUSHBUTTON   "Cancel",IDC_MULBUTTON,98,76,43,14
+    LTEXT           "Initializing",IDC_ACTION,11,56,217,8,SS_ENDELLIPSIS
+    CONTROL         "",IDC_FILEPROGRESS,"msctls_progress32",PBS_SMOOTH | WS_BORDER,33,47,172,7
+    CONTROL         "Run with Low-Priority",IDC_RUNINBACKGROUND,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,80,89,10
+    CONTROL         "",IDC_AVIFRAME,"SysAnimate32",ACS_TRANSPARENT | ACS_AUTOPLAY | NOT WS_VISIBLE | WS_TABSTOP,38,9,163,29,WS_EX_TRANSPARENT
+END
+
+IDD_EXTRACT DIALOGEX 0, 0, 363, 153
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "Tree1",IDC_BROWSETREE,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | TVS_SHOWSELALWAYS | TVS_NOTOOLTIPS | WS_BORDER | WS_HSCROLL | WS_TABSTOP,130,37,169,103
+    EDITTEXT        IDC_DECRYPTLOCATION,130,19,151,15,ES_AUTOHSCROLL
+    PUSHBUTTON      "Go",IDC_GOTO,284,19,15,15
+    CONTROL         "Selected files.",IDC_SELECTEDRADIO,"Button",BS_AUTORADIOBUTTON | WS_DISABLED,21,28,85,10
+    CONTROL         "All files.",IDC_ALLRADIO,"Button",BS_AUTORADIOBUTTON,21,41,85,10
+    CONTROL         "Overwrite existing?",IDC_OVERWRITE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,76,85,10
+    CONTROL         "Use folder names?",IDC_USEFOLDERS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,88,85,10
+    DEFPUSHBUTTON   "Extract",IDC_DECRYPT,311,10,45,14
+    PUSHBUTTON      "Cancel",IDC_CANCEL,311,27,45,14
+    PUSHBUTTON      "Help",IDC_CMDHELP,311,46,45,14
+    PUSHBUTTON      "New folder",IDC_NEWFOLDER,311,131,45,14
+    GROUPBOX        "Extract Options",IDC_STATIC,7,7,111,137
+    GROUPBOX        "Files",IDC_STATIC,15,17,95,40
+    GROUPBOX        "Options",IDC_STATIC,15,64,95,39
+    GROUPBOX        "Extract To:",IDC_STATIC,123,7,183,137
+END
+
+IDD_NEWFOLDER DIALOGEX 0, 0, 214, 57
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_FOLDERNAME,7,16,200,15,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Ok",IDC_OK,115,36,43,14
+    PUSHBUTTON      "Cancel",IDC_CANCEL,164,36,43,14
+    LTEXT           "New Folder Name:",IDC_STATIC,7,7,200,9
+END
+
+IDD_STATUSDLG DIALOGEX 0, 0, 238, 63
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "Please wait...",IDC_STATTEXT,7,8,223,11
+    CONTROL         "",IDC_STATPROGRESS,"msctls_progress32",PBS_SMOOTH | WS_BORDER,7,21,223,15
+    DEFPUSHBUTTON   "Cancel",IDC_CANCEL,179,42,52,14
+END
+
+IDD_REPLACEFILE DIALOGEX 0, 0, 250, 138
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Yes",IDC_OPYES,7,117,50,14
+    PUSHBUTTON      "Yes to All",IDC_OPYESTOALL,69,117,50,14
+    DEFPUSHBUTTON   "No",IDC_OPNO,131,117,50,14
+    PUSHBUTTON      "Cancel",IDC_OPCANCEL,193,117,50,14
+    LTEXT           "#####################",IDC_REPTARGETNFO,47,98,196,8
+    LTEXT           "#####################",IDC_REPTARGET,47,86,196,8
+    LTEXT           "#####################",IDC_REPSOURCENFO,47,59,196,8
+    LTEXT           "#####################",IDC_REPSOURCE,47,47,196,8
+    LTEXT           "Would you like to replace the existing file (Size, Created, Modified)",IDC_REPLACECAP,22,33,221,8
+    LTEXT           "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",IDC_REPLACEQUE,7,18,236,14
+    LTEXT           "This folder already contains a file named:",IDC_REPLACEQUE2,7,7,236,8
+    ICON            IDI_MAIN,IDC_REPICO1,22,47,20,20
+    ICON            IDI_MAIN,IDC_REPICO2,22,86,20,20
+    LTEXT           "With this one?",IDC_STATIC,22,74,138,8
+END
+
+IDD_FILEINFO DIALOGEX 0, 0, 327, 166
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Ok",IDC_CMDOK,270,145,50,14
+    EDITTEXT        IDC_NAME,72,8,248,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_TYPE,72,25,248,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_PATH,72,42,248,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_ATTRIB,72,59,155,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_FILESIZE,72,76,155,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_PACKSIZE,72,93,155,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_RATIO,72,110,155,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_LASTMOD,72,127,155,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_CRC32,72,144,155,14,ES_AUTOHSCROLL | ES_READONLY
+    RTEXT           "Name:",IDC_STATIC,5,10,66,8
+    RTEXT           "Type:",IDC_STATIC,5,27,66,8
+    RTEXT           "Path:",IDC_STATIC,5,44,66,8
+    RTEXT           "Attributes:",IDC_STATIC,5,61,66,8
+    RTEXT           "File size:",IDC_STATIC,5,78,66,8
+    RTEXT           "Packed Size:",IDC_STATIC,5,95,66,8
+    RTEXT           "Ratio:",IDC_STATIC,5,112,66,8
+    RTEXT           "Last Modified:",IDC_STATIC,5,129,66,8
+    RTEXT           "CRC32:",IDC_STATIC,5,146,66,8
+    ICON            "",IDC_INFOICON,267,94,20,20
+END
+
+IDD_NETLOGO DIALOGEX 0, 0, 273, 87
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "IDD_NETLOGO"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    ICON            "",IDC_ABOUTICON,9,7,21,20
+    LTEXT           "IDC_APPNAME",IDC_APPNAME,84,7,159,8
+    LTEXT           "IDC_APPVERSION",IDC_APPVERSION,84,17,159,8
+    LTEXT           "IDC_APPCOPYRIGHT",IDC_APPCOPYRIGHT,44,53,192,8
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,40,63,234,1
+    DEFPUSHBUTTON   "OK",IDC_OKBUTTON,220,69,50,14
+    LTEXT           "IDC_BUILDTIMEDATE",IDC_BUILDTIMEDATE,84,27,159,8
+    LTEXT           "www.NetworkDLS.com",IDC_NETLINK,84,37,159,8
+    LTEXT           "Web site:",IDC_STATIC,44,37,31,8
+    LTEXT           "Application:",IDC_STATIC,44,7,38,8
+    LTEXT           "Version:",IDC_STATIC,44,17,26,8
+    LTEXT           "Build:",IDC_STATIC,44,27,18,8
+END
+
+IDD_FINDFILE DIALOGEX 0, 0, 290, 119
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_NAME,35,36,248,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TYPE,35,53,248,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PATH,35,70,248,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Find",IDC_FIND,140,98,43,14
+    PUSHBUTTON      "Find Next",IDC_FINDNEXT,190,98,43,14
+    PUSHBUTTON      "Close",IDC_CLOSE,240,98,43,14
+    RTEXT           "Name:",IDC_STATIC,2,38,31,8
+    RTEXT           "Type:",IDC_STATIC,2,55,31,8
+    RTEXT           "Path:",IDC_STATIC,2,73,31,8
+    LTEXT           "Fill in all required cretirea and hit find. If the item is found, it will be selected and scrolled into view. Hit ""Find Next"" to show the next results. Searches use partial matches and are not case-sensitive.",IDC_STATIC,35,7,248,27
+    PUSHBUTTON      "Select All Matches",IDC_SELECTALLMATCHES,35,98,65,14
+    CTEXT           "Found %d Files.",IDC_FILESFOUND,35,87,248,8,SS_ENDELLIPSIS
+END
+
+IDD_NOSECURITYWARN DIALOGEX 0, 0, 224, 57
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "No",IDC_CANCEL,174,35,43,14
+    PUSHBUTTON      "Yes",IDC_CONTINUE,123,35,43,14
+    CONTROL         "Do not ask me again.",IDC_DONTASKAGAIN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,39,112,10
+    LTEXT           "Leaving the password blank will create an archive without security. Are you sure you want to do this?",IDC_STATIC,7,7,210,25
+END
+
+IDD_WEAKPASSWORD DIALOGEX 0, 0, 240, 73
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "The password you entered is classified as ""%s"" which does not meet the complexity requirements that have been defined.",IDC_MESSAGE,7,7,226,41
+    DEFPUSHBUTTON   "No",IDC_CMD_NO,183,52,50,14
+    PUSHBUTTON      "Yes",IDC_CMD_YES,128,52,50,14
+    PUSHBUTTON      "Change Setting",IDC_CMD_CHANGE,62,52,61,14
+END
+
+IDD_WEAKPWDNOTIFY DIALOGEX 0, 0, 203, 100
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "You can configure Secure Archive to alert you when your password is perceived as being too weak. You can change the minimum acceptable password strength here.",IDC_MESSAGE,7,7,189,35
+    DEFPUSHBUTTON   "Cancel",IDC_CMD_CANCEL,146,79,50,14
+    PUSHBUTTON      "Ok",IDC_CMD_OK,87,79,50,14
+    COMBOBOX        IDC_CLASSIFICATION,38,53,128,120,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Minimum acceptable strength:",IDC_STATIC,38,43,160,8
+END
+
+IDD_HARDKEY DIALOGEX 274, 92, 215, 166
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_DLGMODALFRAME
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_PASSWORD1,13,29,188,14,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD2,13,53,188,14,ES_PASSWORD | ES_AUTOHSCROLL
+    CONTROL         "",IDC_KEYGENSZ,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,16,104,183,15
+    DEFPUSHBUTTON   "Ok",IDC_OKBUTTON,97,145,52,14
+    PUSHBUTTON      "Cancel",IDC_CANCEL,158,145,50,14
+    LTEXT           "(0 Bits)",IDC_PASSWORDBITS2,121,70,77,8,NOT WS_GROUP
+    RTEXT           "Key strength :",IDC_STATIC,14,70,103,8,NOT WS_GROUP
+    LTEXT           "Password: (8 Characters Minimum)",IDC_PASSWORDLBL1,13,20,188,8
+    LTEXT           "Confirm Password: ",IDC_PASSWORDLBL2,13,45,61,8
+    GROUPBOX        "Enter a HardKey Password",IDC_STATIC,7,8,201,77
+    GROUPBOX        "Select a HardKey Size",IDC_STATIC,7,90,201,47
+    LTEXT           "(%d Bits of %d Bits)",IDC_CERTPWDBITS,69,122,126,8,NOT WS_GROUP
+    LTEXT           "Key strength :",IDC_STATIC,22,121,45,8,NOT WS_GROUP
+    PUSHBUTTON      "Help",IDC_HELPBUTTON,7,145,52,14
+END
+
+IDD_HARDKEYSTATUS DIALOGEX 274, 92, 196, 62
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_DLGMODALFRAME
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Ok",IDC_OKBUTTON,139,41,50,14
+    CONTROL         "",IDC_HARDKEYSTATUSBAR,"msctls_progress32",PBS_SMOOTH | WS_BORDER,7,23,182,14
+    LTEXT           "Please wait...",IDC_HARDKEYSTATUSTEXT,7,8,182,8
+END
+
+IDD_TABLOOKANDFEEL DIALOGEX 0, 0, 253, 242
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "Enable grid icons.",IDC_SHOWGRIDICONS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,48,226,10
+    CONTROL         "Show grid lines.",IDC_ENABLEGRIDLINES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,60,226,10
+    CONTROL         "Enable ""full row select"".",IDC_ENABLEFULLROWSELECT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,72,226,10
+    CONTROL         "Enable drag-n-drop.",IDC_ENABLEDRAGDROP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,84,226,10
+    CONTROL         "Always run with low priority.",IDC_ALWAYSINBACKGROUND,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,96,226,10
+    CONTROL         "Warn about blank passwords.",IDC_WARNABOUTNOENCRYPTION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,108,226,10
+    COMBOBOX        IDC_SORTITEM,15,143,150,76,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_SORTDIRECTION,169,143,63,72,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Keep selected grid items visible while sorting?",IDC_KEEPSELVISIBLEWHILESORTING,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,162,216,10
+    PUSHBUTTON      "Change Password Strength Alerts",IDC_PASSWORDLEVEL,9,181,118,14
+    ICON            IDI_LOOKFEEL,IDC_STATIC,8,7,20,20
+    LTEXT           "Look and Feel",IDC_STATIC,36,14,187,8
+    GROUPBOX        "Sorting order",IDC_STATIC,9,122,228,54
+    LTEXT           "Default sorting order && Direction",IDC_STATIC,15,134,216,8
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,5,39,243,1
+    PUSHBUTTON      "Help",IDC_HELPBUTTON,188,209,52,14
+END
+
+IDD_TABGENERAL DIALOGEX 0, 0, 253, 231
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Static",IDC_PRODUCTTEXT,76,43,171,8
+    LTEXT           "Static",IDC_VERSIONTEXT,76,54,171,8
+    LTEXT           "Static",IDC_BUILDDATETEXT,76,65,171,8
+    LTEXT           "Static",IDC_OSTEXT,76,75,171,8
+    LTEXT           "Static",IDC_MEMORYTEXT,76,86,171,8
+    LTEXT           "Static",IDC_PROCESORSTEXT,76,97,171,8
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,5,39,244,1
+    ICON            IDI_GENERAL,IDC_STATIC,8,8,20,20
+    LTEXT           "General Settings",IDC_STATIC,36,14,187,8
+    LTEXT           "Product:",IDC_STATIC,7,43,28,8
+    LTEXT           "Product Version:",IDC_STATIC,7,54,53,8
+    LTEXT           "Operating System:",IDC_STATIC,7,75,58,8
+    LTEXT           "OS Memory:",IDC_STATIC,7,86,40,8
+    LTEXT           "Processors:",IDC_STATIC,7,97,38,8
+    LTEXT           "Built Date",IDC_STATIC,7,65,32,8
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,5,110,244,1
+    PUSHBUTTON      "Help",IDC_HELPBUTTON,188,209,52,14
+END
+
+IDD_TABPROCESSORS DIALOGEX 0, 0, 253, 228
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_CPUS,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,5,58,235,116
+    CONTROL         "Enable thread priority boost?",IDC_THREADBOOST,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,191,121,12
+    CONTROL         "Enable process priority boost?",IDC_PROCESSBOOST,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,204,121,12
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,5,39,244,1
+    ICON            IDI_CPUSELECT,IDC_STATIC,8,8,20,20
+    LTEXT           "System Processor Settings",IDC_STATIC,36,14,210,8
+    LTEXT           "Processors available to Secure Archive",IDC_STATIC,5,47,235,10
+    GROUPBOX        "Threading",IDC_STATIC,5,180,133,43
+    LTEXT           "Generic CPU Configuration",IDC_CPUDESCR,46,26,202,8
+    PUSHBUTTON      "Help",IDC_HELPBUTTON,188,209,52,14
+END
+
+IDD_OVERWRITEORAPPEND DIALOGEX 0, 0, 203, 57
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Append",IDC_APPEND,55,35,43,14
+    LTEXT           "The File you have selected already exist. Would you like to overwrite or append to it?",-1,7,7,189,25
+    DEFPUSHBUTTON   "Cancel",IDC_CANCEL,153,35,43,14
+    PUSHBUTTON      "Overwrite",IDC_OVERWRITE,105,35,43,14
+END
+
+IDD_SECUREDELETE DIALOGEX 0, 0, 437, 246
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_ACCEPTFILES
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "List2",IDC_DELETELIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,35,367,186
+    PUSHBUTTON      "Start Delete",IDC_DELETE,379,190,50,14
+    EDITTEXT        IDC_PASSES,7,17,71,14,ES_AUTOHSCROLL
+    LTEXT           "Secure delete passes:",IDC_STATIC,7,7,71,8
+    CONTROL         "",IDC_PASSESSPIN,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,79,17,10,14
+    PUSHBUTTON      "Clear List",IDC_CLEARLIST,379,151,50,14
+    LTEXT           "Simply drag your files and folders from Windows Explorer to this window to have them deleted in a secure manner. You can also add files by clicking ""Add Files"" or ""Add Folder"" below.",IDC_STATIC,101,13,296,21
+    PUSHBUTTON      "Help",IDC_HELPBUTTON,7,224,52,14
+    PUSHBUTTON      "Add Files",IDC_ADDFILES,379,49,50,14
+    PUSHBUTTON      "Add Folder",IDC_ADDFOLDER,380,66,50,14
+    PUSHBUTTON      "Close",IDC_CLOSE,379,207,50,14
+    PUSHBUTTON      "Select All",IDC_SELECTALL,379,100,50,14
+    PUSHBUTTON      "Select None",IDC_SELECTNONE,379,117,50,14
+    PUSHBUTTON      "Remove",IDC_REMOVE,379,134,50,14
+END
+
+IDD_TABADVANCED DIALOGEX 0, 0, 253, 242
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "Preallocate disk space for new archives.",IDC_USEPREALLOCATION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,48,228,10
+    CONTROL         "Use copy process on drag drop.",IDC_DRAGDROPCOPYINSTEADOFMOVE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,62,228,10
+    EDITTEXT        IDC_SECUREPASSES,13,100,70,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "",IDC_SECUREPASSES_SPIN,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,84,100,11,14
+    EDITTEXT        IDC_TEMPFILELOCATION,14,138,195,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_TEMPFILELOCATION_CMD,212,138,17,14
+    ICON            IDI_ADVANCED,-1,8,7,20,20
+    LTEXT           "Advanced Settings",-1,36,14,187,8
+    GROUPBOX        "Temporary storage location:",-1,8,125,228,34
+    GROUPBOX        "Secure Delete",-1,8,76,228,45
+    LTEXT           "Number of Passes",-1,13,89,216,8
+    CONTROL         "",-1,"Static",SS_ETCHEDHORZ,5,39,243,1
+    PUSHBUTTON      "Help",IDC_HELPBUTTON,188,209,52,14
+END
+
+IDD_ADVANCEDOPT DIALOGEX 0, 0, 186, 149
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Save file attributes",IDC_CHKATTRIBUTES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,34,138,10
+    CONTROL         "Calculate file CRCs",IDC_CHKCRCS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,48,138,10
+    CONTROL         "Save file paths",IDC_CHKSAVEPATHS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,62,138,10
+    CONTROL         "Include hidden / system files",IDC_CHKINCLUDEHIDDEN,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,76,138,10
+    CONTROL         "Save as default",IDC_SAVEASDEFAULT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,111,138,10
+    DEFPUSHBUTTON   "OK",IDC_OK,73,128,50,14
+    PUSHBUTTON      "Cancel",IDC_CANCEL,129,128,50,14
+    GROUPBOX        "Advanced Options",IDC_ADVANCEDFRAME,7,7,172,99
+    CONTROL         "Save file time stamps",IDC_CHKTIMESTAMPS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,20,138,10
+    CONTROL         "Securely delete source files",IDC_CHKDELETESOURCE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,90,138,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_MAIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 391
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 210
+    END
+
+    IDD_OPENPASS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 230
+        TOPMARGIN, 8
+        BOTTOMMARGIN, 91
+    END
+
+    IDD_NEWPASS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 392
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 179
+    END
+
+    IDD_READING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 209
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 50
+    END
+
+    IDD_PROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 233
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 90
+    END
+
+    IDD_EXTRACT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 356
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 146
+    END
+
+    IDD_NEWFOLDER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 207
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 50
+    END
+
+    IDD_STATUSDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 231
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 56
+    END
+
+    IDD_REPLACEFILE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 131
+    END
+
+    IDD_FILEINFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 320
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 159
+    END
+
+    IDD_NETLOGO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        VERTGUIDE, 248
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 65
+    END
+
+    IDD_FINDFILE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 283
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 112
+    END
+
+    IDD_NOSECURITYWARN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 217
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 50
+    END
+
+    IDD_WEAKPASSWORD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 233
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 66
+    END
+
+    IDD_WEAKPWDNOTIFY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 196
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 93
+    END
+
+    IDD_HARDKEY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 208
+        TOPMARGIN, 8
+        BOTTOMMARGIN, 159
+    END
+
+    IDD_HARDKEYSTATUS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 189
+        TOPMARGIN, 8
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_TABLOOKANDFEEL, DIALOG
+    BEGIN
+        VERTGUIDE, 44
+        BOTTOMMARGIN, 240
+    END
+
+    IDD_OVERWRITEORAPPEND, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 196
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 50
+    END
+
+    IDD_SECUREDELETE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 430
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 239
+    END
+
+    IDD_TABADVANCED, DIALOG
+    BEGIN
+        VERTGUIDE, 44
+        BOTTOMMARGIN, 240
+    END
+
+    IDD_ADVANCEDOPT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 142
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MAIN                ICON                    "MainIcon.ico"
+
+IDI_HELP                ICON                    "Help.ico"
+
+IDI_APPICON             ICON                    "AppIcon.ico"
+
+IDI_UNKNOWN16           ICON                    "Unknown16.ico"
+
+IDI_ADDFILES            ICON                    "Toolbar\\AddFiles.ico"
+
+IDI_CONFIGURE           ICON                    "Toolbar\\Configure.ico"
+
+IDI_DELETE              ICON                    "Toolbar\\Delete.ico"
+
+IDI_EXIT                ICON                    "Toolbar\\Exit.ico"
+
+IDI_EXTRACT             ICON                    "Toolbar\\Extract.ico"
+
+IDI_FIND                ICON                    "Toolbar\\Find.ico"
+
+IDI_INFO                ICON                    "Toolbar\\Information.ico"
+
+IDI_NEW                 ICON                    "Toolbar\\New.ico"
+
+IDI_OPEN                ICON                    "Toolbar\\Open.ico"
+
+IDI_VIEW                ICON                    "Toolbar\\View.ico"
+
+IDI_UNKNOWN32           ICON                    "Unknown.ico"
+
+IDI_SMCPU               ICON                    "SmCPU.ico"
+
+IDI_SECURITY            ICON                    "Security.ico"
+
+IDI_PASSWORD            ICON                    "Password.ico"
+
+IDI_GENERAL             ICON                    "General.ico"
+
+IDI_CPUSELECT           ICON                    "CPUSelect.ico"
+
+IDI_ADVANCED            ICON                    "Advanced.ico"
+
+IDI_CRYPTO              ICON                    "Crypto.ico"
+
+IDI_VIEW_GS             ICON                    "Toolbar\\View_GS.ico"
+
+IDI_OPEN_GS             ICON                    "Toolbar\\Open_GS.ico"
+
+IDI_NEW_GS              ICON                    "Toolbar\\New_GS.ico"
+
+IDI_INFO_GS             ICON                    "Toolbar\\Information_GS.ico"
+
+IDI_FIND_GS             ICON                    "Toolbar\\Find_GS.ico"
+
+IDI_EXTRACT_GS          ICON                    "Toolbar\\Extract_GS.ico"
+
+IDI_EXIT_GS             ICON                    "Toolbar\\Exit_GS.ico"
+
+IDI_DELETE_GS           ICON                    "Toolbar\\Delete_GS.ico"
+
+IDI_CONFIGURE_GS        ICON                    "Toolbar\\Configure_GS.ico"
+
+IDI_ADDFILES_GS         ICON                    "Toolbar\\AddFiles_GS.ico"
+
+IDI_FILEBAD             ICON                    "FileBad.ico"
+
+IDI_FILEOK              ICON                    "FileOK.ico"
+
+IDI_FOLDER16            ICON                    "16x16Folder.ico"
+
+IDI_LOOKFEEL            ICON                    "LookFeel.ico"
+
+IDI_TRAYSTAT_00         ICON                    "TrayStat\\TrayStat (0).ico"
+
+IDI_TRAYSTAT_01         ICON                    "TrayStat\\TrayStat (1).ico"
+
+IDI_TRAYSTAT_02         ICON                    "TrayStat\\TrayStat (2).ico"
+
+IDI_TRAYSTAT_03         ICON                    "TrayStat\\TrayStat (3).ico"
+
+IDI_TRAYSTAT_04         ICON                    "TrayStat\\TrayStat (4).ico"
+
+IDI_TRAYSTAT_05         ICON                    "TrayStat\\TrayStat (5).ico"
+
+IDI_TRAYSTAT_06         ICON                    "TrayStat\\TrayStat (6).ico"
+
+IDI_TRAYSTAT_07         ICON                    "TrayStat\\TrayStat (7).ico"
+
+IDI_TRAYSTAT_08         ICON                    "TrayStat\\TrayStat (8).ico"
+
+IDI_TRAYSTAT_09         ICON                    "TrayStat\\TrayStat (9).ico"
+
+IDI_TRAYSTAT_10         ICON                    "TrayStat\\TrayStat (10).ico"
+
+IDI_TRAYSTAT_11         ICON                    "TrayStat\\TrayStat (11).ico"
+
+IDI_TRAYSTAT_12         ICON                    "TrayStat\\TrayStat (12).ico"
+
+IDI_TRAYSTAT_13         ICON                    "TrayStat\\TrayStat (13).ico"
+
+IDI_TRAYSTAT_14         ICON                    "TrayStat\\TrayStat (14).ico"
+
+IDI_TRAYSTAT_15         ICON                    "TrayStat\\TrayStat (15).ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_HANDCURSOR          CURSOR                  "HandCur.cur"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_TREE_REMOVABLE      BITMAP                  "Removable.bmp"
+
+IDB_TREE_CLOSEDFOLDER   BITMAP                  "ClosedFolder.bmp"
+
+IDB_TREE_DESKTOP        BITMAP                  "Desktop.bmp"
+
+IDB_TREE_FIXED          BITMAP                  "Fixed.bmp"
+
+IDB_TREE_MYCOMPUTER     BITMAP                  "MyComputer.bmp"
+
+IDB_TREE_MYDOCUMENTS    BITMAP                  "MyDocuments.bmp"
+
+IDB_TREE_NETWORK        BITMAP                  "Network Disk.bmp"
+
+IDB_TREE_OPENFOLDER     BITMAP                  "OpenFolder.bmp"
+
+IDB_TREE_CDROM          BITMAP                  "CDRom Disk.bmp"
+
+IDB_TREE_UNKNOWN        BITMAP                  "Unknown.bmp"
+
+IDB_TREE_RAMDRIVE       BITMAP                  "RamDrive.bmp"
+
+IDB_TREE_ARCHIVE        BITMAP                  "Archive.bmp"
+
+IDB_TREE_USBDRIVE       BITMAP                  "USBDisk.bmp"
+
+IDB_TREE_MYPICTURES     BITMAP                  "MyPictures.bmp"
+
+IDB_TREE_MYMOVIES       BITMAP                  "MyMovies.bmp"
+
+IDB_TREE_MYMUSIC        BITMAP                  "MyMusic.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINMENU MENU
+BEGIN
+    POPUP "File"
+    BEGIN
+        MENUITEM "New",                         ID_FILE_FNEW
+        MENUITEM "Open",                        ID_FILE_FOPEN
+        MENUITEM SEPARATOR
+        MENUITEM "Exit",                        ID_FILE_EXIT
+    END
+    POPUP "Action"
+    BEGIN
+        MENUITEM "Add",                         ID_ACTION_ADD
+        MENUITEM "Delete",                      ID_ACTION_DELETE
+        MENUITEM "Extract",                     ID_ACTION_EXTRACT
+        MENUITEM SEPARATOR
+        MENUITEM "Properties",                  ID_ACTION_PROPERTIES
+        MENUITEM "Find",                        ID_ACTION_FIND
+        MENUITEM SEPARATOR
+        MENUITEM "Test Archive",                ID_ACTION_TESTARCHIVE
+    END
+    POPUP "Options"
+    BEGIN
+        MENUITEM "Settings",                    ID_OPTIONS_SETTINGS
+        MENUITEM SEPARATOR
+        MENUITEM "Always On Top?",              ID_OPTIONS_ALWAYSONTOP
+    END
+    POPUP "Security"
+    BEGIN
+        MENUITEM "HardKey Generator",           ID_SECURITY_HARDKEYGENERATOR
+        MENUITEM SEPARATOR
+        MENUITEM "Securely Delete Single File", ID_SECURITY_SECURELYDELETEFILE
+        MENUITEM "Securely Delete Single Folder", ID_SECURITY_SECURELYDELETEFOLDER
+        MENUITEM SEPARATOR
+        MENUITEM "Secure Delete Wizard",        ID_SECURITY_SECUREDELETEWIZARD
+    END
+    POPUP "Help"
+    BEGIN
+        MENUITEM "Contents",                    ID_HELP_CONTENTS
+        MENUITEM SEPARATOR
+        MENUITEM "About",                       ID_HELP_ABOUT
+    END
+END
+
+IDR_FILE_LIST_POPUP MENU
+BEGIN
+    POPUP "FILE_LIST_POPUP"
+    BEGIN
+        MENUITEM "aaaa",                        ID_FILE_AAAA
+        MENUITEM "bbbb",                        ID_FILE_BBBB
+        MENUITEM "cccc",                        ID_FILE_CCCC
+        MENUITEM "dddd",                        ID_FILE_DDDD
+        MENUITEM "eeee",                        ID_FILE_EEEE
+        MENUITEM "ffff",                        ID_FILE_FFFF
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AVI
+//
+
+IDR_DECRYPTAVI          AVI                     "Decrypt.avi"
+
+IDR_ENCRYPTAVI          AVI                     "Encrypt.avi"
+
+IDR_DELETEAVI           AVI                     "Delete.avi"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,6,1
+ PRODUCTVERSION 1,0,6,1
+ FILEFLAGSMASK 0x17L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40000L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "00000000"
+        BEGIN
+            VALUE "Comments", "File Encryption Utility"
+            VALUE "CompanyName", "NetworkDLS"
+            VALUE "FileDescription", "File Encryption Utility"
+            VALUE "FileVersion", "1.0.6.1"
+            VALUE "InternalName", "Secure Archive"
+            VALUE "LegalCopyright", "Copyright © 2017 NetworkDLS"
+            VALUE "OriginalFilename", "SA.exe"
+            VALUE "ProductName", "Secure Archive"
+            VALUE "ProductVersion", "1.0.6.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0, 0
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_SECUREDELETE AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_TITLECAPTION        "Secure Archive"
+    IDS_FILEVERSION         "1.0.6.1"
+    IDS_APPCOPYRIGHT        "Copyright © 2017 NetworkDLS. All rights reserved."
+    IDS_REGISTRYKEY         "Software\\NetworkDLS\\Secure Archive"
+    IDS_COMPATIBILITY       "Compatibility Version  000301x"
+    IDS_EMPTYPASSWORD       "Compatibility Password  000301x"
+    IDS_REGCODESEED         "NetworkDLS Secure Archive 000301x"
+    IDS_PATHKEY             "Software\\NetworkDLS\\Secure Archive\\Path"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

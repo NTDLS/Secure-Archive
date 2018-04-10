@@ -1,0 +1,30 @@
+/Source:"C:\TestLoad.Saef" /Password:"11111111" /View
+/Source:"C:\TestLoad.Saef" /Target:"C:\OutTL" /Password:"11111111" /Decrypt
+/Source:"C:\TestLoad" /Target:"C:\TestLoad.Saef" /Password:"11111111" /Encrypt
+/Source:"C:\Documents and Settings\JPatterson\Desktop\Project Epsilon 1.0.2.5" /Encrypt
+/Source:"C:\WINDOWS\system32\config" /Target:"C:\TestLoad.Saef" /Password:"11111111" /Encrypt
+
+/AutoClose
+/CompressLevel:
+/Configure
+/CreateSelfExtractor
+/Decrypt
+/Delete:
+/Encrypt
+/GO
+/HardKeyGen
+/KeyGenFile
+/New
+/NoFolders
+/Overwrite
+/Passes:
+/Password:
+/PreRegister
+/Register:
+/Repair:
+/SecureDelete
+/Silent
+/Source:
+/Target:
+/Test:
+/View
