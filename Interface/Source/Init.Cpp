@@ -9,10 +9,8 @@
 #include <Stdlib.H>
 #include <CommCtrl.H>
 
-#include "../../../@Libraries/CNASCCL (Stream)/CNASCCL.H"
+#include "../../SecureDeleteLibrary/SecureDelete.H"
 
-#include "../../../@Libraries/SecureDelete/SecureDelete.H"
-#include "../../../@Libraries/CCRC32/CCRC32.H"
 #include "Init.H"
 #include "Entry.H"
 #include "Routines.H"
@@ -106,7 +104,7 @@ bool InitializeApp(void)
 		//FIXFIX: Handle error!
 	}
 
-	gCRC32 = new CCRC32();
+	gCRC32 = new CRC32();
 
 	gCRC32->Initialize();
 
@@ -407,15 +405,15 @@ bool InitGlobalCode(void)
 {
 	#define GCODESIZE 1024
 	char sKeyHash[GCODESIZE + 1];
-	gCode.HashKey(gsEmptyPassword, sKeyHash, (int)strlen(gsEmptyPassword), GCODESIZE);
-	return gCode.InitializeCryptography(sKeyHash, GCODESIZE, true);
+	HashKey(gsEmptyPassword, (int)strlen(gsEmptyPassword), sKeyHash,  GCODESIZE);
+	return gCode.Initialize(sKeyHash, GCODESIZE, true);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 bool UninitializeApp(void)
 {
-	gCode.DestroyCryptography();
+	gCode.Destroy();
 
 #ifndef _SELFEXTRACTOR_APP
 	SetRegistryValues();

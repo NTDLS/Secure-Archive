@@ -45,13 +45,13 @@ typedef struct _TAG_HEADER{
 bool IsUsingBlankPassword(HWND hOwner, const char *sFileName, bool *bIsBlank);
 
 bool ReadPackageHeader(__int64 i64ExeEnd, HANDLE hfSource, HWND hOwner,
-					   LPPASSWORD lpPwd, CNASCCL *lpDfltCode, LPHEADER lpHeader, bool bPublicOnly);
+					   LPPASSWORD lpPwd, NASCCLStream *lpDfltCode, LPHEADER lpHeader, bool bPublicOnly);
 
 __int64 GetExeEnd(const char *sFileName);
 
 #ifndef _SELFEXTRACTOR_APP
 bool WritePackageHeader(__int64 i64ExeEnd, HANDLE hfTarget, HWND hOwner,
-						LPPASSWORD lpPwd, CNASCCL *lpDfltCode, LPHEADER lpHeader);
+						LPPASSWORD lpPwd, NASCCLStream *lpDfltCode, LPHEADER lpHeader);
 typedef unsigned long (WINAPI *PGetExeEnd)(void);
 #endif
 

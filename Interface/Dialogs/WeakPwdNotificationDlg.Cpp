@@ -15,8 +15,6 @@
 #include "../Dialogs/WeakPwdNotificationDlg.H"
 #include "../Dialogs/NetLogoDlg.H"
 
-#include "../../../@Libraries/CNASCCL (Stream)/CNASCCL.H"
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 using namespace NSWFL::Windows; 
@@ -49,7 +47,7 @@ INT_PTR CALLBACK WeakPwdNotificationDialog(HWND hWnd, UINT uMsg, WPARAM wParam, 
 
 		LRESULT iIndex = 0;
 
-		if(gdwWeakEncryptionWarnLevel >= KW_UNACCEPTABLE && gdwWeakEncryptionWarnLevel <= KW_PERFECT)
+		if(gdwWeakEncryptionWarnLevel >= KW_UNACCEPTABLE && gdwWeakEncryptionWarnLevel <= KW_EXCELLENT)
 		{
 			iIndex = SendMessage(hClasses, (UINT) CB_FINDSTRINGEXACT, 0, (WPARAM)gsKeyWeights[gdwWeakEncryptionWarnLevel]);
 		}

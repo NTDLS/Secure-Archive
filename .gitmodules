@@ -1,0 +1,21 @@
+[submodule "Rijndael"]
+	path = Rijndael
+	url = https://github.com/NTDLS/Rijndael
+[submodule "BlowFish"]
+	path = BlowFish
+	url = https://github.com/NTDLS/BlowFish
+[submodule "NSWFL"]
+	path = NSWFL
+	url = https://github.com/NTDLS/NSWFL
+[submodule "NASCCL"]
+	path = NASCCL
+	url = https://github.com/NTDLS/NASCCL
+[submodule "Compression"]
+	path = Compression
+	url = https://github.com/NTDLS/Compression
+[submodule "SecureDeleteLibrary"]
+	path = SecureDeleteLibrary
+	url = https://github.com/NTDLS/SecureDeleteLibrary
+[submodule "CTrayIcon"]
+	path = CTrayIcon
+	url = https://github.com/NTDLS/CTrayIcon

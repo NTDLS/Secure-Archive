@@ -27,17 +27,13 @@
 #include "../Dialogs/ExtractDlg.H"
 #include "../Dialogs/ReplaceFileDlg.H"
 
-#include "../../../@Libraries/Compression/zLib/ZLibEncapsulation.H"
+#include "../../../Compression/zLib/ZLibEncapsulation.H"
 
-#include "../../../@Libraries/CCRC32/CCRC32.H"
 
-#include "../../../@Libraries/Rijndael/AES.H"
-#include "../../../@Libraries/Rijndael/AESOpt.H"
-#include "../../../@Libraries/Rijndael/Rijndael.H"
-#include "../../../@Libraries/BlowFish/BlowFish.H"
-
-#include "../../../@Libraries/CNASCCL (Stream)/CNASCCL.H"
-#include "../../../@Libraries/CSHA1/CSHA1.H"
+#include "../../Rijndael/AES.H"
+#include "../../Rijndael/AESOpt.H"
+#include "../../Rijndael/Rijndael.H"
+#include "../../BlowFish/BlowFish.H"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -84,7 +80,7 @@ bool RepairCorruptArchive(const char *sSourceFile, const char *sTargetFile, LPPA
 	unsigned long ulReadCRC = 0;
     unsigned short usFileNameLen = 0;
 
-    CNASCCL DfltCode;
+    NASCCLStream DfltCode;
 	HEADER Header;
 
     memset(&DfltCode, 0, sizeof(DfltCode));
@@ -109,11 +105,11 @@ bool RepairCorruptArchive(const char *sSourceFile, const char *sTargetFile, LPPA
 		return false;
     }
 
-    DfltCode.InitializeCryptography(lpPwd->sPassword, lpPwd->iLength, true);
+    DfltCode.Initialize(lpPwd->sPassword, lpPwd->iLength, true);
 
 	if(!ReadPackageHeader(i64ExeEnd, hfSource, hReadingDialog, lpPwd, &DfltCode, &Header, false))
 	{
-		DfltCode.DestroyCryptography();
+		DfltCode.Destroy();
 		CloseHandle(hfSource);
 		return false;
 	}
@@ -139,7 +135,7 @@ bool RepairCorruptArchive(const char *sSourceFile, const char *sTargetFile, LPPA
 
 		if(usFileNameLen <= 0 || usFileNameLen >= MAX_PATH) //Sanity check.
 		{
-			DfltCode.DestroyCryptography();
+			DfltCode.Destroy();
 
 			sprintf_s(sStatusText, sizeof(sStatusText),
 				"Corrupt data file detected. Error code: (RepairCorruptArchive->usFileNameLen:%d|%d)", __LINE__, usFileNameLen);
@@ -174,7 +170,7 @@ bool RepairCorruptArchive(const char *sSourceFile, const char *sTargetFile, LPPA
 		ReadFile(hfSource, &i64CompressedFileSize, sizeof(i64CompressedFileSize), &dwBytesRead, NULL);
 		if(i64CompressedFileSize == -1) //Sanity check.
         {
-			DfltCode.DestroyCryptography();
+			DfltCode.Destroy();
 
 			sprintf_s(sStatusText, sizeof(sStatusText),
 				"Corrupt data file detected. Error code: (RepairCorruptArchive->i64CompressedFileSize:%d|%lld)", __LINE__, i64CompressedFileSize);
@@ -195,7 +191,7 @@ bool RepairCorruptArchive(const char *sSourceFile, const char *sTargetFile, LPPA
 		ReadFile(hfSource, &i64FileEndPos, sizeof(i64FileEndPos), &dwBytesRead, NULL);
 		if(i64FileEndPos == -1) //Sanity check.
         {
-			DfltCode.DestroyCryptography();
+			DfltCode.Destroy();
 
 			sprintf_s(sStatusText, sizeof(sStatusText),
 				"Corrupt data file detected. Error code: (RepairCorruptArchive->i64FileEndPos:%d|%lld)", __LINE__, i64FileEndPos);
@@ -225,7 +221,7 @@ bool RepairCorruptArchive(const char *sSourceFile, const char *sTargetFile, LPPA
 	} while(dwBytesRead != 0);
 
     CloseHandle(hfSource);
-	DfltCode.DestroyCryptography();
+	DfltCode.Destroy();
 
 	return bResult;
 }
@@ -282,8 +278,8 @@ int MakePackage(LPMKPKGPARAM lpMkPkgParam, LPPASSWORD lpPwd)
     unsigned long ulPreExistingFiles = 0;
     unsigned short usFileNameLen = 0;
 
-    CNASCCL SS;
-	CNASCCL DfltCode;
+	NASCCLStream SS;
+	NASCCLStream DfltCode;
 	BlowFishCTX BlowFish;
 	aes_ctx Aes_Ctx;
 	aes_ctx Aes_CtxPerFile;
@@ -352,7 +348,7 @@ int MakePackage(LPMKPKGPARAM lpMkPkgParam, LPPASSWORD lpPwd)
 		return PACK_RESULT_NOACTION;
 	}
 
-    DfltCode.InitializeCryptography(lpPwd->sPassword, lpPwd->iLength, true);
+    DfltCode.Initialize(lpPwd->sPassword, lpPwd->iLength, true);
 
 	//If the overwrite and add files options got signaled somehow, default to append. It's safer!
 	if(lpMkPkgParam->iOptions &OPTION_OVERWRITE)
@@ -400,7 +396,7 @@ int MakePackage(LPMKPKGPARAM lpMkPkgParam, LPPASSWORD lpPwd)
 
 	if(hfTarget == INVALID_HANDLE_VALUE)
     {
-		DfltCode.DestroyCryptography();
+		DfltCode.Destroy();
 
 		sprintf_s(sStatusText, sizeof(sStatusText),
 			"Failed to open write file:\r\n'%s'",
@@ -431,7 +427,7 @@ int MakePackage(LPMKPKGPARAM lpMkPkgParam, LPPASSWORD lpPwd)
 
 	if(!CheckFreeSpaceAndPreAllocFile(hProgressDialog, hfTarget, lpMkPkgParam->sTarName, i64PreAllocSz))
 	{
-		DfltCode.DestroyCryptography();
+		DfltCode.Destroy();
 
 		CloseHandle(hfTarget);
 
@@ -448,7 +444,7 @@ int MakePackage(LPMKPKGPARAM lpMkPkgParam, LPPASSWORD lpPwd)
 	{
 		if(!ReadPackageHeader(i64ExeEnd, hfTarget, hProgressDialog, lpPwd, &DfltCode, &Header, false))
 		{
-			DfltCode.DestroyCryptography();
+			DfltCode.Destroy();
 			CloseHandle(hfTarget);
 			return PACK_RESULT_NOACTION;
 		}
@@ -467,7 +463,7 @@ int MakePackage(LPMKPKGPARAM lpMkPkgParam, LPPASSWORD lpPwd)
 
 		if(!WritePackageHeader(i64ExeEnd, hfTarget, hProgressDialog, lpPwd, &DfltCode, &Header))
 		{
-			DfltCode.DestroyCryptography();
+			DfltCode.Destroy();
 			CloseHandle(hfTarget);
 			return PACK_RESULT_ERROR;
 		}
@@ -492,7 +488,7 @@ int MakePackage(LPMKPKGPARAM lpMkPkgParam, LPPASSWORD lpPwd)
 	{
 		memset(&SS, 0, sizeof(SS));
 	
-		SS.InitializeCryptography(lpPwd->sPassword, lpPwd->iLength, false);
+		SS.Initialize(lpPwd->sPassword, lpPwd->iLength, false);
 
 		dwBlockSize = -1;
 	}
@@ -530,7 +526,7 @@ int MakePackage(LPMKPKGPARAM lpMkPkgParam, LPPASSWORD lpPwd)
 
 		if(giCryptAlgo == CRYPT_ALGO_NASCCL)
 		{
-			SS.ResetCryptography();
+			SS.Reset();
 		}
 
         if(gdwCurrentJobType == JOB_TYPE_CANCEL)
@@ -1002,10 +998,10 @@ int MakePackage(LPMKPKGPARAM lpMkPkgParam, LPPASSWORD lpPwd)
 	}
 	else if(giCryptAlgo == CRYPT_ALGO_NASCCL){
 		//Free memory used by the simple algo.
-		SS.DestroyCryptography();
+		SS.Destroy();
 	}
 
-	DfltCode.DestroyCryptography();
+	DfltCode.Destroy();
 
 	CloseHandle(hfTarget);
 
@@ -1146,7 +1142,7 @@ __inline bool SafeWrite(HWND hWnd, HANDLE hFile, VOID *lpData, DWORD dwSize)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef _SELFEXTRACTOR_APP
-__inline bool UpdateFileCount(__int64 i64ExeEnd, HANDLE hSource, CNASCCL *lpCode, DWORD dwFileCount)
+__inline bool UpdateFileCount(__int64 i64ExeEnd, HANDLE hSource, NASCCLStream *lpCode, DWORD dwFileCount)
 {
 	DWORD dwEncryptedFC = dwFileCount;
 
@@ -1347,7 +1343,7 @@ int DeleteFilesFromPackage(char *sSrcName, char *sTempPath, LPPASSWORD lpPwd,
 
 	unsigned short usFileNameLen = 0;
 
-    CNASCCL DfltCode;
+	NASCCLStream DfltCode;
 	HEADER Header;
 
     memset(&DfltCode, 0, sizeof(DfltCode));
@@ -1355,7 +1351,7 @@ int DeleteFilesFromPackage(char *sSrcName, char *sTempPath, LPPASSWORD lpPwd,
 
     unsigned char *sDataBuf = (unsigned char *) calloc(DEFAULT_BUF_SZ + 1, sizeof(char));
 
-	DfltCode.InitializeCryptography(lpPwd->sPassword, lpPwd->iLength, true);
+	DfltCode.Initialize(lpPwd->sPassword, lpPwd->iLength, true);
 
 	__int64 i64ExeEnd = GetExeEnd(sSrcName);
 
@@ -1372,7 +1368,7 @@ int DeleteFilesFromPackage(char *sSrcName, char *sTempPath, LPPASSWORD lpPwd,
     {
         sprintf_s(sStatusText, sizeof(sStatusText), "Failed to open read file:\r\n'%s'.", sSrcName);
 	    SafeMsgBox(hProgressDialog, sStatusText, gsTitleCaption, MB_ICONEXCLAMATION|MB_OK|MB_APPLMODAL);
-		DfltCode.DestroyCryptography();
+		DfltCode.Destroy();
 		free(sDataBuf);
         return PACK_RESULT_CANCEL;
     }
@@ -1390,7 +1386,7 @@ int DeleteFilesFromPackage(char *sSrcName, char *sTempPath, LPPASSWORD lpPwd,
     {
         sprintf_s(sStatusText, sizeof(sStatusText), "Failed to open temp file:\r\n'%s'.", sTempPath);
 	    SafeMsgBox(hProgressDialog, sStatusText, gsTitleCaption, MB_ICONEXCLAMATION|MB_OK|MB_APPLMODAL);
-		DfltCode.DestroyCryptography();
+		DfltCode.Destroy();
 		free(sDataBuf);
 		CloseHandle(hfSource);
         return PACK_RESULT_CANCEL;
@@ -1400,7 +1396,7 @@ int DeleteFilesFromPackage(char *sSrcName, char *sTempPath, LPPASSWORD lpPwd,
 	ReadFile(hfSource, sDataBuf, PACKAGE_HEADER_LEN + (unsigned long)i64ExeEnd, &dwBytesRead, NULL);
 	if(!SafeWrite(hProgressDialog, hfTarget, sDataBuf, dwBytesRead))
 	{
-		DfltCode.DestroyCryptography();
+		DfltCode.Destroy();
 		CloseHandle(hfSource);
 		CloseHandle(hfTarget);
 		free(sDataBuf);
@@ -1409,7 +1405,7 @@ int DeleteFilesFromPackage(char *sSrcName, char *sTempPath, LPPASSWORD lpPwd,
 
 	if(!ReadPackageHeader(i64ExeEnd, hfSource, hProgressDialog, lpPwd, &DfltCode, &Header, false))
 	{
-		DfltCode.DestroyCryptography();
+		DfltCode.Destroy();
 		CloseHandle(hfSource);
 		CloseHandle(hfTarget);
 		free(sDataBuf);
@@ -1422,7 +1418,7 @@ int DeleteFilesFromPackage(char *sSrcName, char *sTempPath, LPPASSWORD lpPwd,
 			"You cannot delete all items from an archive.",
 			gsTitleCaption, MB_ICONINFORMATION|MB_OK|MB_APPLMODAL);
 
-		DfltCode.DestroyCryptography();
+		DfltCode.Destroy();
 		CloseHandle(hfSource);
 		CloseHandle(hfTarget);
 		free(sDataBuf);
@@ -1511,7 +1507,7 @@ int DeleteFilesFromPackage(char *sSrcName, char *sTempPath, LPPASSWORD lpPwd,
 
 			SafeMsgBox(hProgressDialog, sStatusText, gsTitleCaption, MB_ICONEXCLAMATION|MB_OK|MB_APPLMODAL);
 
-			DfltCode.DestroyCryptography();
+			DfltCode.Destroy();
 			free(sDataBuf);
 
 			iActionResult = PACK_RESULT_CANCEL;
@@ -1533,7 +1529,7 @@ int DeleteFilesFromPackage(char *sSrcName, char *sTempPath, LPPASSWORD lpPwd,
 
 			SafeMsgBox(hProgressDialog, sStatusText, gsTitleCaption, MB_ICONEXCLAMATION|MB_OK|MB_APPLMODAL);
 
-			DfltCode.DestroyCryptography();
+			DfltCode.Destroy();
 			free(sDataBuf);
 
 			iActionResult = PACK_RESULT_CANCEL;
@@ -1759,7 +1755,7 @@ int DeleteFilesFromPackage(char *sSrcName, char *sTempPath, LPPASSWORD lpPwd,
 		SetFileAttributes(sSrcName, FILE_ATTRIBUTE_NORMAL);
 	}
 
-	DfltCode.DestroyCryptography();
+	DfltCode.Destroy();
 	free(sDataBuf);
 
     return iActionResult;
@@ -1899,8 +1895,8 @@ int BreakPackage(char *sSrcName, char *TarFolder, LPPASSWORD lpPwd, bool bTestOn
 
 	unsigned short usFileNameLen = 0;
 
-    CNASCCL SS;
-    CNASCCL DfltCode;
+	NASCCLStream SS;
+	NASCCLStream DfltCode;
 	BlowFishCTX BlowFish;
 	aes_ctx Aes_Ctx;
 	aes_ctx Aes_CtxPerFile;
@@ -1911,7 +1907,7 @@ int BreakPackage(char *sSrcName, char *TarFolder, LPPASSWORD lpPwd, bool bTestOn
     memset(sTempBuf, 0, sizeof(sTempBuf));
     memset(&Header, 0, sizeof(Header));
 
-	DfltCode.InitializeCryptography(lpPwd->sPassword, lpPwd->iLength, true);
+	DfltCode.Initialize(lpPwd->sPassword, lpPwd->iLength, true);
 
 	__int64 i64ExeEnd = GetExeEnd(sSrcName);
 
@@ -1929,14 +1925,14 @@ int BreakPackage(char *sSrcName, char *TarFolder, LPPASSWORD lpPwd, bool bTestOn
     {
         sprintf_s(sStatusText, sizeof(sStatusText), "Failed to open read file:\r\n'%s'.", sSrcName);
 	    SafeMsgBox(hProgressDialog, sStatusText, gsTitleCaption, MB_ICONEXCLAMATION|MB_OK|MB_APPLMODAL);
-		DfltCode.DestroyCryptography();
+		DfltCode.Destroy();
 		iTestResult = PACK_RESULT_CANCEL;
         return false;
     }
 
 	if(!ReadPackageHeader(i64ExeEnd, hfSource, hProgressDialog, lpPwd, &DfltCode, &Header, false))
 	{
-		DfltCode.DestroyCryptography();
+		DfltCode.Destroy();
 		CloseHandle(hfSource);
 		iTestResult = PACK_RESULT_ERROR;
 		return false;
@@ -1964,7 +1960,7 @@ int BreakPackage(char *sSrcName, char *TarFolder, LPPASSWORD lpPwd, bool bTestOn
 	if(giCryptAlgo == CRYPT_ALGO_NASCCL)
 	{
 		memset(&SS, 0, sizeof(SS));
-		SS.InitializeCryptography(lpPwd->sPassword, lpPwd->iLength, false);
+		SS.Initialize(lpPwd->sPassword, lpPwd->iLength, false);
 		dwBlockSize = -1;
 	}
 	else if(giCryptAlgo == CRYPT_ALGO_RIJNDAEL)
@@ -2014,7 +2010,7 @@ int BreakPackage(char *sSrcName, char *TarFolder, LPPASSWORD lpPwd, bool bTestOn
 
 		if(giCryptAlgo == CRYPT_ALGO_NASCCL)
 		{
-			SS.ResetCryptography();
+			SS.Reset();
 		}
 
 		i64TotalBytesRead = 0;
@@ -2090,7 +2086,7 @@ int BreakPackage(char *sSrcName, char *TarFolder, LPPASSWORD lpPwd, bool bTestOn
 
             SafeMsgBox(hProgressDialog, sStatusText, gsTitleCaption, MB_ICONEXCLAMATION|MB_OK|MB_APPLMODAL);
 
-			DfltCode.DestroyCryptography();
+			DfltCode.Destroy();
 
             iActionResult = PACK_RESULT_ERROR;
 			iTestResult = PACK_RESULT_ERROR;
@@ -2112,7 +2108,7 @@ int BreakPackage(char *sSrcName, char *TarFolder, LPPASSWORD lpPwd, bool bTestOn
 
             SafeMsgBox(hProgressDialog, sStatusText, gsTitleCaption, MB_ICONEXCLAMATION|MB_OK|MB_APPLMODAL);
 
-			DfltCode.DestroyCryptography();
+			DfltCode.Destroy();
 
             iActionResult = PACK_RESULT_ERROR;
 			iTestResult = PACK_RESULT_ERROR;
@@ -2600,12 +2596,12 @@ int BreakPackage(char *sSrcName, char *TarFolder, LPPASSWORD lpPwd, bool bTestOn
 	}
 	else if(giCryptAlgo == CRYPT_ALGO_NASCCL){
 		//Free memory used by the simple algo.
-		SS.DestroyCryptography();
+		SS.Destroy();
 	}
 
     CloseHandle(hfSource);
 
-	DfltCode.DestroyCryptography();
+	DfltCode.Destroy();
 
 #ifndef _SELFEXTRACTOR_APP
 	if(bTestOnly)
@@ -2674,7 +2670,7 @@ int PopGrid(char *sSrcName, LPPASSWORD lpPwd)
 	unsigned long ulReadCRC = 0;
     unsigned short usFileNameLen = 0;
 
-    CNASCCL DfltCode;
+	NASCCLStream DfltCode;
     LV_ITEM lvItem;
 	HEADER Header;
 
@@ -2687,7 +2683,7 @@ int PopGrid(char *sSrcName, LPPASSWORD lpPwd)
     ImageList_RemoveAll(hImageListBig);
 	ListView_DeleteAllItems(ghFileList);
 
-    DfltCode.InitializeCryptography(lpPwd->sPassword, lpPwd->iLength, true);
+    DfltCode.Initialize(lpPwd->sPassword, lpPwd->iLength, true);
 
 	__int64 i64ExeEnd = GetExeEnd(sSrcName);
 
@@ -2703,7 +2699,7 @@ int PopGrid(char *sSrcName, LPPASSWORD lpPwd)
 
     if(hfSource == INVALID_HANDLE_VALUE)
     {
-		DfltCode.DestroyCryptography();
+		DfltCode.Destroy();
 
 		sprintf_s(sStatusText, sizeof(sStatusText), "Failed to open read file:\r\n'%s'.", sSrcName);
         SafeMsgBox(hReadingDialog, sStatusText, gsTitleCaption, MB_ICONEXCLAMATION|MB_OK|MB_APPLMODAL);
@@ -2712,7 +2708,7 @@ int PopGrid(char *sSrcName, LPPASSWORD lpPwd)
 
 	if(!ReadPackageHeader(i64ExeEnd, hfSource, hReadingDialog, lpPwd, &DfltCode, &Header, false))
 	{
-		DfltCode.DestroyCryptography();
+		DfltCode.Destroy();
 		CloseHandle(hfSource);
 		return PACK_RESULT_CANCEL;
 	}
@@ -2764,7 +2760,7 @@ int PopGrid(char *sSrcName, LPPASSWORD lpPwd)
 
 		if(usFileNameLen <= 0 || usFileNameLen >= MAX_PATH) //Sanity check.
 		{
-			DfltCode.DestroyCryptography();
+			DfltCode.Destroy();
 
 			sprintf_s(sStatusText, sizeof(sStatusText),
 				"Corrupt data file detected. Error code: (PopGrid->usFileNameLen:%d|%d)", __LINE__, usFileNameLen);
@@ -2802,7 +2798,7 @@ int PopGrid(char *sSrcName, LPPASSWORD lpPwd)
 		ReadFile(hfSource, &i64CompressedFileSize, sizeof(i64CompressedFileSize), &dwBytesRead, NULL);
 		if(i64CompressedFileSize == -1) //Sanity check.
         {
-			DfltCode.DestroyCryptography();
+			DfltCode.Destroy();
 
 			sprintf_s(sStatusText, sizeof(sStatusText),
 				"Corrupt data file detected. Error code: (PopGrid->i64CompressedFileSize:%d|%lld)", __LINE__, i64CompressedFileSize);
@@ -2823,7 +2819,7 @@ int PopGrid(char *sSrcName, LPPASSWORD lpPwd)
 		ReadFile(hfSource, &i64FileEndPos, sizeof(i64FileEndPos), &dwBytesRead, NULL);
 		if(i64FileEndPos == -1) //Sanity check.
         {
-			DfltCode.DestroyCryptography();
+			DfltCode.Destroy();
 
 			sprintf_s(sStatusText, sizeof(sStatusText),
 				"Corrupt data file detected. Error code: (PopGrid->i64FileEndPos:%d|%lld)", __LINE__, i64FileEndPos);
@@ -3054,7 +3050,7 @@ int PopGrid(char *sSrcName, LPPASSWORD lpPwd)
 
 	//FIXFIX: Detect if the file was loaded successfully.
     CloseHandle(hfSource);
-	DfltCode.DestroyCryptography();
+	DfltCode.Destroy();
 
     sprintf_s(sTempBuf, sizeof(sTempBuf), "%d", Header.dwFileCount);
     FormatiString(TempBuf0, sizeof(TempBuf0), sTempBuf);

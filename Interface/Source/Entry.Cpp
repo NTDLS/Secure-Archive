@@ -30,6 +30,8 @@
 using namespace NSWFL::String;
 using namespace NSWFL::File; 
 using namespace NSWFL::Windows;
+using namespace NSWFL::CommandLine;
+using namespace NSWFL::Hashing;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -76,7 +78,7 @@ bool gbSilent = false; //Work in silent mode?
 bool gbOverwrite = false; //Overwrite by default?
 
 PASSWORD gPassword;
-CNASCCL gCode;
+NASCCLStream gCode;
 CONIO gConIO;
 CTrayIcon gTrayIcon;
 
@@ -96,11 +98,11 @@ int giCryptAlgo = 0;
 DWORD gdwDefaultSortColumn = -1;
 DWORD gdwDefaultSortDirection = -1;
 
-CCRC32 *gCRC32;
+CRC32 *gCRC32;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int ParseCmdLine(CCmdLine *lpCmd);
+int ParseCmdLine(CommandLineParser *lpCmd);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -117,7 +119,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevious, LPSTR sCmdLine, int
 
 #ifndef _SELFEXTRACTOR_APP
 
-	CCmdLine *pCmdLine = new CCmdLine;
+	CommandLineParser *pCmdLine = new CommandLineParser;
 
 	ParseCmdLine(pCmdLine);
 
@@ -221,7 +223,7 @@ int IsCommand(const char *sCmdLine, const char *sArg)
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef _SELFEXTRACTOR_APP
-int ParseCmdLine(CCmdLine *lpCmd)
+int ParseCmdLine(CommandLineParser *lpCmd)
 {
 	int iArg = 0;
 	int iArgSz = 0;

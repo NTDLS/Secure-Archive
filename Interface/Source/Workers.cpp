@@ -22,18 +22,13 @@
 #include "../Dialogs/ExtractDlg.H"
 #include "../Dialogs/ReplaceFileDlg.H"
 
-#include "../../../@Libraries/Compression/zLib/ZLibEncapsulation.H"
+#include "../../Compression/zLib/ZLibEncapsulation.H"
 
-#include "../../../@Libraries/CCRC32/CCRC32.H"
+#include "../../Rijndael/AES.H"
+#include "../../Rijndael/AESOpt.H"
+#include "../../Rijndael/Rijndael.H"
 
-#include "../../../@Libraries/Rijndael/AES.H"
-#include "../../../@Libraries/Rijndael/AESOpt.H"
-#include "../../../@Libraries/Rijndael/Rijndael.H"
-
-#include "../../../@Libraries/CNASCCL (Stream)/CNASCCL.H"
-#include "../../../@Libraries/CSHA1/CSHA1.H"
-
-#include "../../../@Libraries/BlowFish/BlowFish.H"
+#include "../../BlowFish/BlowFish.H"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

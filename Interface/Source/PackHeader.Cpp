@@ -20,24 +20,20 @@
 #include "../Dialogs/ExtractDlg.H"
 #include "../Dialogs/ReplaceFileDlg.H"
 
-#include "../../../@Libraries/Compression/zLib/ZLibEncapsulation.H"
+#include "../../Compression/zLib/ZLibEncapsulation.H"
 
-#include "../../../@Libraries/CCRC32/CCRC32.H"
+#include "../../Rijndael/AES.H"
+#include "../../Rijndael/AESOpt.H"
+#include "../../Rijndael/Rijndael.H"
 
-#include "../../../@Libraries/Rijndael/AES.H"
-#include "../../../@Libraries/Rijndael/AESOpt.H"
-#include "../../../@Libraries/Rijndael/Rijndael.H"
-
-#include "../../../@Libraries/CNASCCL (Stream)/CNASCCL.H"
-#include "../../../@Libraries/CSHA1/CSHA1.H"
-
-#include "../../../@Libraries/BlowFish/BlowFish.H"
+#include "../../BlowFish/BlowFish.H"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 using namespace NSWFL::File;
 using namespace NSWFL::DateTime; 
-using namespace NSWFL::KeyGeneration; 
+using namespace NSWFL::KeyGeneration;
+using namespace NSWFL::Hashing;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -123,7 +119,7 @@ extern "C" __declspec(dllexport) __int64 ExGetExeEnd(void)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 bool ReadPackageHeader(__int64 i64ExeEnd, HANDLE hfSource, HWND hOwner, LPPASSWORD lpPwd,
-					   CNASCCL *lpDfltCode, LPHEADER lpHeader, bool bPublicOnly)
+	NASCCLStream *lpDfltCode, LPHEADER lpHeader, bool bPublicOnly)
 {
     long lReadChecksum = 0;
 	DWORD dwBytesRead = 0;
@@ -237,7 +233,7 @@ bool ReadPackageHeader(__int64 i64ExeEnd, HANDLE hfSource, HWND hOwner, LPPASSWO
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef _SELFEXTRACTOR_APP
-bool WritePackageHeader(__int64 i64ExeEnd, HANDLE hfTarget, HWND hOwner, LPPASSWORD lpPwd, CNASCCL *lpDfltCode, LPHEADER lpHeader)
+bool WritePackageHeader(__int64 i64ExeEnd, HANDLE hfTarget, HWND hOwner, LPPASSWORD lpPwd, NASCCLStream *lpDfltCode, LPHEADER lpHeader)
 {
 	long lChecksum = 0;
     long iTemp = 0;

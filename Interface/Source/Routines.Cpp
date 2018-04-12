@@ -8,10 +8,7 @@
 #include <ShlOBJ.H>
 #include <Stdlib.H>
 
-#include "../../../@Libraries/CNASCCL (Stream)/CNASCCL.H"
-#include "../../../@Libraries/SecureDelete/SecureDelete.H"
-#include "../../../@Libraries/CSHA1/CSHA1.H"
-#include "../../../@Libraries/CCRC32/CCRC32.H"
+#include "../../SecureDeleteLibrary/SecureDelete.H"
 
 #include "Package.H"
 #include "Entry.H"
@@ -394,10 +391,10 @@ long MakeChecksum(const char *sRawKey, int iKeySz)
     int iRPos = 0;
     long lChecksum = iKeySz;
 
-	CNASCCL Crypt;
-	memset(&Crypt, 0, sizeof(CNASCCL));
+	NASCCLStream Crypt;
+	memset(&Crypt, 0, sizeof(NASCCLStream));
 
-    Crypt.HashKey(sRawKey, sKeyHash, iKeySz, CHECKSUM_LEN);
+    HashKey(sRawKey, iKeySz, sKeyHash, CHECKSUM_LEN);
 
 	while(iRPos < CHECKSUM_LEN)
     {
@@ -612,12 +609,12 @@ bool EncodePassword(LPPASSWORD lpPwd)
 		return false;
 	}
 
-	CNASCCL Crypt;
+	NASCCLStream Crypt;
 	memset(&Crypt, 0, sizeof(Crypt));
 
-	Crypt.InitializeCryptography(sHash);
+	Crypt.Initialize(sHash);
 	Crypt.Cipher(lpPwd->sPassword, lpPwd->iLength);
-	Crypt.DestroyCryptography();
+	Crypt.Destroy();
 
 	return true;
 }
@@ -692,8 +689,7 @@ bool ComparePasswordTextBoxes(HWND hText1, int iLen1, HWND hText2, int iLen2, in
 	Get_Text(hText1, sBuf1, iLen1 + 1);
 	Get_Text(hText2, sBuf2, iLen1 + 1);
 
-	CNASCCL Crypt;
-	*iKeyWeight = Crypt.KeyWeight(sBuf1, iLen1);
+	*iKeyWeight = KeyWeight(sBuf1, iLen1);
 
 	for(int iRPos = 0; iRPos < iLen1; iRPos++)
 	{

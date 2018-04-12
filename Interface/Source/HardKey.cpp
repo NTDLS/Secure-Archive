@@ -17,15 +17,12 @@
 #include "../Dialogs/HardKeyStatDlg.H"
 #endif
 
-#include "../../../@Libraries/CCRC32/CCRC32.H"
-#include "../../../@Libraries/CSHA1/CSHA1.H"
-#include "../../../@Libraries/CNASCCL (Stream)/CNASCCL.H"
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 using namespace NSWFL::Windows;
 using namespace NSWFL::String;
 using namespace NSWFL::Conversion;
+using namespace NSWFL::Hashing;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -39,7 +36,7 @@ bool ReadHardKey(HWND hOwner, const char *sFileName, const char *sPwd, int iPwdL
 	int iKeySize = 0;
 	unsigned long ulDigest[5];
 
-	CNASCCL DfltCode;
+	NASCCLStream DfltCode;
 	SHA1 SHA;
 	FILE *fSource = NULL;
 
@@ -52,7 +49,7 @@ bool ReadHardKey(HWND hOwner, const char *sFileName, const char *sPwd, int iPwdL
 		return false;
 	}
 
-    DfltCode.InitializeCryptography((char *)sPwd, iPwdLen, false);
+    DfltCode.Initialize((char *)sPwd, iPwdLen, false);
 
 	//Read the Application Checksum.
 	fread(&lChecksum, sizeof(lChecksum), 1, fSource);
@@ -61,7 +58,7 @@ bool ReadHardKey(HWND hOwner, const char *sFileName, const char *sPwd, int iPwdL
 		SafeMsgBox(hOwner, "An invalid HardKey file was specified.", gsTitleCaption, MB_ICONINFORMATION);
 
 		fclose(fSource);
-		DfltCode.DestroyCryptography();
+		DfltCode.Destroy();
 		return false;
 	}
 
@@ -74,7 +71,7 @@ bool ReadHardKey(HWND hOwner, const char *sFileName, const char *sPwd, int iPwdL
 			gsTitleCaption, MB_ICONINFORMATION);
 
 		fclose(fSource);
-		DfltCode.DestroyCryptography();
+		DfltCode.Destroy();
 		return false;
 	}
 
@@ -103,7 +100,7 @@ bool ReadHardKey(HWND hOwner, const char *sFileName, const char *sPwd, int iPwdL
 			SafeMsgBox(hOwner, "The password you entered does not correspond to the selected HardKey.\r\n"
 				"Enter the password that you used when creating the HardKey file.", gsTitleCaption, MB_ICONINFORMATION);
 			fclose(fSource);
-			DfltCode.DestroyCryptography();
+			DfltCode.Destroy();
 			return false;
 		}
 	}
@@ -122,7 +119,7 @@ bool ReadHardKey(HWND hOwner, const char *sFileName, const char *sPwd, int iPwdL
 	}while(iSingleRead == HARDKEYBUFSZ);
 
 	fclose(fSource);
-	DfltCode.DestroyCryptography();
+	DfltCode.Destroy();
 
 	return true;
 }
@@ -148,7 +145,7 @@ bool CreateKeyFile(HWND hST, HWND hPB, const char *sFileName, const char *sPwd, 
 	int iEncryptedGenLen = 0;
 	unsigned long ulDigest[5];
 
-	CNASCCL DfltCode;
+	NASCCLStream DfltCode;
 	SHA1 SHA;
 
     memset(&DfltCode, 0, sizeof(DfltCode));
@@ -163,7 +160,7 @@ bool CreateKeyFile(HWND hST, HWND hPB, const char *sFileName, const char *sPwd, 
 
 	FormatInteger(sOfBits, sizeof(sOfBits), iKeyGenLen * 8);
 
-    DfltCode.InitializeCryptography((char *)sPwd, iPwdLen, false);
+    DfltCode.Initialize((char *)sPwd, iPwdLen, false);
 
 	//unsigned long FullCRC(unsigned char *sData, unsigned long ulLength);
 
@@ -192,7 +189,7 @@ bool CreateKeyFile(HWND hST, HWND hPB, const char *sFileName, const char *sPwd, 
 		{
 			SafeMsgBox(hHardKeyStatDialog, "Failed to write key hash.", gsTitleCaption, MB_ICONINFORMATION);
 			fclose(fTarget);
-			DfltCode.DestroyCryptography();
+			DfltCode.Destroy();
 			return false;
 		}
 	}
@@ -212,7 +209,7 @@ bool CreateKeyFile(HWND hST, HWND hPB, const char *sFileName, const char *sPwd, 
 		{
 			SafeMsgBox(hHardKeyStatDialog, "Failed to write key value.", gsTitleCaption, MB_ICONINFORMATION);
 			fclose(fTarget);
-			DfltCode.DestroyCryptography();
+			DfltCode.Destroy();
 			return false;
 		}
 
@@ -227,7 +224,7 @@ bool CreateKeyFile(HWND hST, HWND hPB, const char *sFileName, const char *sPwd, 
 	}
 
 	fclose(fTarget);
-	DfltCode.DestroyCryptography();
+	DfltCode.Destroy();
 
 	return true;
 }

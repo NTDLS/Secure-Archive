@@ -58,7 +58,7 @@ extern FILEPACKAGE AltFilePackage;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef _SELFEXTRACTOR_APP
-__inline bool UpdateFileCount(__int64 i64ExeEnd, HANDLE hSource, CNASCCL *lpCode, DWORD dwFileCount);
+__inline bool UpdateFileCount(__int64 i64ExeEnd, HANDLE hSource, NASCCLStream *lpCode, DWORD dwFileCount);
 __inline bool ShouldFileBeDeleted(GRIDDELETEITEMS *pGDI, __int64 i64Position, const char *sFileName);
 int DeleteFilesFromPackage(char *sSrcName, char *TarFolder,
 							LPPASSWORD lpPwd, GRIDDELETEITEMS *pGDI, DWORD dwFileCount);

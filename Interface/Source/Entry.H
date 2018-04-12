@@ -2,14 +2,15 @@
 #define _ENTRY_H
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "../../../@Libraries/Debug/Debug.H"
-#include "../../../@Libraries/NSWFL/NSWFL.H"
-#include "../../../@Libraries/CCmdLine/CCmdLine.H"
-#include "../../../@Libraries/CNASCCL (Stream)/CNASCCL.H"
-#include "../../../@Libraries/CTrayIcon/CTrayIcon.H"
-#include "../../../@Libraries/CCRC32/CCRC32.H"
+#include "../../NSWFL/NSWFL.H"
+#include "../../NASCCL/NASCCL.H"
+#include "../../CTrayIcon/CTrayIcon.H"
 
 #include "../Resources/Resource.H"
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+using namespace NSWFL::Hashing;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -56,7 +57,7 @@ typedef struct _tag_Password{
 } PASSWORD, *LPPASSWORD;
 
 extern PASSWORD gPassword;
-extern CNASCCL gCode;
+extern NASCCLStream gCode;
 extern CONIO gConIO;
 extern CTrayIcon gTrayIcon;
 
@@ -120,7 +121,7 @@ extern DWORD gdwDefaultSortDirection;
 
 extern DWORD gdwWeakEncryptionWarnLevel;
 
-extern CCRC32 *gCRC32;
+extern CRC32 *gCRC32;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #endif

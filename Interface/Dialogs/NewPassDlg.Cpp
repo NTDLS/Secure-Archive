@@ -25,8 +25,6 @@
 #include "../Dialogs/OverwriteOrAppend.H"
 #include "../Dialogs/AdvancedOptDlg.H"
 
-#include "../../../@Libraries/CNASCCL (Stream)/CNASCCL.H"
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 using namespace NSWFL::Windows; 
@@ -306,9 +304,9 @@ INT_PTR CALLBACK NewPassDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPara
 					sPasswordWeight = "";
 				}
 				else{
-					CNASCCL Crypt;
+					NASCCLStream Crypt;
 					Get_Text(hFocus, lsPassword, sizeof(lsPassword));
-					sPasswordWeight = Crypt.KeyWeightString(lsPassword, ((int)fPasswordLen));
+					sPasswordWeight = KeyWeightString(lsPassword, ((int)fPasswordLen));
 				}
 
 				sprintf_s(lsTemp0, sizeof(lsTemp0), " (%s Bits%s%s)",

@@ -16,10 +16,6 @@
 #include "../Dialogs/NetLogoDlg.H"
 #include "../Dialogs/HardKeyStatDlg.H"
 
-#include "../../../@Libraries/CCRC32/CCRC32.H"
-#include "../../../@Libraries/CSHA1/CSHA1.H"
-#include "../../../@Libraries/CNASCCL (Stream)/CNASCCL.H"
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 using namespace NSWFL::Windows; 

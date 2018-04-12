@@ -15,8 +15,6 @@
 #include "../Dialogs/WeakPwdDialog.H"
 #include "../Dialogs/NetLogoDlg.H"
 
-#include "../../../@Libraries/CNASCCL (Stream)/CNASCCL.H"
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 using namespace NSWFL::Windows;

@@ -94,18 +94,18 @@ bool FilePack::Initialize(HWND hOwnerWindow, LPFILEPACKAGE lpFilePackage)
     lpFilePackage->dwFileCount = 0;
 
 	if((lpFilePackage->Roots =
-		(char **) calloc(sizeof(char *), AllocIncrement + 1)) == NULL)
+		(char **) calloc(sizeof(char *), INDEX_ALLOC_INCREMENT + 1)) == NULL)
     {
         return false;
     }
 
 	if((lpFilePackage->FileNames =
-		(char **) calloc(sizeof(char *), AllocIncrement + 1)) == NULL)
+		(char **) calloc(sizeof(char *), INDEX_ALLOC_INCREMENT + 1)) == NULL)
     {
         return false;
     }
     
-    Allocs = AllocIncrement;
+    Allocs = INDEX_ALLOC_INCREMENT;
 
     return true;
 }
@@ -185,12 +185,12 @@ bool FilePack::AddFile(const char *sinFolder,
     {
         lpFilePackage->Roots = (char **)
 			realloc(lpFilePackage->Roots, ((Allocs * sizeof(char *))
-			+ (AllocIncrement * sizeof(char *))) + 1);
+			+ (INDEX_ALLOC_INCREMENT * sizeof(char *))) + 1);
 
         lpFilePackage->FileNames = (char **)
 			realloc(lpFilePackage->FileNames, ((Allocs * sizeof(char *))
-			+ (AllocIncrement * sizeof(char *))) + 1);
-        Allocs = (Allocs + AllocIncrement);
+			+ (INDEX_ALLOC_INCREMENT * sizeof(char *))) + 1);
+        Allocs = (Allocs + INDEX_ALLOC_INCREMENT);
     }
 
 	iNeededMemory = iinRootLen + 1;
