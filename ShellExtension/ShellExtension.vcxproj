@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -27,25 +27,25 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -293,50 +293,86 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_Graphics.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_Base64.cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_CommandLineParser.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_Conversion.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_CRC32.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_DateTime.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_Debug.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_File.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_Graphics.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_HighPrecisionTimer.cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_InsecureInterface.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_IsolationLock.cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_KeyGeneration.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_ListBox.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_ListView.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_Math.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_Memory.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_MemoryPool.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_Menu.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_Queue.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_Registry.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_SHA1.cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_Stack.cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_String.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_StringBuilder.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_System.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_Types.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_URLEncoding.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_Windows.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_XMLReader.Cpp" />
+    <ClCompile Include="..\NSWFL\NSWFL_XMLWriter.Cpp" />
     <ClCompile Include="Source\CTXMenu.Cpp" />
     <ClCompile Include="Source\Priv.Cpp" />
     <ClCompile Include="Source\ShellExt.Cpp" />
     <ClCompile Include="Source\SheXInit.Cpp" />
-    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_Conversion.Cpp" />
-    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_DateTime.Cpp" />
-    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_File.Cpp" />
-    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_KeyGeneration.Cpp" />
-    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_ListBox.Cpp" />
-    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_ListView.Cpp" />
-    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_Math.Cpp" />
-    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_Memory.Cpp" />
-    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_Menu.Cpp" />
-    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_Registry.Cpp" />
-    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_String.Cpp" />
-    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_System.Cpp" />
-    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_Types.Cpp" />
-    <ClCompile Include="..\..\%40Libraries\NSWFL\NSWFL_Windows.Cpp" />
-    <ClCompile Include="..\..\%40Libraries\Debug\Debug.Cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_Graphics.H" />
+    <ClInclude Include="..\NSWFL\NSWFL.h" />
+    <ClInclude Include="..\NSWFL\NSWFL_Base64.h" />
+    <ClInclude Include="..\NSWFL\NSWFL_CommandLineParser.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_Conversion.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_CRC32.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_DateTime.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_Debug.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_File.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_Graphics.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_HighPrecisionTimer.h" />
+    <ClInclude Include="..\NSWFL\NSWFL_InsecureInterface.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_IsolationLock.h" />
+    <ClInclude Include="..\NSWFL\NSWFL_KeyGeneration.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_ListBox.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_ListView.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_Math.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_Memory.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_MemoryPool.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_Menu.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_Queue.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_Registry.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_SHA1.h" />
+    <ClInclude Include="..\NSWFL\NSWFL_Stack.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_String.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_StringBuilder.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_StringBuilderArray.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_System.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_Types.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_URLEncoding.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_VectorBinary.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_VectorString.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_VectorT.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_Windows.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_XML.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_XMLReader.H" />
+    <ClInclude Include="..\NSWFL\NSWFL_XMLWriter.H" />
     <ClInclude Include="Source\Priv.H" />
     <ClInclude Include="Source\ShellExt.H" />
     <ClInclude Include="Resources\resource.h" />
-    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL.h" />
-    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_Conversion.H" />
-    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_DateTime.H" />
-    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_File.H" />
-    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_KeyGeneration.H" />
-    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_ListBox.H" />
-    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_ListView.H" />
-    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_Math.H" />
-    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_Memory.H" />
-    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_Menu.H" />
-    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_Registry.H" />
-    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_String.H" />
-    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_System.H" />
-    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_Types.H" />
-    <ClInclude Include="..\..\%40Libraries\NSWFL\NSWFL_Windows.H" />
-    <ClInclude Include="..\..\%40Libraries\Debug\Debug.H" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\NSWFL\.gitignore" />
+    <None Include="..\NSWFL\LICENSE" />
+    <None Include="..\NSWFL\README.md" />
     <None Include="Resources\bmp100.bmp" />
     <None Include="Resources\ico100.ico" />
   </ItemGroup>

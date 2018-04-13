@@ -10,3 +10,7 @@
 *.ilk
 *.user
 *.res
+*.dll
+*.lib
+*.ipch
+*.exp

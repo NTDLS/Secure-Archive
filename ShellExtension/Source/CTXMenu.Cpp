@@ -22,7 +22,7 @@
 #include "Priv.h"
 #include "ShellExt.h"
 
-#include "../../../@Libraries/NSWFL/NSWFL.H"
+#include "../../../NSWFL/NSWFL.H"
 #include "../Resources/Resource.H"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
