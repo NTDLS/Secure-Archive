@@ -78,6 +78,9 @@
     <Filter Include="Classes and Modules\NASCCL">
       <UniqueIdentifier>{f1de30d1-34c6-4ede-9974-ec27f24c5157}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes and Modules\Compression">
+      <UniqueIdentifier>{dad37d4e-db55-4802-bacb-5502423e0147}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Package.Cpp">

@@ -27,8 +27,7 @@
 #include "../Dialogs/ExtractDlg.H"
 #include "../Dialogs/ReplaceFileDlg.H"
 
-#include "../../../Compression/zLib/ZLibEncapsulation.H"
-
+#include "../../Compression/zLib/ZLibEncapsulation.H"
 
 #include "../../Rijndael/AES.H"
 #include "../../Rijndael/AESOpt.H"

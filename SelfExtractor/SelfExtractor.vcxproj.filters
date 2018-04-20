@@ -48,6 +48,9 @@
     <Filter Include="Classes and Modules\CNASCCL">
       <UniqueIdentifier>{61a8b962-941a-4b2b-814a-9a01a01d6e3d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes and Modules\Compression">
+      <UniqueIdentifier>{f4872712-6c46-4c0e-b56f-d277fc7a3943}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Interface\Source\Entry.Cpp">
