@@ -10,9 +10,6 @@
 [submodule "NASCCL"]
 	path = NASCCL
 	url = https://github.com/NTDLS/NASCCL
-[submodule "Compression"]
-	path = Compression
-	url = https://github.com/NTDLS/Compression
 [submodule "SecureDeleteLibrary"]
 	path = SecureDeleteLibrary
 	url = https://github.com/NTDLS/SecureDeleteLibrary
