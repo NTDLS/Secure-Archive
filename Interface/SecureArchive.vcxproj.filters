@@ -69,9 +69,6 @@
     <Filter Include="Classes and Modules\NSWFL">
       <UniqueIdentifier>{c15376a9-d208-46d2-8846-b2abd7b4dbe5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes and Modules\zLib">
-      <UniqueIdentifier>{f7be5fa8-96ef-405f-8623-2464c657c533}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Classes and Modules\SecureDeleteLibrary">
       <UniqueIdentifier>{8877a9cb-96ea-48aa-92fd-bd7a89e3a944}</UniqueIdentifier>
     </Filter>
@@ -80,6 +77,9 @@
     </Filter>
     <Filter Include="Classes and Modules\Compression">
       <UniqueIdentifier>{dad37d4e-db55-4802-bacb-5502423e0147}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes and Modules\Compression\zLib">
+      <UniqueIdentifier>{f7be5fa8-96ef-405f-8623-2464c657c533}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -198,43 +198,43 @@
       <Filter>Classes and Modules\BlowFish</Filter>
     </ClCompile>
     <ClCompile Include="..\Compression\zLib\adler32.c">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClCompile>
     <ClCompile Include="..\Compression\zLib\compress.c">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClCompile>
     <ClCompile Include="..\Compression\zLib\deflate.c">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClCompile>
     <ClCompile Include="..\Compression\zLib\gzio.c">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClCompile>
     <ClCompile Include="..\Compression\zLib\infback.c">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClCompile>
     <ClCompile Include="..\Compression\zLib\inffast.c">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClCompile>
     <ClCompile Include="..\Compression\zLib\inflate.c">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClCompile>
     <ClCompile Include="..\Compression\zLib\inftrees.c">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClCompile>
     <ClCompile Include="..\Compression\zLib\trees.c">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClCompile>
     <ClCompile Include="..\Compression\zLib\uncompr.c">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClCompile>
     <ClCompile Include="..\Compression\zLib\zLibcrc32.c">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClCompile>
     <ClCompile Include="..\Compression\zLib\ZLibEncapsulation.Cpp">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClCompile>
     <ClCompile Include="..\Compression\zLib\zutil.c">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClCompile>
     <ClCompile Include="..\NSWFL\NSWFL_Base64.cpp">
       <Filter>Classes and Modules\NSWFL</Filter>
@@ -470,37 +470,37 @@
       <Filter>Classes and Modules\BlowFish</Filter>
     </ClInclude>
     <ClInclude Include="..\Compression\zLib\deflate.h">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClInclude>
     <ClInclude Include="..\Compression\zLib\inffast.h">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClInclude>
     <ClInclude Include="..\Compression\zLib\inffixed.h">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClInclude>
     <ClInclude Include="..\Compression\zLib\inflate.h">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClInclude>
     <ClInclude Include="..\Compression\zLib\inftrees.h">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClInclude>
     <ClInclude Include="..\Compression\zLib\trees.h">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClInclude>
     <ClInclude Include="..\Compression\zLib\zConf.h">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClInclude>
     <ClInclude Include="..\Compression\zLib\zLib.h">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClInclude>
     <ClInclude Include="..\Compression\zLib\zLibcrc32.h">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClInclude>
     <ClInclude Include="..\Compression\zLib\ZLibEncapsulation.H">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClInclude>
     <ClInclude Include="..\Compression\zLib\zutil.h">
-      <Filter>Classes and Modules\zLib</Filter>
+      <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClInclude>
     <ClInclude Include="..\NSWFL\NSWFL.h">
       <Filter>Classes and Modules\NSWFL</Filter>

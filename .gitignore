@@ -14,3 +14,9 @@
 *.lib
 *.ipch
 *.exp
+
+Interface/.vs/
+
+Interface/Debug/
+
+Interface/Release/

@@ -901,7 +901,7 @@ BOOL FolderTree::FolderTreeHandler(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
 
 
             // Mirror "sSelectedPath" to sFullSelectedPath (Reverse)
-            // Data from the end of "sSelectedPath" to the begining of "sFullSelectedPath" and backwards.
+            // Data from the end of "sSelectedPath" to the beginning of "sFullSelectedPath" and backwards.
             iRPos = iWPos + 1;
             iWPos = 0;
             while(iRPos != (MAX_PATH + 1))
@@ -981,7 +981,7 @@ BOOL FolderTree::FolderTreeHandler(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
 
 				//---------------------------------------------------------------------------
 				// Sub Indexing (Begin)
-				// This code it designed to load the directorys into the tree "one level lower"
+				// This code it designed to load the directory's into the tree "one level lower"
 				// than the user currently has selected. So when (if) they do expand the path
 				// its contents are already loaded.
 

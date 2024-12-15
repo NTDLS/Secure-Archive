@@ -36,7 +36,7 @@ INT_PTR CALLBACK NewFolderDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPa
 
     //--------------------------------------------------------------------------
 
-    if(uMsg == WM_INITDIALOG) // Received A Initilize Dialog Message
+    if(uMsg == WM_INITDIALOG) // Received an Initialize Dialog Message
     {
         hNewFolderDialog = hWnd;
 
@@ -65,7 +65,7 @@ INT_PTR CALLBACK NewFolderDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPa
 			int iLength = Get_Text(hFolderName, sNewFolderName, MAX_PATH);
 			if(iLength <= 0 || iLength >= MAX_PATH)
 			{
-				SafeMsgBox(hWnd, "You must apecify a valid folder name.", gsTitleCaption, MB_ICONINFORMATION);
+				SafeMsgBox(hWnd, "You must specify a valid folder name.", gsTitleCaption, MB_ICONINFORMATION);
 				return TRUE;
 			}
 

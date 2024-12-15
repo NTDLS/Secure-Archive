@@ -404,7 +404,7 @@ DWORD WINAPI CreateFileArchiveProc(LPVOID lpVoid)
 	else if(iResult == PACK_RESULT_ERROR)
     {
 		gdwCurrentJobType = JOB_TYPE_CANCEL;
-        Set_Text(hPackingStatusText, "An error has occured.");
+        Set_Text(hPackingStatusText, "An error has occurred.");
 
 		if(!(MyMkPkgParam.iOptions & OPTION_ADDFILES))
 		{
@@ -468,7 +468,7 @@ DWORD WINAPI AddFilesProc(LPVOID lpVoid)
 	else if(iResult == PACK_RESULT_ERROR)
     {
 		gdwCurrentJobType = JOB_TYPE_CANCEL;
-        Set_Text(hPackingStatusText, "An error has occured.");
+        Set_Text(hPackingStatusText, "An error has occurred.");
 
 		if(!(MyMkPkgParam.iOptions & OPTION_ADDFILES))
 		{
@@ -573,7 +573,7 @@ DWORD WINAPI DeleteArchiveFilesProc(LPVOID lpVoid)
 	else if(iResult == PACK_RESULT_ERROR)
     {
 		gdwCurrentJobType = JOB_TYPE_CANCEL;
-        Set_Text(hPackingStatusText, "An error has occured.");
+        Set_Text(hPackingStatusText, "An error has occurred.");
 
 		SetFileAttributes(sTempPath, FILE_ATTRIBUTE_NORMAL);
 		if(!DeleteFile(sTempPath))

@@ -168,15 +168,15 @@ void AutoSizeGridCols(void)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void AlignText(HWND hButColor, HWND hButGraye, HWND hButLabel, int *iInOutLeft)
+void AlignText(HWND hButtonColor, HWND hButtonGrayed, HWND hButLabel, int *iInOutLeft)
 {
 	const int iIncrement = 64;
 	int iLeft = *iInOutLeft;
 	int iWidth = 50;
 	int iHeight = 50;
 
-	SetWindowPos(hButColor, NULL, iLeft, 6, iWidth, iHeight, SWP_FRAMECHANGED);
-	SetWindowPos(hButGraye, NULL, iLeft, 6, iWidth, iHeight, SWP_FRAMECHANGED);
+	SetWindowPos(hButtonColor, NULL, iLeft, 6, iWidth, iHeight, SWP_FRAMECHANGED);
+	SetWindowPos(hButtonGrayed, NULL, iLeft, 6, iWidth, iHeight, SWP_FRAMECHANGED);
     SetWindowPos(hButLabel, NULL,
 		iLeft - ((iIncrement - iWidth) / 2),
 		57,

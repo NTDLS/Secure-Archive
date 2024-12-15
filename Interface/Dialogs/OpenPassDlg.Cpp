@@ -39,7 +39,7 @@ INT_PTR CALLBACK OpenPassDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 
     //--------------------------------------------------------------------------
 
-    if(uMsg == WM_INITDIALOG) // Received A Initilize Dialog Message
+    if(uMsg == WM_INITDIALOG) // Received an Initialize Dialog Message
     {
         hOpenPassDialog = hWnd;
 

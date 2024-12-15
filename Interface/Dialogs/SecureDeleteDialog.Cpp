@@ -121,7 +121,7 @@ DWORD WINAPI SecureDeleteThreadProc(LPVOID lpData)
 					}
 					else {
 						char sMsg[255];
-						sprintf_s(sMsg, sizeof(sMsg), "Locked (Attmept %d)", iAttemptCount);
+						sprintf_s(sMsg, sizeof(sMsg), "Locked (Attempt %d)", iAttemptCount);
 						ListView_SetItemText(SDTI.hList, iWorkItem, 1, sMsg);
 						ListView_SetCheckState(SDTI.hList, iWorkItem, FALSE);
 						iLockedCount++;
@@ -507,7 +507,7 @@ INT_PTR CALLBACK SecureDeleteDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM 
 	{
 		if(!gbThreadStopped)
 		{
-			MessageBox(hWnd, "Wait untill the process has completed before adding additional files.",
+			MessageBox(hWnd, "Wait until the process has completed before adding additional files.",
 				gsTitleCaption, MB_ICONINFORMATION);
 			return TRUE;
 		}
@@ -609,7 +609,7 @@ INT_PTR CALLBACK SecureDeleteDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM 
 				Set_Text(GetDlgItem(hWnd, IDC_CLOSE), "Cancel");
 
 				//We create suspended then resume so we can be sure that SDTI.hThread
-				//	contains a valid handle upon thread initilization.
+				//	contains a valid handle upon thread initialization.
 				ResumeThread(SDTI.hThread);
 
 				WaitForSingleObject(SDTI.hEvent, INFINITE);

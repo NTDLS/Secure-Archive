@@ -45,7 +45,7 @@ INT_PTR CALLBACK ReplaceFile(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
     //--------------------------------------------------------------------------
 
-    if(uMsg == WM_INITDIALOG) // Received A Initilize Dialog Message
+    if(uMsg == WM_INITDIALOG) // Received an Initialize Dialog Message
     {
         hReplaceFile = hWnd;
 

@@ -501,7 +501,7 @@ int ParseCmdLine(CommandLineParser *lpCmd)
 
 		if(!bSourceSpecified || !bTargetSpecified)
 		{
-			sMsg = "If the \"/Go\" parameter is specified, you must also specifiy:\r\n"
+			sMsg = "If the \"/Go\" parameter is specified, you must also specify:\r\n"
 				"\tSource: (by using the \"/Source:\" parameter)\r\n"
 				"\tTarget: (by using the \"/Target:\" parameter)\r\n"
 				"Example:\r\n\tPE.exe /Source:\"C:\\My Folder\" /Target:\"C:\\NewFile" DEFAULTEXT "\" /GO";
@@ -638,7 +638,7 @@ int ParseCmdLine(CommandLineParser *lpCmd)
 
 		if(IsDirectory(sSource))
 		{
-			// Create a new archive from the directorys contents.
+			// Create a new archive from the directory's contents.
 
 			gdwCurrentJobType = JOB_TYPE_PACKING_FOLDER;
 			if(bAuto == false)
@@ -670,7 +670,7 @@ int ParseCmdLine(CommandLineParser *lpCmd)
 
 			fpPack.Initialize(NULL, &AltFilePackage);
 			
-			//This is alot of memory, but we need it all.
+			//This is a lot of memory, but we need it all.
 			char sFileName[MAX_PATH]; 
 			char sDirTemp[MAX_PATH]; //Just some memory for AddFile() to use.
 			char sRoot[MAX_PATH + 1];

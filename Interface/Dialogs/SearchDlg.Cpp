@@ -85,11 +85,11 @@ INT_PTR CALLBACK SearchDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam
 
 	static bool bFirstTime = true;
     static DWORD dwBackgroundColor = 0;
-    static DWORD dwForgroundColor = 0;
+    static DWORD dwForegroundColor = 0;
 
     //--------------------------------------------------------------------------
 
-    if(uMsg == WM_INITDIALOG) // Received A Initilize Dialog Message
+    if(uMsg == WM_INITDIALOG) // Received an Initialize Dialog Message
     {
         hSearchDialog = hWnd;
  
@@ -260,7 +260,7 @@ INT_PTR CALLBACK SearchDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam
 
 			if(iFilesFound == 0)
 			{
-				dwForgroundColor = RGB(255, 0, 0);
+				dwForegroundColor = RGB(255, 0, 0);
 
 				Set_Text(hFilesFound, "No matching files were found.");				
 				SafeMsgBox(hWnd, "No matching files were found.", gsTitleCaption, MB_ICONINFORMATION);
@@ -272,7 +272,7 @@ INT_PTR CALLBACK SearchDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam
 				}
 			}
 			else{
-				dwForgroundColor = RGB(0, 0, 255);
+				dwForegroundColor = RGB(0, 0, 255);
 
 				if(bSelectAll)
 				{
@@ -323,7 +323,7 @@ INT_PTR CALLBACK SearchDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam
 	{
 		if((HANDLE)lParam == hFilesFound)
 		{
-			return Set_Color(dwForgroundColor, dwBackgroundColor, wParam);
+			return Set_Color(dwForegroundColor, dwBackgroundColor, wParam);
 		}
 
         return FALSE;

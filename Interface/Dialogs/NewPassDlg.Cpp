@@ -121,7 +121,7 @@ INT_PTR CALLBACK NewPassDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPara
 
     //--------------------------------------------------------------------------
 
-    if(uMsg == WM_INITDIALOG) // Received A Initilize Dialog Message
+    if(uMsg == WM_INITDIALOG) // Received an Initialize Dialog Message
     {
 		hNewPassDialog = hWnd;
 
@@ -279,7 +279,7 @@ INT_PTR CALLBACK NewPassDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPara
     else if(uMsg == 307) // Key Down
     {
 		float fPasswordLen = 0;
-		float fEffeciencyBits = 0;
+		float fEfficiencyBits = 0;
 
         char lsPassword[1024 + 1];
 		char lsTemp0[64];
@@ -295,7 +295,7 @@ INT_PTR CALLBACK NewPassDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPara
 				Set_Text(hPasswordBits, "(0 Bits, No security)");
 			}
 			else{
-				fEffeciencyBits = (fPasswordLen / 16.0f) * 100.0f;
+				fEfficiencyBits = (fPasswordLen / 16.0f) * 100.0f;
 
 				const char *sPasswordWeight;
 
@@ -374,7 +374,7 @@ INT_PTR CALLBACK NewPassDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPara
 					strcat_s(sNewPath, sizeof(sNewPath), "\\");
 					CustomCreateFolderStructure(sNewPath);
 
-					//I know, I know... This is a bad way to refresh the treeview.
+					//I know, I know... This is a bad way to refresh the tree view.
 					FolderTree.UnInitFolderTree();
 					FolderTree.InitFolderTree(hBrowseTree, GetDlgItem(hWnd, IDC_ENCRYPT), hSaveToLocation, hSaveToFile);
 					FolderTree.SelectPath(sNewPath);

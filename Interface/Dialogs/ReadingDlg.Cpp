@@ -79,7 +79,7 @@ bool EndReadingDialog(int iReturnCode)
 
 INT_PTR CALLBACK ReadingDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-    if(uMsg == WM_INITDIALOG) // Received A Initilize Dialog Message
+    if(uMsg == WM_INITDIALOG) // Received an Initialize Dialog Message
     {
         hReadingDialog = hWnd;
 

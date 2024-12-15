@@ -29,7 +29,7 @@ INT_PTR CALLBACK WeakPwdNotificationDialog(HWND hWnd, UINT uMsg, WPARAM wParam, 
 
 	//--------------------------------------------------------------------------
 
-    if(uMsg == WM_INITDIALOG) // Received A Initilize Dialog Message
+    if(uMsg == WM_INITDIALOG) // Received an Initialize Dialog Message
     {
         HMENU hSystemMenu = GetSystemMenu(hWnd, FALSE);
         AppendMenu(hSystemMenu, MF_SEPARATOR, 0, 0);

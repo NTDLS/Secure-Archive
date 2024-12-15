@@ -107,7 +107,7 @@ INT_PTR CALLBACK ExtractDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPara
 
     //--------------------------------------------------------------------------
 
-    if(uMsg == WM_INITDIALOG) // Received A Initilize Dialog Message
+    if(uMsg == WM_INITDIALOG) // Received an Initialize Dialog Message
     {
         hExtractDialog = hWnd;
 
@@ -199,7 +199,7 @@ INT_PTR CALLBACK ExtractDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPara
 					strcat_s(sNewPath, sizeof(sNewPath), "\\");
 					CustomCreateFolderStructure(sNewPath);
 
-					//This is a bad way to refresh the treview.
+					//This is a bad way to refresh the tree view.
 					FolderTree.UnInitFolderTree();
 					FolderTree.InitFolderTree(hBrowseTree, GetDlgItem(hWnd, IDC_DECRYPT), hExtractToLocation, NULL);
 					FolderTree.SelectPath(sNewPath);
@@ -223,7 +223,7 @@ INT_PTR CALLBACK ExtractDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPara
             int iLength = Get_Text(hExtractToLocation, gsExtractLocation, 255);
             if(iLength <= 0 || iLength > 255)
             {
-                SafeMsgBox(hWnd, "You must specifiy a location to extract the files to.", gsTitleCaption, 0);
+                SafeMsgBox(hWnd, "You must specify a location to extract the files to.", gsTitleCaption, 0);
                 return TRUE;
             }
 

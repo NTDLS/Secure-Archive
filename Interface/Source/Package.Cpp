@@ -266,14 +266,13 @@ int MakePackage(LPMKPKGPARAM lpMkPkgParam, LPPASSWORD lpPwd)
     HANDLE hfTarget = NULL;
 
 	int iCompressResult = 0;
-    int iBufferSize = DEFAULT_BUF_SZ;
-    int iTemp = 0;
+    const int iBufferSize = DEFAULT_BUF_SZ;
 	int iFlush = 0;
 
 	unsigned char *sSourceBuf = NULL;
     unsigned char *sTargetBuf = NULL;
     unsigned long ulFinalCRC = 0;
-    unsigned long ulFilesProcesed = 0;
+    unsigned long ulFilesProcessed = 0;
     unsigned long ulPreExistingFiles = 0;
     unsigned short usFileNameLen = 0;
 
@@ -290,7 +289,7 @@ int MakePackage(LPMKPKGPARAM lpMkPkgParam, LPPASSWORD lpPwd)
 
     memset(&DfltCode, 0, sizeof(DfltCode));
 	memset(&fpPack, 0, sizeof(fpPack));
-    memset(sTempBuf, 0, sizeof(sTempBuf));
+    memset(&sTempBuf, 0, sizeof(sTempBuf));
     memset(&Pkg, 0, sizeof(FILEPACKAGE));
     memset(&Header, 0, sizeof(Header));
 
@@ -330,7 +329,7 @@ int MakePackage(LPMKPKGPARAM lpMkPkgParam, LPPASSWORD lpPwd)
 			}
 			else{
 				sprintf_s(sStatusText, sizeof(sStatusText),
-					"An error occured while trying to index the directory:\r\n'%s'",
+					"An error occurred while trying to index the directory:\r\n'%s'",
 					lpMkPkgParam->sSrcFolder);
 
 				SafeMsgBox(hProgressDialog, sStatusText, gsTitleCaption, MB_ICONEXCLAMATION|MB_OK|MB_APPLMODAL);
@@ -341,7 +340,7 @@ int MakePackage(LPMKPKGPARAM lpMkPkgParam, LPPASSWORD lpPwd)
 
 	if(Pkg.dwFileCount <= 0)
 	{
-		SafeMsgBox(hProgressDialog, "No sutable files were found in the directory that you specified.\r\n"
+		SafeMsgBox(hProgressDialog, "No suitable files were found in the directory that you specified.\r\n"
 			"There is nothing for Secure Archive to do.",
 			gsTitleCaption, MB_ICONINFORMATION|MB_OK|MB_APPLMODAL);
 		return PACK_RESULT_NOACTION;
@@ -410,7 +409,7 @@ int MakePackage(LPMKPKGPARAM lpMkPkgParam, LPPASSWORD lpPwd)
 		char sPreAllocate[64];
 		FileSizeFriendly(Pkg.i64TotalSize, sPreAllocate, sizeof(sPreAllocate));
 		sprintf_s(sStatusText, sizeof(sStatusText),
-				"Preallocating %s of disk space.", sPreAllocate);
+				"Pre-allocating %s of disk space.", sPreAllocate);
 		Set_Text(hPackingActionText, sStatusText);
 		SetStatusFileName(hPackingStatusText, "This could take a few minutes.");
 	}
@@ -512,7 +511,7 @@ int MakePackage(LPMKPKGPARAM lpMkPkgParam, LPPASSWORD lpPwd)
 		sBlockBuffer2 = (unsigned char *) calloc(dwBlockSize + 1, sizeof(unsigned char));
 	}
 
-	while(ulFilesProcesed < Pkg.dwFileCount)
+	while(ulFilesProcessed < Pkg.dwFileCount)
     {
 		if(lpMkPkgParam->iPkgAttribs &ATTRIB_COMPRESSION)
 		{
@@ -538,27 +537,27 @@ int MakePackage(LPMKPKGPARAM lpMkPkgParam, LPPASSWORD lpPwd)
 
 		if(lpMkPkgParam->iOptions &OPTION_USEALTFILEPACK)
 		{
-			sRoot = Pkg.Roots[ulFilesProcesed];
+			sRoot = Pkg.Roots[ulFilesProcessed];
 		}
 		else{
 			sRoot = lpMkPkgParam->sSrcFolder;
 		}
 
-		sprintf_s(sFullFileName, sizeof(sFullFileName), "%s%s", sRoot, Pkg.FileNames[ulFilesProcesed]);
+		sprintf_s(sFullFileName, sizeof(sFullFileName), "%s%s", sRoot, Pkg.FileNames[ulFilesProcessed]);
 
 		if(lpMkPkgParam->iPkgAttribs &ATTRIB_SAVEPATHS)
         {
 			if(lpMkPkgParam->iOptions &OPTION_USEALTFILEPACK)
 			{
-				strcpy_s(sFileNameToSave, sizeof(sFileNameToSave), Pkg.FileNames[ulFilesProcesed]); 
+				strcpy_s(sFileNameToSave, sizeof(sFileNameToSave), Pkg.FileNames[ulFilesProcessed]); 
 			}
 			else{
 				GetLastDirectoryInPath(lpMkPkgParam->sSrcFolder, sFileNameToSave);
-				strcat_s(sFileNameToSave, sizeof(sFileNameToSave), Pkg.FileNames[ulFilesProcesed]);
+				strcat_s(sFileNameToSave, sizeof(sFileNameToSave), Pkg.FileNames[ulFilesProcessed]);
 			}
         }
         else{
-            _splitpath_s(Pkg.FileNames[ulFilesProcesed],
+            _splitpath_s(Pkg.FileNames[ulFilesProcessed],
 				NULL, 0,
 				NULL, 0,
 				sFileName, sizeof(sFileName),
@@ -567,7 +566,7 @@ int MakePackage(LPMKPKGPARAM lpMkPkgParam, LPPASSWORD lpPwd)
             _makepath_s(sFileNameToSave, sizeof(sFileNameToSave), NULL, NULL, sFileName, sExt);
         }
 
-		SetStatusFileName(hPackingStatusText, Pkg.FileNames[ulFilesProcesed]);
+		SetStatusFileName(hPackingStatusText, Pkg.FileNames[ulFilesProcessed]);
 
 		//Try to open the file while denying write access.
 		hfSource = CreateFile(
@@ -602,19 +601,19 @@ int MakePackage(LPMKPKGPARAM lpMkPkgParam, LPPASSWORD lpPwd)
 				sprintf_s(sStatusText, sizeof(sStatusText),
 					"A file name containing UNICODE characters cannot be encrypted.\r\n"
 					" Would you like to skip this file and continue with the next one?\r\n\r\n\"%s\"",
-					Pkg.FileNames[ulFilesProcesed]);
+					Pkg.FileNames[ulFilesProcessed]);
 			}
 			else{
 	            sprintf_s(sStatusText, sizeof(sStatusText),
 					"A file appears to be locked and cannot be encrypted.\r\n"
 					" Would you like to skip this file and continue with the next one?\r\n\r\n\"%s\"",
-					Pkg.FileNames[ulFilesProcesed]);
+					Pkg.FileNames[ulFilesProcessed]);
 			}
 
             if(SafeMsgBox(hProgressDialog, sStatusText, gsTitleCaption, MB_ICONQUESTION | MB_YESNO) == IDYES)
 			{
 				dwSkippedFiles++;
-				ulFilesProcesed++;
+				ulFilesProcessed++;
 				continue;
 			}
 			
@@ -930,7 +929,7 @@ int MakePackage(LPMKPKGPARAM lpMkPkgParam, LPPASSWORD lpPwd)
 		//-----[FILL IN MISSING HEADER INFORMATION BEGIN]------------------------------------------------|
 		//-----------------------------------------------------------------------------------------------|
 		
-		//We need to write some more inforamtion to the header. Save where we are.
+		//We need to write some more information to the header. Save where we are.
 		i64EndOfLastFile = FileSeek(hfTarget); //The position of the last completed file.
 
 		//Then, seek back to the top of this file.
@@ -979,12 +978,12 @@ int MakePackage(LPMKPKGPARAM lpMkPkgParam, LPPASSWORD lpPwd)
 
         CloseHandle(hfSource);
 
-        ulFilesProcesed++;
+        ulFilesProcessed++;
 
-        fPackageProgress = (float)ulFilesProcesed;
+        fPackageProgress = (float)ulFilesProcessed;
 	} //----------End Main Loop----------
 
-	UpdateFileCount(i64ExeEnd, hfTarget, &DfltCode, ulPreExistingFiles + (ulFilesProcesed - dwSkippedFiles));
+	UpdateFileCount(i64ExeEnd, hfTarget, &DfltCode, ulPreExistingFiles + (ulFilesProcessed - dwSkippedFiles));
 
     free(sSourceBuf);
     free(sTargetBuf);
@@ -1005,12 +1004,12 @@ int MakePackage(LPMKPKGPARAM lpMkPkgParam, LPPASSWORD lpPwd)
 	CloseHandle(hfTarget);
 
 	//Delete archives with no files.
-	if((ulPreExistingFiles + (ulFilesProcesed - dwSkippedFiles)) <= 0)
+	if((ulPreExistingFiles + (ulFilesProcessed - dwSkippedFiles)) <= 0)
 	{
 		SDeleteFile(gsWorkingOutput);
 	}
 	else{
-		//6/18/2008 - If the file didnt exist to begin with, delete it on error or cancel.
+		//6/18/2008 - If the file didn't exist to begin with, delete it on error or cancel.
 		if(iActionResult != PACK_RESULT_OK && !bTargetExist)
 		{
 			DeleteFile(lpMkPkgParam->sTarName);
@@ -1683,7 +1682,7 @@ int DeleteFilesFromPackage(char *sSrcName, char *sTempPath, LPPASSWORD lpPwd,
 			fFileProgress = 100;
 			SendMessage(hProgressFileStatusBar, PBM_SETPOS, 100, (LPARAM) 0);
 
-			//We need to write some more inforamtion to the header. Save where we are.
+			//We need to write some more information to the header. Save where we are.
 			i64EndOfLastFile = FileSeek(hfTarget);
 
 			//Then, seek back to the top of this file.
@@ -2718,7 +2717,7 @@ int PopGrid(char *sSrcName, LPPASSWORD lpPwd)
     HICON hLargeIcon = NULL;
 
     int IconIndexCount = 0;
-    DBGICONLIST *IcoList;
+	DBGICONLIST* IcoList = NULL;
 
 	if(gbShowGridIcons)
 	{
@@ -2729,13 +2728,13 @@ int PopGrid(char *sSrcName, LPPASSWORD lpPwd)
 	
 		ImageList_AddIcon(hImageList, hSmallIcon);
 		ImageList_AddIcon(hImageListBig, hLargeIcon);
+
+		DestroyIcon(hSmallIcon);
+		DestroyIcon(hLargeIcon);
+
+		DeleteObject(hSmallIcon);
+		DeleteObject(hLargeIcon);
 	}
-
-    DestroyIcon(hSmallIcon);
-    DestroyIcon(hLargeIcon);
-
-	DeleteObject(hSmallIcon);
-	DeleteObject(hLargeIcon);
 
 	i64FileEndPos = FileSeek(hfSource) - i64ExeEnd;
 
@@ -2791,7 +2790,7 @@ int PopGrid(char *sSrcName, LPPASSWORD lpPwd)
 			ReadFile(hfSource, &ftLastWriteTime, sizeof(FILETIME), &dwBytesRead, NULL);
 		}
 		
-        i64TotalFileSizes += i64FileSize; //Add all the file sizes togeather.
+        i64TotalFileSizes += i64FileSize; //Add all the file sizes together.
 
 		//Read the compressed file size.
 		ReadFile(hfSource, &i64CompressedFileSize, sizeof(i64CompressedFileSize), &dwBytesRead, NULL);

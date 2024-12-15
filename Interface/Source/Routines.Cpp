@@ -251,7 +251,7 @@ void ThrowFatalErrorEx(char *sError, char *sFile, char *sProc, int iLine)
 	char sErrorMsg[10240];
 
 	sprintf_s(sErrorMsg, sizeof(sErrorMsg),
-		"A fatal error has occured and the application must be closed. Please take note of the\r\n"
+		"A fatal error has occurred and the application must be closed. Please take note of the\r\n"
 		"following error information and report it to NetworkDLS as soon as possible.\r\n\r\n"
 		"%s\r\n\r\n"
 		"File: %s\r\n"

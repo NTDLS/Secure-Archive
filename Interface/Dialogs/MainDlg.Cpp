@@ -228,7 +228,7 @@ INT_PTR CALLBACK MainDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			}
 		}
 		else{
-			ResetDialog(); //The requested file doesnt exist.
+			ResetDialog(); //The requested file doesn't exist.
 		}
 	}
 
@@ -303,7 +303,7 @@ INT_PTR CALLBACK MainDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 				ResetEncryptionOptions();
 
-				// Create a new archive from the directorys contents or files.
+				// Create a new archive from the directory's contents or files.
 				if(DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_NEWPASS), hWnd, NewPassDialog) != 1)
 				{
 					DragFinish(hFilesInfo);
@@ -323,7 +323,7 @@ INT_PTR CALLBACK MainDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 					{
 						char sStatusText[5120];
 						sprintf_s(sStatusText, sizeof(sStatusText),
-							"An error occured while trying to index the directory:\r\n'%s'",
+							"An error occurred while trying to index the directory:\r\n'%s'",
 							sFullPath);
 
 						SafeMsgBox(hWnd, sStatusText, gsTitleCaption, MB_ICONEXCLAMATION|MB_OK|MB_APPLMODAL);
@@ -338,7 +338,7 @@ INT_PTR CALLBACK MainDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 					{
 						char sStatusText[5120];
 						sprintf_s(sStatusText, sizeof(sStatusText),
-							"An error occured while trying to index the file:\r\n'%s'",
+							"An error occurred while trying to index the file:\r\n'%s'",
 							sFullPath);
 
 						SafeMsgBox(hWnd, sStatusText, gsTitleCaption, MB_ICONEXCLAMATION|MB_OK|MB_APPLMODAL);
@@ -811,7 +811,7 @@ INT_PTR CALLBACK MainDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 					ResetEncryptionOptions();
 
-					// Create a new archive from the directorys contents
+					// Create a new archive from the directory's contents
 					if(DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_NEWPASS), NULL, NewPassDialog) != 1)
 					{
 						return TRUE;
@@ -837,7 +837,7 @@ INT_PTR CALLBACK MainDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 						{
 							char sStatusText[5120];
 							sprintf_s(sStatusText, sizeof(sStatusText),
-								"An error occured while trying to index the file:\r\n'%s'",
+								"An error occurred while trying to index the file:\r\n'%s'",
 								sFileName);
 
 							SafeMsgBox(hWnd, sStatusText, gsTitleCaption, MB_ICONEXCLAMATION|MB_OK|MB_APPLMODAL);
@@ -855,7 +855,7 @@ INT_PTR CALLBACK MainDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 					{
 						char sStatusText[5120];
 						sprintf_s(sStatusText, sizeof(sStatusText),
-							"An error occured while trying to index the file:\r\n'%s'",
+							"An error occurred while trying to index the file:\r\n'%s'",
 							sFileName);
 
 						SafeMsgBox(hWnd, sStatusText, gsTitleCaption, MB_ICONEXCLAMATION|MB_OK|MB_APPLMODAL);

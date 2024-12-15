@@ -31,7 +31,7 @@ INT_PTR CALLBACK HardKeyStatDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
 {
     //--------------------------------------------------------------------------
 
-    if(uMsg == WM_INITDIALOG) // Received A Initilize Dialog Message
+    if(uMsg == WM_INITDIALOG) // Received an Initialize Dialog Message
     {
 		hHardKeyStatDialog = hWnd;
 

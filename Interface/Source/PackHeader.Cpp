@@ -161,7 +161,7 @@ bool ReadPackageHeader(__int64 i64ExeEnd, HANDLE hfSource, HWND hOwner, LPPASSWO
 
 	if(bPublicOnly)
 	{
-		//Exit here, we dont want to give up the checksums n' stuff.
+		//Exit here, we don't want to give up the checksums n' stuff.
 		return true;
 	}
 

@@ -25,7 +25,7 @@ INT_PTR CALLBACK OverwriteOrAppendDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LP
 {
     //--------------------------------------------------------------------------
 
-    if(uMsg == WM_INITDIALOG) // Received A Initilize Dialog Message
+    if(uMsg == WM_INITDIALOG) // Received an Initialize Dialog Message
     {
         HMENU hSystemMenu = GetSystemMenu(hWnd, FALSE);
         AppendMenu(hSystemMenu, MF_SEPARATOR, 0, 0);
