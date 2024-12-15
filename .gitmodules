@@ -16,3 +16,6 @@
 [submodule "CTrayIcon"]
 	path = CTrayIcon
 	url = https://github.com/NTDLS/CTrayIcon
+[submodule "Compression"]
+	path = Compression
+	url = git@github.com:NTDLS/Compression.git
