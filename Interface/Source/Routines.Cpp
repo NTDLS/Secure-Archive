@@ -8,7 +8,7 @@
 #include <ShlOBJ.H>
 #include <Stdlib.H>
 
-#include "../../SecureDeleteLibrary/SecureDelete.H"
+#include "../../Library/SecureDeleteLibrary/SecureDelete.H"
 
 #include "Package.H"
 #include "Entry.H"

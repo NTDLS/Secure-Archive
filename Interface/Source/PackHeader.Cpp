@@ -20,13 +20,13 @@
 #include "../Dialogs/ExtractDlg.H"
 #include "../Dialogs/ReplaceFileDlg.H"
 
-#include "../../Compression/zLib/ZLibEncapsulation.H"
+#include "../../Library/Compression/zLib/ZLibEncapsulation.H"
 
-#include "../../Rijndael/AES.H"
-#include "../../Rijndael/AESOpt.H"
-#include "../../Rijndael/Rijndael.H"
+#include "../../Library/Rijndael/AES.H"
+#include "../../Library/Rijndael/AESOpt.H"
+#include "../../Library/Rijndael/Rijndael.H"
 
-#include "../../BlowFish/BlowFish.H"
+#include "../../Library/BlowFish/BlowFish.H"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

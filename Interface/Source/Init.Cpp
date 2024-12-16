@@ -9,7 +9,7 @@
 #include <Stdlib.H>
 #include <CommCtrl.H>
 
-#include "../../SecureDeleteLibrary/SecureDelete.H"
+#include "../../Library/SecureDeleteLibrary/SecureDelete.H"
 
 #include "Init.H"
 #include "Entry.H"

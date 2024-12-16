@@ -2,9 +2,9 @@
 #define _ENTRY_H
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "../../NSWFL/NSWFL.H"
-#include "../../NASCCL/NASCCL.H"
-#include "../../CTrayIcon/CTrayIcon.H"
+#include "../../Library/NSWFL/NSWFL.H"
+#include "../../Library/NASCCL/NASCCL.H"
+#include "../../Library/CTrayIcon/CTrayIcon.H"
 
 #include "../Resources/Resource.H"
 
