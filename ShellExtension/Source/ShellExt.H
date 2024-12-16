@@ -6,7 +6,7 @@
 
 // {8CC98F55-96FA-4bde-B01B-687EDFA6BD36}
 DEFINE_GUID(CLSID_ShellExtension,
-0x8cc98f55, 0x96fa, 0x4bde, 0xb0, 0x1b, 0x68, 0x7e, 0xdf, 0xa6, 0xbd, 0x36);
+	0x8cc98f55, 0x96fa, 0x4bde, 0xb0, 0x1b, 0x68, 0x7e, 0xdf, 0xa6, 0xbd, 0x36);
 
 /*
 	Old GUIDs:
@@ -32,16 +32,16 @@ public:
 	~CShellExtClassFactory();
 
 	//IUnknown members
-	STDMETHODIMP			QueryInterface(REFIID, LPVOID FAR *);
+	STDMETHODIMP			QueryInterface(REFIID, LPVOID FAR*);
 	STDMETHODIMP_(ULONG)	AddRef();
 	STDMETHODIMP_(ULONG)	Release();
 
 	//IClassFactory members
-	STDMETHODIMP		CreateInstance(LPUNKNOWN, REFIID, LPVOID FAR *);
+	STDMETHODIMP		CreateInstance(LPUNKNOWN, REFIID, LPVOID FAR*);
 	STDMETHODIMP		LockServer(BOOL);
 
 };
-typedef CShellExtClassFactory *LPCSHELLEXTCLASSFACTORY;
+typedef CShellExtClassFactory* LPCSHELLEXTCLASSFACTORY;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -49,7 +49,8 @@ typedef CShellExtClassFactory *LPCSHELLEXTCLASSFACTORY;
 class CShellExt : public IShellExtInit, IContextMenu
 {
 public:
-	char		 sFileUserClickedOn[MAX_PATH];
+	char sFileUserClickedOn[MAX_PATH];
+	HBITMAP hBitmap = NULL;
 
 protected:
 	ULONG		 m_cRef;
@@ -60,7 +61,7 @@ public:
 	~CShellExt();
 
 	//IUnknown members
-	STDMETHODIMP			QueryInterface(REFIID, LPVOID FAR *);
+	STDMETHODIMP			QueryInterface(REFIID, LPVOID FAR*);
 	STDMETHODIMP_(ULONG)	AddRef();
 	STDMETHODIMP_(ULONG)	Release();
 
@@ -68,12 +69,14 @@ public:
 	STDMETHODIMP QueryContextMenu(HMENU hMenu, UINT indexMenu, UINT idCmdFirst, UINT idCmdLast, UINT uFlags);
 	STDMETHODIMP InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi);
 
+	HBITMAP CreateDIBFromIcon(char *lpName, int cxDesired, int cyDesired);
+
 	//IShellExtInit methods
 	STDMETHODIMP Initialize(LPCITEMIDLIST pIDFolder, LPDATAOBJECT pDataObj, HKEY hKeyID);
-	HRESULT STDMETHODCALLTYPE GetCommandString(UINT_PTR idCmd, UINT uType, UINT *pwReserved, LPSTR pszName, UINT cchMax);
+	HRESULT STDMETHODCALLTYPE GetCommandString(UINT_PTR idCmd, UINT uType, UINT* pwReserved, LPSTR pszName, UINT cchMax);
 
 };
-typedef CShellExt *LPCSHELLEXT;
+typedef CShellExt* LPCSHELLEXT;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #endif

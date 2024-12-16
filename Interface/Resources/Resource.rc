@@ -7,7 +7,7 @@
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
-#include "windows.h"
+#include "afxres.h"
 
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
@@ -940,8 +940,8 @@ IDR_DELETEAVI           AVI                     "Delete.avi"
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,6,1
- PRODUCTVERSION 1,0,6,1
+ FILEVERSION 1,1,0,0
+ PRODUCTVERSION 1,1,0,0
  FILEFLAGSMASK 0x17L
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -959,12 +959,12 @@ BEGIN
             VALUE "Comments", "File Encryption Utility"
             VALUE "CompanyName", "NetworkDLS"
             VALUE "FileDescription", "File Encryption Utility"
-            VALUE "FileVersion", "1.0.6.1"
+            VALUE "FileVersion", "1.1.0.0"
             VALUE "InternalName", "Secure Archive"
-            VALUE "LegalCopyright", "Copyright © 2017 NetworkDLS"
+            VALUE "LegalCopyright", "Copyright © 2025 NetworkDLS"
             VALUE "OriginalFilename", "SA.exe"
             VALUE "ProductName", "Secure Archive"
-            VALUE "ProductVersion", "1.0.6.1"
+            VALUE "ProductVersion", "1.1.0.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -984,6 +984,11 @@ BEGIN
     0
 END
 
+IDD_ADVANCEDOPT AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -993,8 +998,8 @@ END
 STRINGTABLE
 BEGIN
     IDS_TITLECAPTION        "Secure Archive"
-    IDS_FILEVERSION         "1.0.6.1"
-    IDS_APPCOPYRIGHT        "Copyright © 2017 NetworkDLS. All rights reserved."
+    IDS_FILEVERSION         "1.1.0.0"
+    IDS_APPCOPYRIGHT        "Copyright © 2025 NetworkDLS. All rights reserved."
     IDS_REGISTRYKEY         "Software\\NetworkDLS\\Secure Archive"
     IDS_COMPATIBILITY       "Compatibility Version  000301x"
     IDS_EMPTYPASSWORD       "Compatibility Password  000301x"

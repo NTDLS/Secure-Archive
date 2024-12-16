@@ -2,6 +2,7 @@
 // Microsoft Visual C++ generated include file.
 // Used by Resource.rc
 //
+#define IDC_STATIC                     -1
 #define ID_SEPARATOR                    0
 #define IDS_TITLECAPTION                1
 #define VS_VERSION_INFO                 1

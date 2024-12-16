@@ -54,13 +54,13 @@ STDAPI DllCanUnloadNow(void)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
+STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID* ppvOut)
 {
 	*ppvOut = NULL;
 
 	if (IsEqualIID(rclsid, CLSID_ShellExtension))
 	{
-		CShellExtClassFactory *pcf = new CShellExtClassFactory;
+		CShellExtClassFactory* pcf = new CShellExtClassFactory;
 
 		return pcf->QueryInterface(riid, ppvOut);
 	}
@@ -74,9 +74,9 @@ CShellExtClassFactory::CShellExtClassFactory()
 {
 	m_cRef = 0L;
 
-	giRefThisDll++;	
+	giRefThisDll++;
 }
-																
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 CShellExtClassFactory::~CShellExtClassFactory()
@@ -86,7 +86,7 @@ CShellExtClassFactory::~CShellExtClassFactory()
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-STDMETHODIMP CShellExtClassFactory::QueryInterface(REFIID riid, LPVOID FAR *ppv)
+STDMETHODIMP CShellExtClassFactory::QueryInterface(REFIID riid, LPVOID FAR* ppv)
 {
 	*ppv = NULL;
 
@@ -102,7 +102,7 @@ STDMETHODIMP CShellExtClassFactory::QueryInterface(REFIID riid, LPVOID FAR *ppv)
 	}
 
 	return E_NOINTERFACE;
-}	
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -125,7 +125,7 @@ STDMETHODIMP_(ULONG) CShellExtClassFactory::Release()
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-STDMETHODIMP CShellExtClassFactory::CreateInstance(LPUNKNOWN pUnkOuter, REFIID riid, LPVOID *ppvObj)
+STDMETHODIMP CShellExtClassFactory::CreateInstance(LPUNKNOWN pUnkOuter, REFIID riid, LPVOID* ppvObj)
 {
 	*ppvObj = NULL;
 
@@ -158,6 +158,12 @@ STDMETHODIMP CShellExtClassFactory::LockServer(BOOL fLock)
 // *********************** CShellExt *************************
 CShellExt::CShellExt()
 {
+	if (hBitmap != NULL)
+	{
+		DeleteObject(hBitmap);
+		hBitmap = NULL;
+	}
+
 	m_cRef = 0L;
 	m_pDataObj = NULL;
 
@@ -176,7 +182,7 @@ CShellExt::~CShellExt()
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-STDMETHODIMP CShellExt::QueryInterface(REFIID riid, LPVOID FAR *ppv)
+STDMETHODIMP CShellExt::QueryInterface(REFIID riid, LPVOID FAR* ppv)
 {
 	*ppv = NULL;
 

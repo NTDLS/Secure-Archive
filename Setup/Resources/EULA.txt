@@ -1,0 +1,25 @@
+EULA - (End User License Agreement)  
+
+By installing or using NetworkDLS software products you:
+
+1.  Acknowledge that distribution, renting, sublicensing all or any portion of NetworkDLS software products, NetworkDLS software registration keys, accompanying utilities, or any documentation is expressively prohibited. 
+
+2.  Agree not to reverse engineer, decompile, disassemble, or attempt to change or otherwise modify any part NetworkDLS software products. 
+
+3.  Acknowledge that some software by NetworkDLS uses strong encryption methods that some countries place use restrictions. Verify that you are allowed to use these applications before doing so. 
+
+4.  Acknowledge that though some software by NetworkDLS uses strong encryption methods, NetworkDLS DOES NOT guarantee the safety or privacy of ones data to any extent. 
+
+5.  Acknowledge that NetworkDLS shall not be liable for any special, indirect, incidental, or consequential damages, including without limitation, lost revenues or lost profits, which may result from the use of NetworkDLS software products. 
+
+6.  Acknowledge that NetworkDLS shall not be liable for any special, indirect, incidental, or consequential misuse of NetworkDLS software products. 
+
+7.  Agree to use your best efforts to prevent NetworkDLS software products from unauthorized disclosure or use. 
+
+8.  Acknowledge that this agreement is effective until terminated. You may terminate it at any time by destroying the NetworkDLS software products, including all computer programs and documentation, and erasing any copies residing on computer equipment. This agreement also will terminate if you do not comply with any terms or conditions of this agreement. Upon such termination you agree to destroy the software product and erase all copies residing on computer equipment. 
+
+9.  Acknowledge that these materials are provided "as is" without warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. 
+
+10. Acknowledge that this information is subject to change without notice, does not represent a commitment on the part of NetworkDLS in the future and that NetworkDLS assumes no responsibility for errors or omissions in these materials. 
+
+

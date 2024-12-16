@@ -240,12 +240,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bmp100.bmp">
-      <Filter>Resources</Filter>
-    </None>
-    <None Include="Resources\ico100.ico">
-      <Filter>Resources</Filter>
-    </None>
     <None Include="..\NSWFL\.gitignore">
       <Filter>Classes and Modules\NSWFL</Filter>
     </None>
@@ -262,16 +256,10 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="bmp101.ico">
+    <Image Include="Resources\MenuIcon16x16x32bit.ico">
       <Filter>Resources</Filter>
     </Image>
-    <Image Include="Resources\bmp101.ico">
-      <Filter>Resources</Filter>
-    </Image>
-    <Image Include="Archive.bmp">
-      <Filter>Resources</Filter>
-    </Image>
-    <Image Include="Resources\Archive.bmp">
+    <Image Include="Resources\MenuIcon16x16x8bit.bmp">
       <Filter>Resources</Filter>
     </Image>
   </ItemGroup>

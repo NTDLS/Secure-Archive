@@ -2,7 +2,7 @@
 //	MODULE:   ctxmenu.cpp
 //
 //	PURPOSE:   Implements the IContextMenu member functions necessary to support
-//			   the context menu portioins of this shell extension.	Context menu
+//			   the context menu portions of this shell extension.	Context menu
 //			   shell extensions are called when the user right clicks on a file
 //			   (of the type registered for the shell extension--see SHELLEXT.REG
 //			   for details on the registry entries.  In this sample, the relevant
@@ -204,18 +204,15 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu, UINT indexMenu, UINT idCmd
 						iAllowedAction = ACTION_ENCRYPT;
 					}
 				}
-
-				HBITMAP hBitmap = NULL;
 				
 				if (IsWindowsVistaOrGreater())
 				{
-					hBitmap = (HBITMAP)LoadImage(ghModThisDLL, MAKEINTRESOURCE(IDB_24BITMENUITEM), IMAGE_BITMAP, 16, 16, 0);
+					hBitmap = CreateDIBFromIcon(MAKEINTRESOURCE(IDI_MENUICON16X16), 16, 16);
 				}
 				else
 				{
-					hBitmap = LoadBitmap(ghModThisDLL, MAKEINTRESOURCE(IDB_16BITMENUITEM));
+					hBitmap = LoadBitmap(ghModThisDLL, MAKEINTRESOURCE(IDI_MENUICON16X16_8BIT));
 				}
-			
 
 				HMENU hCmdMenu = CreateMenu();
 
@@ -249,31 +246,9 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu, UINT indexMenu, UINT idCmd
 		}
 
 		return MAKE_HRESULT(SEVERITY_SUCCESS, 0, idCmd - idCmdFirst + 1);
-		//return MAKE_HRESULT(SEVERITY_SUCCESS, 0, (idIndex - 1) - indexMenu + 1);
-		//return ResultFromShort(idCmd-idIndex);
 	}
-	/*
-	if (uFlags & CMF_VERBSONLY)
-	{
-		idIndex++;
-		InsertMenu(hMenu, idIndex++, MF_STRING|MF_BYPOSITION, idCmd++, "Encrypt Shortcut");
 
-		HBITMAP BitMapResource = LoadBitmap(ghModThisDLL, MAKEINTRESOURCE(100) );
-		SetMenuItemBitmaps(hMenu, idIndex, MF_BYPOSITION, BitMapResource, BitMapResource);
 
-		return ResultFromShort(idCmd-idCmdFirst);
-	}
-	if (uFlags & CMF_EXPLORE)
-	{
-		idIndex++;
-		InsertMenu(hMenu, idIndex++, MF_STRING|MF_BYPOSITION, idCmd++, "Open with Secure Archive");
-
-		HBITMAP BitMapResource = LoadBitmap(ghModThisDLL, MAKEINTRESOURCE(IDB_SHELLMENU) );
-		SetMenuItemBitmaps(hMenu, idIndex, MF_BYPOSITION, BitMapResource, BitMapResource);
-
-		return ResultFromShort(idCmd-idCmdFirst);
-	}
-*/
 	if (uFlags & CMF_DEFAULTONLY)
 	{
 		return NOERROR;
@@ -283,51 +258,57 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu, UINT indexMenu, UINT idCmd
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/*
-	//This may be required for a 64bit context extension, discovery needed.
-*/
-/*
-HRESULT CShellExt::GetCommandString(UINT_PTR idCmd, UINT uFlags, UINT *pwReserved, LPSTR pszName, UINT cchMax)
+
+HBITMAP CShellExt::CreateDIBFromIcon(char* lpName, int cxDesired, int cyDesired)
 {
-	HRESULT hr = E_INVALIDARG;
+	union {
+		PVOID pv;
+		PBYTE pb;
+		PBITMAPINFOHEADER pbih;
+	};
 
-	if(iAllowedAction == ACTION_ENCRYPT)
+	if (HRSRC hrs = FindResource(ghModThisDLL, lpName, RT_GROUP_ICON))
 	{
-		if(idCmd == iEncryptTo)
+		if (pv = LoadResource(ghModThisDLL, hrs))
 		{
+			if (int i = LookupIconIdFromDirectoryEx(pb, TRUE, cxDesired, cyDesired, 0))
+			{
+				if (hrs = FindResource(ghModThisDLL, MAKEINTRESOURCE(i), RT_ICON))
+				{
+					if (pv = LoadResource(ghModThisDLL, hrs))
+					{
+						pbih = (PBITMAPINFOHEADER)pv; // Cast to header
+						if (pbih->biBitCount == 32)
+						{
+							// Adjust for DIB height (includes mask)
+							BITMAPINFOHEADER bih = *pbih;
+							bih.biHeight >>= 1; // Divide height by 2 to exclude mask
+							bih.biSizeImage = 4 * bih.biWidth * bih.biHeight; // Image size
+							PVOID pvBits;
+
+							// Create the DIB section
+							if (HBITMAP hbmpItem = CreateDIBSection(0, (PBITMAPINFO)&bih, DIB_RGB_COLORS, &pvBits, 0, 0))
+							{
+								// Calculate source pointer offset and stride
+								PBYTE pSrc = pb + pbih->biSize; // Start of bitmap bits
+								size_t rowSize = 4 * pbih->biWidth; // Row size in bytes (no alignment issues for 32-bit)
+								for (int y = 0; y < bih.biHeight; ++y)
+								{
+									// Copy one row at a time
+									memcpy((PBYTE)pvBits + y * rowSize, pSrc + y * rowSize, rowSize);
+								}
+								return hbmpItem;
+							}
+						}
+					}
+				}
+			}
 		}
 	}
-	else if(iAllowedAction == ACTION_DECRYPT || iAllowedAction == ACTION_SELFEXE)
-	{
-		if(idCmd == iDecryptToSpecified)
-		{
-		}
-		else if(idCmd == iDecryptToCurrent)
-		{
-		
-		}
-		else if(idCmd == iTestArchive)
-		{
 
-		}
-		else if(idCmd == iCreateSelfExe)
-		{
-
-		}
-		else if(idCmd == iViewContents)
-		{
-
-		}
-	}
-
-	return S_OK;
-
-
-//hr = StringCchCopyNW((LPWSTR)pszName, cchMax, menuDescU_.c_str(), cchMax);
-
-	return hr;
+	return 0;
 }
-*/
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -527,5 +508,3 @@ HRESULT STDMETHODCALLTYPE CShellExt::GetCommandString(UINT_PTR idCmd, UINT uType
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-

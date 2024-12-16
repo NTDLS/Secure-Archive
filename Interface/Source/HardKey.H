@@ -2,8 +2,8 @@
 #define _HardKey_H
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-bool ReadHardKey(HWND hOwner, const char *sFileName, const char *sPwd, int iPwdLen, LPPASSWORD lpPwd);
-bool CreateKeyFile(HWND hST, HWND hPB, const char *sFileName, const char *sPwd, int iPwdLen, int iKeyGenLen);
+bool ReadHardKey(HWND hOwner, const char* sFileName, const char* sPwd, int iPwdLen, LPPASSWORD lpPwd);
+bool CreateKeyFile(HWND hST, HWND hPB, const char* sFileName, const char* sPwd, int iPwdLen, int iKeyGenLen);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #endif

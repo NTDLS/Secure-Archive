@@ -39,22 +39,22 @@ using namespace NSWFL::Hashing;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-typedef struct _tag_ProgressTrayInfo{
+typedef struct _tag_ProgressTrayInfo {
 	HWND hDialog;
 	HWND hProgressBar;
 	bool bParentInitialVisibility;
-} PROGRESSTRAYINFO, *LPPROGRESSTRAYINFO;
+} PROGRESSTRAYINFO, * LPPROGRESSTRAYINFO;
 
-typedef struct tag_CONIO{
-    HANDLE StdIn;
-    HANDLE StdOut;
-    HANDLE StdErr;
-} CONIO, *LPCONIO;
+typedef struct tag_CONIO {
+	HANDLE StdIn;
+	HANDLE StdOut;
+	HANDLE StdErr;
+} CONIO, * LPCONIO;
 
-typedef struct _tag_Password{
-	char *sPassword;
+typedef struct _tag_Password {
+	char* sPassword;
 	int iLength;
-} PASSWORD, *LPPASSWORD;
+} PASSWORD, * LPPASSWORD;
 
 extern PASSWORD gPassword;
 extern NASCCLStream gCode;
@@ -121,7 +121,7 @@ extern DWORD gdwDefaultSortDirection;
 
 extern DWORD gdwWeakEncryptionWarnLevel;
 
-extern CRC32 *gCRC32;
+extern CRC32* gCRC32;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #endif

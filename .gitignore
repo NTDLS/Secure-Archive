@@ -20,3 +20,15 @@ Interface/.vs/
 Interface/Debug/
 
 Interface/Release/
+
+*.aps
+
+SelfExtractor/.vs/
+
+SelfExtractor/Release/x64/
+
+ShellExtension/.vs/
+
+ShellExtension/Debug/
+
+ShellExtension/Release/

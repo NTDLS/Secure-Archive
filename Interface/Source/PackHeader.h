@@ -8,7 +8,7 @@
 
 //For extra header information, see the "Header Makeup.doc" file.
 
-#define SELFEXTRACTOREXEEND		700416    
+#define SELFEXTRACTOREXEEND		814592    
 #define PACKAGE_HEADER_LEN		1024
 #define RESERVE_HEADER_SZ		844
 #define THUMB_PRINT_SZ			128

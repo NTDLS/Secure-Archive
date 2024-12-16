@@ -25,15 +25,15 @@ using namespace NSWFL::Registry;
 
 void EnableDPI(void)
 {
-	typedef BOOL (*SetProcessDPIAwareFunc)();
+	typedef BOOL(*SetProcessDPIAwareFunc)();
 
 	HMODULE hUser32 = LoadLibrary("user32.dll");
-	if(hUser32)
+	if (hUser32)
 	{
 		SetProcessDPIAwareFunc setDPIAware
 			= (SetProcessDPIAwareFunc)GetProcAddress(hUser32, "SetProcessDPIAware");
 
-		if(setDPIAware)
+		if (setDPIAware)
 		{
 			setDPIAware();
 		}
@@ -47,12 +47,12 @@ void EnableDPI(void)
 bool InitializeApp(void)
 {
 	LoadString(ghAppInstance, IDS_APPCOPYRIGHT, gsAppCopyRight, sizeof(gsAppCopyRight));
-    LoadString(ghAppInstance, IDS_FILEVERSION, gsFileVersion, sizeof(gsFileVersion));
-    LoadString(ghAppInstance, IDS_TITLECAPTION, gsTitleCaption, sizeof(gsTitleCaption));
-    LoadString(ghAppInstance, IDS_REGISTRYKEY, gsRegistryKey, sizeof(gsRegistryKey));
-    LoadString(ghAppInstance, IDS_PATHKEY, gsPathKey, sizeof(gsPathKey));
-    LoadString(ghAppInstance, IDS_COMPATIBILITY, gsCompatibility, sizeof(gsCompatibility));
-    LoadString(ghAppInstance, IDS_EMPTYPASSWORD, gsEmptyPassword, sizeof(gsEmptyPassword));
+	LoadString(ghAppInstance, IDS_FILEVERSION, gsFileVersion, sizeof(gsFileVersion));
+	LoadString(ghAppInstance, IDS_TITLECAPTION, gsTitleCaption, sizeof(gsTitleCaption));
+	LoadString(ghAppInstance, IDS_REGISTRYKEY, gsRegistryKey, sizeof(gsRegistryKey));
+	LoadString(ghAppInstance, IDS_PATHKEY, gsPathKey, sizeof(gsPathKey));
+	LoadString(ghAppInstance, IDS_COMPATIBILITY, gsCompatibility, sizeof(gsCompatibility));
+	LoadString(ghAppInstance, IDS_EMPTYPASSWORD, gsEmptyPassword, sizeof(gsEmptyPassword));
 
 	//EnableDPI(); //For Vista DPI.
 
@@ -73,23 +73,23 @@ bool InitializeApp(void)
 	InitCommonControlsEx(&CCEX);
 
 #ifndef _SELFEXTRACTOR_APP
-	if(!GetRegistryValues())
+	if (!GetRegistryValues())
 	{
 		SafeMsgBox(NULL, "Failed to get registry values, please reinstall Secure Archive.",
 			gsTitleCaption, MB_ICONERROR);
 	}
-		
+
 	//Set the default Affinity Mask if it is not set.
-	if(gdwCPUAffinityMask == 0)
+	if (gdwCPUAffinityMask == 0)
 	{
 		DWORD_PTR dwProcessAffinityMask = 0;
 		DWORD_PTR dwSystemAffinityMask = 0;
 
-		if(!GetProcessAffinityMask(GetCurrentProcess(), &dwProcessAffinityMask, &dwSystemAffinityMask))
+		if (!GetProcessAffinityMask(GetCurrentProcess(), &dwProcessAffinityMask, &dwSystemAffinityMask))
 		{
 			gdwCPUAffinityMask = -1;
 		}
-		else{
+		else {
 			gdwCPUAffinityMask = dwSystemAffinityMask;
 		}
 	}
@@ -98,7 +98,7 @@ bool InitializeApp(void)
 	SetProcessPriorityBoost(GetCurrentProcess(), !gbUseProcessBoost);
 #endif
 
-	if(!InitSecureDelete())
+	if (!InitSecureDelete())
 	{
 		gdwSecureDeletePasses = 0; //Secure delete will not be available.
 		//FIXFIX: Handle error!
@@ -108,7 +108,7 @@ bool InitializeApp(void)
 
 	gCRC32->Initialize();
 
-    return true;
+	return true;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -155,34 +155,34 @@ bool SetRegistryValues(void)
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef _SELFEXTRACTOR_APP
-bool CopyRegValue(HKEY hSourceRoot, HKEY hTargetRoot, const char *sKeyPath,
-				  const char *sValueName, DWORD dwValueType)
+bool CopyRegValue(HKEY hSourceRoot, HKEY hTargetRoot, const char* sKeyPath,
+	const char* sValueName, DWORD dwValueType)
 {
 	DWORD dwTestSize = 0;
 
 
-	if(Get_BinaryRegistryValue(hTargetRoot, sKeyPath, sValueName, NULL, dwTestSize))
+	if (Get_BinaryRegistryValue(hTargetRoot, sKeyPath, sValueName, NULL, dwTestSize))
 	{
 		return true; //Value already exists.
 	}
 
-	if(dwValueType == REG_QWORD)
+	if (dwValueType == REG_QWORD)
 	{
 		unsigned __int64 u64Buffer = 0;
-		if(Get_DWORDRegistryValue(hSourceRoot, sKeyPath, sValueName, u64Buffer))
+		if (Get_DWORDRegistryValue(hSourceRoot, sKeyPath, sValueName, u64Buffer))
 		{
 			return Set_DWORDRegistryValue(hTargetRoot, sKeyPath, sValueName, u64Buffer);
 		}
 	}
-	else if(dwValueType == REG_DWORD)
+	else if (dwValueType == REG_DWORD)
 	{
 		DWORD dwBuffer = 0;
-		if(Get_DWORDRegistryValue(hSourceRoot, sKeyPath, sValueName, dwBuffer))
+		if (Get_DWORDRegistryValue(hSourceRoot, sKeyPath, sValueName, dwBuffer))
 		{
 			return Set_DWORDRegistryValue(hTargetRoot, sKeyPath, sValueName, dwBuffer);
 		}
 	}
-	else if(dwValueType == REG_BINARY)
+	else if (dwValueType == REG_BINARY)
 	{
 		//Ignore the [Registration] value.
 		return true;
@@ -205,16 +205,16 @@ bool CopyRegValue(HKEY hSourceRoot, HKEY hTargetRoot, const char *sKeyPath,
 		}
 		*/
 	}
-	else if(dwValueType == REG_SZ || dwValueType == REG_EXPAND_SZ)
+	else if (dwValueType == REG_SZ || dwValueType == REG_EXPAND_SZ)
 	{
 		DWORD dwBufferSize = 0;
-		if(Get_StringRegistryValue(hSourceRoot, sKeyPath, sValueName, NULL, dwBufferSize))
+		if (Get_StringRegistryValue(hSourceRoot, sKeyPath, sValueName, NULL, dwBufferSize))
 		{
 			bool bResult = false;
 
-			char *sBuffer = (char *)calloc(dwBufferSize + 1, sizeof(char));
+			char* sBuffer = (char*)calloc(dwBufferSize + 1, sizeof(char));
 			dwBufferSize++;
-			if(Get_StringRegistryValue(hSourceRoot, sKeyPath, sValueName, sBuffer, dwBufferSize))
+			if (Get_StringRegistryValue(hSourceRoot, sKeyPath, sValueName, sBuffer, dwBufferSize))
 			{
 				dwBufferSize--;
 				sBuffer[dwBufferSize] = '\0';
@@ -225,7 +225,7 @@ bool CopyRegValue(HKEY hSourceRoot, HKEY hTargetRoot, const char *sKeyPath,
 			return bResult;
 		}
 	}
-	else{
+	else {
 		char sText[512];
 		sprintf_s(sText, sizeof(sText), "%d is an invalid registry value type.", dwValueType);
 		Assert("dwValueType", sText);
@@ -239,7 +239,7 @@ bool CopyRegValue(HKEY hSourceRoot, HKEY hTargetRoot, const char *sKeyPath,
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef _SELFEXTRACTOR_APP
-bool CopyTemplateRegistrySettings(const char *sPath)
+bool CopyTemplateRegistrySettings(const char* sPath)
 {
 	HKEY hKLM = NULL;
 	char sName[255];
@@ -248,16 +248,16 @@ bool CopyTemplateRegistrySettings(const char *sPath)
 
 	CreateRegKeyStructure(HKEY_CURRENT_USER, sPath);
 
-	if(RegOpenKey(HKEY_LOCAL_MACHINE, sPath, &hKLM) != ERROR_SUCCESS)
+	if (RegOpenKey(HKEY_LOCAL_MACHINE, sPath, &hKLM) != ERROR_SUCCESS)
 	{
 		return false;
 	}
 
-	for(DWORD dwIndex = 0;
+	for (DWORD dwIndex = 0;
 		RegEnumValue(hKLM, dwIndex, sName, &dwNameSize, 0, &dwType, NULL, 0) == ERROR_SUCCESS;
 		dwIndex++)
 	{
-		if(!CopyRegValue(HKEY_LOCAL_MACHINE, HKEY_CURRENT_USER, sPath, sName, dwType))
+		if (!CopyRegValue(HKEY_LOCAL_MACHINE, HKEY_CURRENT_USER, sPath, sName, dwType))
 		{
 			char sText[2048];
 			sprintf_s(sText, sizeof(sText), "Failed to copy registry value [%s] to local profile", sName);
@@ -277,37 +277,37 @@ bool CopyTemplateRegistrySettings(const char *sPath)
 #ifndef _SELFEXTRACTOR_APP
 bool GetRegistryValues(void)
 {
-	if(!CopyTemplateRegistrySettings(gsRegistryKey))
+	if (!CopyTemplateRegistrySettings(gsRegistryKey))
 	{
 		SafeMsgBox(GetActiveWindow(),
 			"Failed to copy template registry settings to local user account.",
-			gsTitleCaption, MB_ICONERROR);		
+			gsTitleCaption, MB_ICONERROR);
 		return false;
 	}
 
 	DWORD dwSize = 0;
 
-	if(!Get_DWORDRegistryValue(HKEY_CURRENT_USER, gsRegistryKey, "DfltDefaultSortColumn", gdwDefaultSortColumn))
+	if (!Get_DWORDRegistryValue(HKEY_CURRENT_USER, gsRegistryKey, "DfltDefaultSortColumn", gdwDefaultSortColumn))
 	{
 		gdwDefaultSortColumn = 0;
 	}
 
-	if(!Get_DWORDRegistryValue(HKEY_CURRENT_USER, gsRegistryKey, "DfltDefaultSortDirection", gdwDefaultSortDirection))
+	if (!Get_DWORDRegistryValue(HKEY_CURRENT_USER, gsRegistryKey, "DfltDefaultSortDirection", gdwDefaultSortDirection))
 	{
 		gdwDefaultSortDirection = 0;
 	}
 
-	if(!Get_DWORDRegistryValue(HKEY_CURRENT_USER, gsRegistryKey, "WeakEncryptionWarnLevel", gdwWeakEncryptionWarnLevel))
+	if (!Get_DWORDRegistryValue(HKEY_CURRENT_USER, gsRegistryKey, "WeakEncryptionWarnLevel", gdwWeakEncryptionWarnLevel))
 	{
 		gdwWeakEncryptionWarnLevel = KW_ACCEPTABLE;
 	}
 
-	if(!Get_DWORDRegistryValue(HKEY_CURRENT_USER, gsRegistryKey, "SecureDeletePasses", gdwSecureDeletePasses))
+	if (!Get_DWORDRegistryValue(HKEY_CURRENT_USER, gsRegistryKey, "SecureDeletePasses", gdwSecureDeletePasses))
 	{
 		gdwSecureDeletePasses = 0;
 	}
 
-	if(!Get_DWORDRegistryValue(HKEY_CURRENT_USER, gsRegistryKey, "CPUAffinityMask", gdwCPUAffinityMask))
+	if (!Get_DWORDRegistryValue(HKEY_CURRENT_USER, gsRegistryKey, "CPUAffinityMask", gdwCPUAffinityMask))
 	{
 		gdwSecureDeletePasses = 0;
 	}
@@ -356,44 +356,44 @@ bool GetRegistryValues(void)
 	ResetEncryptionOptions();
 
 	//-----------------------------------------------------------------------------------------
-    if(_strcmpi(gsDfltCompressLevel, "None") != 0)
-    {
-        giPkgAttribs |= ATTRIB_COMPRESSION;
+	if (_strcmpi(gsDfltCompressLevel, "None") != 0)
+	{
+		giPkgAttribs |= ATTRIB_COMPRESSION;
 
-        if(_strcmpi(gsDfltCompressLevel, "Very Low") == 0)
-            giCompressLevel = 1;
-        else if(_strcmpi(gsDfltCompressLevel, "Low") == 0)
-            giCompressLevel = 3;
-        else if(_strcmpi(gsDfltCompressLevel, "Moderate") == 0)
-            giCompressLevel = 5;
-        else if(_strcmpi(gsDfltCompressLevel, "High") == 0)
-            giCompressLevel = 7;
-        else if(_strcmpi(gsDfltCompressLevel, "Very High") == 0)
-            giCompressLevel = 9;
-    }
-	else{
+		if (_strcmpi(gsDfltCompressLevel, "Very Low") == 0)
+			giCompressLevel = 1;
+		else if (_strcmpi(gsDfltCompressLevel, "Low") == 0)
+			giCompressLevel = 3;
+		else if (_strcmpi(gsDfltCompressLevel, "Moderate") == 0)
+			giCompressLevel = 5;
+		else if (_strcmpi(gsDfltCompressLevel, "High") == 0)
+			giCompressLevel = 7;
+		else if (_strcmpi(gsDfltCompressLevel, "Very High") == 0)
+			giCompressLevel = 9;
+	}
+	else {
 		giCompressLevel = 0;
-        giPkgAttribs &= ~ATTRIB_COMPRESSION;
+		giPkgAttribs &= ~ATTRIB_COMPRESSION;
 	}
 
 	//-----------------------------------------------------------------------------------------
-	if(_strcmpi(gsDfltEncryptAlgo, "None") != 0)
-    {
+	if (_strcmpi(gsDfltEncryptAlgo, "None") != 0)
+	{
 		giCryptAlgo &= ~CRYPT_ALGO_NASCCL;
 		giCryptAlgo &= ~CRYPT_ALGO_RIJNDAEL;
 		giCryptAlgo &= ~CRYPT_ALGO_BLOWFISH;
 
-        if(_strcmpi(gsDfltEncryptAlgo, "NASCCL") == 0)
+		if (_strcmpi(gsDfltEncryptAlgo, "NASCCL") == 0)
 		{
-            giCryptAlgo |= CRYPT_ALGO_NASCCL;
+			giCryptAlgo |= CRYPT_ALGO_NASCCL;
 		}
-		else if(_strcmpi(gsDfltEncryptAlgo, "AES Algorithm (Rijndael)") == 0){
-            giCryptAlgo |= CRYPT_ALGO_RIJNDAEL;
+		else if (_strcmpi(gsDfltEncryptAlgo, "AES Algorithm (Rijndael)") == 0) {
+			giCryptAlgo |= CRYPT_ALGO_RIJNDAEL;
 		}
-		else if(_strcmpi(gsDfltEncryptAlgo, "BlowFish") == 0){
-            giCryptAlgo |= CRYPT_ALGO_BLOWFISH;
+		else if (_strcmpi(gsDfltEncryptAlgo, "BlowFish") == 0) {
+			giCryptAlgo |= CRYPT_ALGO_BLOWFISH;
 		}
-    }
+	}
 
 	return true;
 }
@@ -403,9 +403,9 @@ bool GetRegistryValues(void)
 
 bool InitGlobalCode(void)
 {
-	#define GCODESIZE 1024
+#define GCODESIZE 1024
 	char sKeyHash[GCODESIZE + 1];
-	HashKey(gsEmptyPassword, (int)strlen(gsEmptyPassword), sKeyHash,  GCODESIZE);
+	HashKey(gsEmptyPassword, (int)strlen(gsEmptyPassword), sKeyHash, GCODESIZE);
 	return gCode.Initialize(sKeyHash, GCODESIZE, true);
 }
 
@@ -421,7 +421,7 @@ bool UninitializeApp(void)
 
 	delete gCRC32;
 
-    return true;
+	return true;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

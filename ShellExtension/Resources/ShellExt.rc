@@ -21,34 +21,12 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// Dialog
-//
-
-IDD_PROPSHEET DIALOGEX 0, 0, 149, 119
-STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_VISIBLE | WS_BORDER
-FONT 8, "MS Shell Dlg", 0, 0, 0x0
-BEGIN
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
 // Icon
 //
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDI_CERTIFICATE         ICON                    "ico100.ico"
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Bitmap
-//
-
-IDB_16BITMENUITEM       BITMAP                  "bmp100.bmp"
-
-IDB_24BITMENUITEM       BITMAP                  "Archive.bmp"
+IDI_MENUICON16X16       ICON                    "MenuIcon16x16x32bit.ico"
 
 
 #ifdef APSTUDIO_INVOKED
@@ -79,28 +57,12 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// DESIGNINFO
-//
-
-#ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO
-BEGIN
-    IDD_PROPSHEET, DIALOG
-    BEGIN
-        RIGHTMARGIN, 6
-    END
-END
-#endif    // APSTUDIO_INVOKED
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
 // Version
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,4,2
- PRODUCTVERSION 1,0,4,2
+ FILEVERSION 1,1,0,0
+ PRODUCTVERSION 1,1,0,0
  FILEFLAGSMASK 0x17L
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -118,12 +80,12 @@ BEGIN
             VALUE "Comments", "File Encryption Shell"
             VALUE "CompanyName", "NetworkDLS"
             VALUE "FileDescription", "File Encryption Shell"
-            VALUE "FileVersion", "1, 0, 4, 2"
+            VALUE "FileVersion", "1.1.0.0"
             VALUE "InternalName", "Secure Archive Shell"
-            VALUE "LegalCopyright", "Copyright © 2017 NetworkDLS"
+            VALUE "LegalCopyright", "Copyright © 2025 NetworkDLS"
             VALUE "OriginalFilename", "ShellExt.dll"
             VALUE "ProductName", "Secure Archive"
-            VALUE "ProductVersion", "1, 0, 4, 2"
+            VALUE "ProductVersion", "1.1.0.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -131,6 +93,14 @@ BEGIN
         VALUE "Translation", 0x0, 0
     END
 END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDI_MENUICON16X16_8BIT  BITMAP                  "MenuIcon16x16x8bit.bmp"
 
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////

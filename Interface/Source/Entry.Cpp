@@ -28,7 +28,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 using namespace NSWFL::String;
-using namespace NSWFL::File; 
+using namespace NSWFL::File;
 using namespace NSWFL::Windows;
 using namespace NSWFL::CommandLine;
 using namespace NSWFL::Hashing;
@@ -98,11 +98,11 @@ int giCryptAlgo = 0;
 DWORD gdwDefaultSortColumn = -1;
 DWORD gdwDefaultSortDirection = -1;
 
-CRC32 *gCRC32;
+CRC32* gCRC32;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int ParseCmdLine(CommandLineParser *lpCmd);
+int ParseCmdLine(CommandLineParser* lpCmd);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -112,26 +112,26 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevious, LPSTR sCmdLine, int
 
 	ghAppInstance = hInstance;
 
-	if(!InitializeApp())
-    {
-        return 1;
-    }
+	if (!InitializeApp())
+	{
+		return 1;
+	}
 
 #ifndef _SELFEXTRACTOR_APP
 
-	CommandLineParser *pCmdLine = new CommandLineParser;
+	CommandLineParser* pCmdLine = new CommandLineParser;
 
 	ParseCmdLine(pCmdLine);
 
 	//Wait on worker thread to exit.
 	DWORD ExitCode = 0;
-	while(GetExitCodeThread(hWorkerProc, &ExitCode))
+	while (GetExitCodeThread(hWorkerProc, &ExitCode))
 	{
-		if(ExitCode != STILL_ACTIVE)
+		if (ExitCode != STILL_ACTIVE)
 		{
 			break;
 		}
-		else{
+		else {
 			Sleep(100);
 		}
 	}
@@ -146,21 +146,21 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevious, LPSTR sCmdLine, int
 	}
 	else{
 	*/
-		GetModuleFileName(NULL, gsArchiveName, sizeof(gsArchiveName));
+	GetModuleFileName(NULL, gsArchiveName, sizeof(gsArchiveName));
 	/*
 	}
 	*/
 
 	__int64 i64FileSize = 0;
 
-	if(!FileSize(gsArchiveName, &i64FileSize))
+	if (!FileSize(gsArchiveName, &i64FileSize))
 	{
 		SafeMsgBox(NULL, "Failed to read the size of the self extractor.",
 			gsTitleCaption, MB_ICONEXCLAMATION);
 		return 0;
 	}
 
-	if(i64FileSize == SELFEXTRACTOREXEEND)
+	if (i64FileSize == SELFEXTRACTOREXEEND)
 	{
 		SafeMsgBox(NULL, "The self extractor is empty.",
 			gsTitleCaption, MB_ICONEXCLAMATION);
@@ -168,38 +168,38 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevious, LPSTR sCmdLine, int
 	}
 
 	bool bIsUsingBlankPassword = false;
-	if(!IsUsingBlankPassword(NULL, gsArchiveName, &bIsUsingBlankPassword))
+	if (!IsUsingBlankPassword(NULL, gsArchiveName, &bIsUsingBlankPassword))
 	{
-        return 0;
+		return 0;
 	}
 
 	// Decrypt the entire archive.
 	gdwCurrentJobType = JOB_TYPE_EXTRACT_ALL;
-	if(bIsUsingBlankPassword)
+	if (bIsUsingBlankPassword)
 	{
 		SetPassword(&gPassword, gsEmptyPassword);
 	}
-	else{
-		if(DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_OPENPASS), NULL, OpenPassDialog) != 1)
+	else {
+		if (DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_OPENPASS), NULL, OpenPassDialog) != 1)
 		{
 			return 0;
 		}
 	}
 
-	if(BrowseDirectory(NULL, "Select the directory where you would like to save the decrypted files.",
-		BIF_RETURNONLYFSDIRS|BIF_USENEWUI, gsExtractLocation, sizeof(gsExtractLocation)))
+	if (BrowseDirectory(NULL, "Select the directory where you would like to save the decrypted files.",
+		BIF_RETURNONLYFSDIRS | BIF_USENEWUI, gsExtractLocation, sizeof(gsExtractLocation)))
 	{
-		CreateWorker(ExtractEntireArchiveProc, (LPVOID) gsArchiveName);
+		CreateWorker(ExtractEntireArchiveProc, (LPVOID)gsArchiveName);
 
 		RunProgressDialog(NULL);
 		ResumeThread(hWorkerProc);
 	}
 #endif
 
-	if(!UninitializeApp())
-    {
-        return 1;
-    }
+	if (!UninitializeApp())
+	{
+		return 1;
+	}
 
 	return 0;
 }
@@ -207,14 +207,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevious, LPSTR sCmdLine, int
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef _SELFEXTRACTOR_APP
-int IsCommand(const char *sCmdLine, const char *sArg)
+int IsCommand(const char* sCmdLine, const char* sArg)
 {
 	int iArgSz = (int)strlen(sArg);
-	if(_strnicmp(sCmdLine, sArg, iArgSz) == 0)
+	if (_strnicmp(sCmdLine, sArg, iArgSz) == 0)
 	{
 		return iArgSz;
 	}
-	else{
+	else {
 		return 0;
 	}
 }
@@ -223,12 +223,12 @@ int IsCommand(const char *sCmdLine, const char *sArg)
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef _SELFEXTRACTOR_APP
-int ParseCmdLine(CommandLineParser *lpCmd)
+int ParseCmdLine(CommandLineParser* lpCmd)
 {
 	int iArg = 0;
 	int iArgSz = 0;
-	char *sArg = NULL;
-	char *sMsg = NULL;
+	char* sArg = NULL;
+	char* sMsg = NULL;
 
 	char sSource[MAX_PATH];
 	char sTemp[255];
@@ -243,43 +243,43 @@ int ParseCmdLine(CommandLineParser *lpCmd)
 
 	memset(sSource, 0, sizeof(sSource));
 
-	if(lpCmd->Count() == 1)
+	if (lpCmd->Count() == 1)
 	{
-	    // Create new archive
+		// Create new archive
 		DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_MAIN), NULL, MainDialog);
 		return 0;
 	}
-	else if(lpCmd->Count() == 2)
+	else if (lpCmd->Count() == 2)
 	{
-		if((iArgSz = IsCommand(lpCmd->Item(1), "/Repair:")) > 0)
+		if ((iArgSz = IsCommand(lpCmd->Item(1), "/Repair:")) > 0)
 		{
 			char sBrokenFile[MAX_PATH];
 
 			gdwCurrentJobType = JOB_TYPE_REPAIR_ARCHIVE;
 
 			GetFlagedValue(lpCmd->Item(1), iArgSz, lpCmd->Length(1), sBrokenFile, sizeof(sBrokenFile));
-			CreateWorker(RepairCorruptArchiveProc, (LPVOID) sBrokenFile);
+			CreateWorker(RepairCorruptArchiveProc, (LPVOID)sBrokenFile);
 			RunProgressDialog(NULL);
 
 			return 0;
 		}
-		else if((iArgSz = IsCommand(lpCmd->Item(1), "/Test:")) > 0)
+		else if ((iArgSz = IsCommand(lpCmd->Item(1), "/Test:")) > 0)
 		{
 			GetFlagedValue(lpCmd->Item(1), iArgSz, lpCmd->Length(1), gsArchiveName, sizeof(gsArchiveName));
 
 			bool bIsUsingBlankPassword = false;
-			if(!IsUsingBlankPassword(hProgressDialog, gsArchiveName, &bIsUsingBlankPassword))
+			if (!IsUsingBlankPassword(hProgressDialog, gsArchiveName, &bIsUsingBlankPassword))
 			{
 				Sleep(1000);
 				return 0;
 			}
 
-			if(bIsUsingBlankPassword)
+			if (bIsUsingBlankPassword)
 			{
 				SetPassword(&gPassword, gsEmptyPassword);
 			}
-			else{
-				if(DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_OPENPASS), hProgressDialog, OpenPassDialog) != 1)
+			else {
+				if (DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_OPENPASS), hProgressDialog, OpenPassDialog) != 1)
 				{
 					Sleep(1000);
 					EndProgressDialog(1);
@@ -288,39 +288,39 @@ int ParseCmdLine(CommandLineParser *lpCmd)
 			}
 
 			gdwCurrentJobType = JOB_TYPE_TEST_ARCHIVE;
-			CreateWorker(TestArchiveProc, (LPVOID) gsArchiveName);
+			CreateWorker(TestArchiveProc, (LPVOID)gsArchiveName);
 			RunProgressDialog(NULL);
 			return 0;
 		}
-		else if(_strcmpi(lpCmd->Item(1), "/SecureDelete") == 0)
+		else if (_strcmpi(lpCmd->Item(1), "/SecureDelete") == 0)
 		{
 			DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_SECUREDELETE), NULL, SecureDeleteDialog);
 			return 0;
 		}
-		else if(_strnicmp(lpCmd->Item(1), "/SecureDelete:", 14) == 0)
+		else if (_strnicmp(lpCmd->Item(1), "/SecureDelete:", 14) == 0)
 		{
 			strcpy_s(gsSecureDeletePopulate, sizeof(gsSecureDeletePopulate), lpCmd->Item(1) + 14);
 			DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_SECUREDELETE), NULL, SecureDeleteDialog);
 			return 0;
 		}
-		else if(_strcmpi(lpCmd->Item(1), "/Configure") == 0)
+		else if (_strcmpi(lpCmd->Item(1), "/Configure") == 0)
 		{
 			LaunchConfigDlg(NULL);
 			return 0;
 		}
-		else if(_strcmpi(lpCmd->Item(1), "/HardKeyGen") == 0)
+		else if (_strcmpi(lpCmd->Item(1), "/HardKeyGen") == 0)
 		{
 			DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_HARDKEY), NULL, HardKeyDlg);
 			return 0;
 		}
-		else if(_strcmpi(lpCmd->Item(1), "/KeyGenFile") == 0)
+		else if (_strcmpi(lpCmd->Item(1), "/KeyGenFile") == 0)
 		{
 			int iResult = SafeMsgBox(NULL, "This is a \"Secure Archive Hard Key File\", "
 				"it is used to encrypt/decrypt data.\r\n"
 				"Would you like to view documentation explaining how to use it?",
-				gsTitleCaption, MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON1);
+				gsTitleCaption, MB_ICONQUESTION | MB_YESNO | MB_DEFBUTTON1);
 
-			if(iResult == IDYES)
+			if (iResult == IDYES)
 			{
 				OpenHelpFile("/HardKey/Overview.Html");
 			}
@@ -328,19 +328,19 @@ int ParseCmdLine(CommandLineParser *lpCmd)
 		}
 	}
 
-	for(int iArg = 1; iArg < lpCmd->Count(); iArg++)
+	for (int iArg = 1; iArg < lpCmd->Count(); iArg++)
 	{
-		if((iArgSz = IsCommand(lpCmd->Item(iArg), "/Delete:")) > 0)
+		if ((iArgSz = IsCommand(lpCmd->Item(iArg), "/Delete:")) > 0)
 		{
 			char sDeleteMe[MAX_PATH];
 
 			GetFlagedValue(lpCmd->Item(iArg), iArgSz, lpCmd->Length(iArg), sDeleteMe, sizeof(sDeleteMe));
 
-			if(SDeleteFile(sDeleteMe))
+			if (SDeleteFile(sDeleteMe))
 			{
 				return 0;
 			}
-			else{
+			else {
 				return 1;
 			}
 		}
@@ -362,38 +362,38 @@ int ParseCmdLine(CommandLineParser *lpCmd)
 			}
 		}
 		*/
-		else if((iArgSz = IsCommand(lpCmd->Item(iArg), "/CompressLevel:")) > 0)
+		else if ((iArgSz = IsCommand(lpCmd->Item(iArg), "/CompressLevel:")) > 0)
 		{
 			GetFlagedValue(lpCmd->Item(iArg), iArgSz, lpCmd->Length(iArg), sTemp, sizeof(sTemp));
 			giCompressLevel = atol(sTemp); //(0 - 9 (Off - Max))
 		}
-		else if((iArgSz = IsCommand(lpCmd->Item(iArg), "/Passes:")) > 0)
+		else if ((iArgSz = IsCommand(lpCmd->Item(iArg), "/Passes:")) > 0)
 		{
 			GetFlagedValue(lpCmd->Item(iArg), iArgSz, lpCmd->Length(iArg), sTemp, sizeof(sTemp));
 			gdwSecureDeletePasses = atol(sTemp);
 		}
-		else if((iArgSz = IsCommand(lpCmd->Item(iArg), "/Overwrite")) > 0)
+		else if ((iArgSz = IsCommand(lpCmd->Item(iArg), "/Overwrite")) > 0)
 		{
 			gbOverwrite = true;
 		}
-		else if((iArgSz = IsCommand(lpCmd->Item(iArg), "/NoFolders")) > 0)
+		else if ((iArgSz = IsCommand(lpCmd->Item(iArg), "/NoFolders")) > 0)
 		{
 			gbUseFolderNames = false;
 		}
-		else if((iArgSz = IsCommand(lpCmd->Item(iArg), "/GO")) > 0)
+		else if ((iArgSz = IsCommand(lpCmd->Item(iArg), "/GO")) > 0)
 		{
 			bAuto = true;
 			gbAutoClose = true;
 		}
-		else if((iArgSz = IsCommand(lpCmd->Item(iArg), "/New")) > 0)
+		else if ((iArgSz = IsCommand(lpCmd->Item(iArg), "/New")) > 0)
 		{
-	        // Create new archive
+			// Create new archive
 			DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_MAIN), NULL, MainDialog);
 			return 0;
 		}
-		else if((iArgSz = IsCommand(lpCmd->Item(iArg), "/Source:")) > 0)
+		else if ((iArgSz = IsCommand(lpCmd->Item(iArg), "/Source:")) > 0)
 		{
-			if(DoesPathContainUnicode(lpCmd->Item(iArg), lpCmd->Length(iArg)))
+			if (DoesPathContainUnicode(lpCmd->Item(iArg), lpCmd->Length(iArg)))
 			{
 				SafeMsgBox(NULL,
 					"The name of the file you are trying to open contains\r\n"
@@ -406,9 +406,9 @@ int ParseCmdLine(CommandLineParser *lpCmd)
 			strcpy_s(gsArchiveName, sizeof(gsArchiveName), sSource);
 			bSourceSpecified = true;
 		}
-		else if((iArgSz = IsCommand(lpCmd->Item(iArg), "/Target:")) > 0)
+		else if ((iArgSz = IsCommand(lpCmd->Item(iArg), "/Target:")) > 0)
 		{
-			if(DoesPathContainUnicode(lpCmd->Item(iArg), lpCmd->Length(iArg)))
+			if (DoesPathContainUnicode(lpCmd->Item(iArg), lpCmd->Length(iArg)))
 			{
 				SafeMsgBox(NULL,
 					"The name of the file you are trying to write contains\r\n"
@@ -421,51 +421,51 @@ int ParseCmdLine(CommandLineParser *lpCmd)
 			strcpy_s(gsExtractLocation, sizeof(gsExtractLocation), gsWorkingOutput);
 			bTargetSpecified = true;
 		}
-		else if((iArgSz = IsCommand(lpCmd->Item(iArg), "/CreateSelfExtractor")) > 0)
+		else if ((iArgSz = IsCommand(lpCmd->Item(iArg), "/CreateSelfExtractor")) > 0)
 		{
 			bCreateSelfExtractor = true;
 		}
-		else if((iArgSz = IsCommand(lpCmd->Item(iArg), "/Encrypt")) > 0)
+		else if ((iArgSz = IsCommand(lpCmd->Item(iArg), "/Encrypt")) > 0)
 		{
-			if(bDecrypt)
+			if (bDecrypt)
 			{
-				SafeMsgBox(NULL, "You cannot specify both /Encrypt and /Decrypt.", 
+				SafeMsgBox(NULL, "You cannot specify both /Encrypt and /Decrypt.",
 					gsTitleCaption, MB_ICONINFORMATION);
 				return 0;
 			}
 			else bEncrypt = true;
 		}
-		else if((iArgSz = IsCommand(lpCmd->Item(iArg), "/Decrypt")) > 0)
+		else if ((iArgSz = IsCommand(lpCmd->Item(iArg), "/Decrypt")) > 0)
 		{
-			if(bEncrypt)
+			if (bEncrypt)
 			{
-				SafeMsgBox(NULL, "You cannot specify both /Encrypt and /Decrypt.", 
+				SafeMsgBox(NULL, "You cannot specify both /Encrypt and /Decrypt.",
 					gsTitleCaption, MB_ICONINFORMATION);
 				return 0;
 			}
 			else bDecrypt = true;
 		}
-		else if((iArgSz = IsCommand(lpCmd->Item(iArg), "/View")) > 0)
+		else if ((iArgSz = IsCommand(lpCmd->Item(iArg), "/View")) > 0)
 		{
 			bView = true;
 			bAuto = false;
 			gbAutoClose = false;
 		}
-		else if((iArgSz = IsCommand(lpCmd->Item(iArg), "/Silent")) > 0)
+		else if ((iArgSz = IsCommand(lpCmd->Item(iArg), "/Silent")) > 0)
 		{
 			gbSilent = true;
 			bAuto = true;
 			gbAutoClose = true;
 		}
-		else if((iArgSz = IsCommand(lpCmd->Item(iArg), "/Password:")) > 0)
+		else if ((iArgSz = IsCommand(lpCmd->Item(iArg), "/Password:")) > 0)
 		{
-			char *sPwd = NULL;
+			char* sPwd = NULL;
 
 			int iPwdLength = GetFlagedValue(lpCmd->Item(iArg), iArgSz, lpCmd->Length(iArg), NULL, 0);
 
 			iPwdLength *= -1;
 
-			if((sPwd = (char *) calloc(sizeof(char), iPwdLength + 1)) == NULL)
+			if ((sPwd = (char*)calloc(sizeof(char), iPwdLength + 1)) == NULL)
 			{
 				SafeMsgBox(GetActiveWindow(),
 					"Failed to allocate memory for your password. Out of memory?",
@@ -477,11 +477,11 @@ int ParseCmdLine(CommandLineParser *lpCmd)
 			SetPassword(&gPassword, sPwd, iPwdLength);
 			free(sPwd);
 		}
-		else if((iArgSz = IsCommand(lpCmd->Item(iArg), "/AutoClose")) > 0)
+		else if ((iArgSz = IsCommand(lpCmd->Item(iArg), "/AutoClose")) > 0)
 		{
 			gbAutoClose = true;
 		}
-		else{
+		else {
 			char sStatus[5120];
 			sprintf_s(sStatus, sizeof(sStatus), "Unknown command specified: [%s]", lpCmd->Item(iArg));
 			SafeMsgBox(NULL, sStatus, gsTitleCaption, MB_ICONWARNING);
@@ -491,15 +491,15 @@ int ParseCmdLine(CommandLineParser *lpCmd)
 
 	//--------------------------------------------------------------------------------------------------
 
-	if(bAuto)
+	if (bAuto)
 	{
-		if(gPassword.iLength <= 0)
+		if (gPassword.iLength <= 0)
 		{
 			SetPassword(&gPassword, gsEmptyPassword);
 			giPkgAttribs |= ATTRIB_NOPASSWORD;
 		}
 
-		if(!bSourceSpecified || !bTargetSpecified)
+		if (!bSourceSpecified || !bTargetSpecified)
 		{
 			sMsg = "If the \"/Go\" parameter is specified, you must also specify:\r\n"
 				"\tSource: (by using the \"/Source:\" parameter)\r\n"
@@ -508,22 +508,22 @@ int ParseCmdLine(CommandLineParser *lpCmd)
 			SafeMsgBox(NULL, sMsg, gsTitleCaption, MB_ICONINFORMATION);
 			return 1;
 		}
-		else if(bEncrypt)
+		else if (bEncrypt)
 		{
 			CreateFileFolderStructure(gsWorkingOutput);
 		}
-		else{
+		else {
 			CreateFolderStructure(gsWorkingOutput);
 		}
 	}
 
 	//check that the source file was specified and that it exists.
-	if(!bSourceSpecified)
+	if (!bSourceSpecified)
 	{
 		SafeMsgBox(NULL, "The source file was not specified.", gsTitleCaption, MB_ICONEXCLAMATION);
 		return 1;
 	}
-	else if(!FileAccess(sSource, FExist))
+	else if (!FileAccess(sSource, FExist))
 	{
 		char sStatus[5120];
 		sprintf_s(sStatus, sizeof(sStatus),
@@ -532,7 +532,7 @@ int ParseCmdLine(CommandLineParser *lpCmd)
 		SafeMsgBox(NULL, sStatus, gsTitleCaption, MB_ICONEXCLAMATION);
 		return 1;
 	}
-	else if(bCreateSelfExtractor && (bDecrypt || bEncrypt || bView || bAuto))
+	else if (bCreateSelfExtractor && (bDecrypt || bEncrypt || bView || bAuto))
 	{
 		SafeMsgBox(NULL,
 			"/CreateSelfExtractor cannot be specified with any other flags except /Silent.",
@@ -540,138 +540,138 @@ int ParseCmdLine(CommandLineParser *lpCmd)
 		return 1;
 	}
 
-	if(bCreateSelfExtractor)
+	if (bCreateSelfExtractor)
 	{
 		gdwCurrentJobType = JOB_TYPE_CREATE_SELF_EXTRACTOR;
 
-		CreateWorker(CreateSelfExtractorProc, (LPVOID) gsArchiveName);
+		CreateWorker(CreateSelfExtractorProc, (LPVOID)gsArchiveName);
 
-		if(!gbSilent)
+		if (!gbSilent)
 		{
 			RunProgressDialog(NULL);
 		}
-		else{
+		else {
 			ResumeThread(hWorkerProc);
 		}
 		return 0;
 	}
-	else if((!bDecrypt && !bEncrypt) || bView == true)
+	else if ((!bDecrypt && !bEncrypt) || bView == true)
 	{
-        // View an existing archive
-        gdwCurrentJobType = JOB_TYPE_READING;
+		// View an existing archive
+		gdwCurrentJobType = JOB_TYPE_READING;
 
 		bool bIsUsingBlankPassword = false;
-		if(!IsUsingBlankPassword(NULL, sSource, &bIsUsingBlankPassword))
+		if (!IsUsingBlankPassword(NULL, sSource, &bIsUsingBlankPassword))
 		{
 			return 0;
 		}
 
-		if(bIsUsingBlankPassword)
+		if (bIsUsingBlankPassword)
 		{
 			SetPassword(&gPassword, gsEmptyPassword);
 		}
-		else{
-	        if(DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_OPENPASS), NULL, OpenPassDialog) != 1)
+		else {
+			if (DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_OPENPASS), NULL, OpenPassDialog) != 1)
 			{
-	            return 0;
+				return 0;
 			}
 		}
 
-        CreateWorker(ViewExistingProc, (LPVOID) sSource);
-        DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_MAIN), NULL, MainDialog);
+		CreateWorker(ViewExistingProc, (LPVOID)sSource);
+		DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_MAIN), NULL, MainDialog);
 
 		return 0;
 	}
-	else if(bDecrypt)
-    {
-		if(bAuto)
+	else if (bDecrypt)
+	{
+		if (bAuto)
 		{
-			CreateWorker(ExtractEntireArchiveProc, (LPVOID) gsArchiveName);
+			CreateWorker(ExtractEntireArchiveProc, (LPVOID)gsArchiveName);
 
-			if(!gbSilent)
+			if (!gbSilent)
 			{
 				RunProgressDialog(NULL);
 			}
-			else{
+			else {
 				ResumeThread(hWorkerProc);
 			}
 		}
-		else{
+		else {
 			// Decrypt the entire archive.
 			gdwCurrentJobType = JOB_TYPE_EXTRACT_ALL;
 
 			bool bIsUsingBlankPassword = false;
-			if(!IsUsingBlankPassword(NULL, gsArchiveName, &bIsUsingBlankPassword))
+			if (!IsUsingBlankPassword(NULL, gsArchiveName, &bIsUsingBlankPassword))
 			{
 				return 0;
 			}
 
-			if(bIsUsingBlankPassword)
+			if (bIsUsingBlankPassword)
 			{
 				SetPassword(&gPassword, gsEmptyPassword);
 			}
-			else{
-				if(DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_OPENPASS), NULL, OpenPassDialog) != 1)
+			else {
+				if (DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_OPENPASS), NULL, OpenPassDialog) != 1)
 				{
-		            return 0;
+					return 0;
 				}
 			}
 			//CreateWorker(ViewExistingProc, (LPVOID) sSource);
 			DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_MAIN), NULL, MainDialog);
 		}
 		return 0;
-    }
-    else if(bEncrypt)
+	}
+	else if (bEncrypt)
 	{
 		ResetEncryptionOptions();
 
-		if(FileAccess(gsWorkingOutput, FExist))
+		if (FileAccess(gsWorkingOutput, FExist))
 		{
-			if(gbOverwrite)
+			if (gbOverwrite)
 			{
 				giPkgOptions = OPTION_OVERWRITE;
 			}
-			else{
+			else {
 				giPkgOptions = OPTION_ADDFILES;
 			}
 		}
 
-		if(IsDirectory(sSource))
+		if (IsDirectory(sSource))
 		{
 			// Create a new archive from the directory's contents.
 
 			gdwCurrentJobType = JOB_TYPE_PACKING_FOLDER;
-			if(bAuto == false)
+			if (bAuto == false)
 			{
 				//Don't reset options here.
 				//ResetEncryptionOptions(); //Reset the global encryption flags.
 
-				if(DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_NEWPASS), NULL, NewPassDialog) != 1)
+				if (DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_NEWPASS), NULL, NewPassDialog) != 1)
 				{
 					return 0;
 				}
 			}
 
-			CreateWorker(CreateFolderArchiveProc, (LPVOID) sSource);
+			CreateWorker(CreateFolderArchiveProc, (LPVOID)sSource);
 
-			if(!gbSilent)
+			if (!gbSilent)
 			{
 				DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_MAIN), NULL, MainDialog);
 			}
-			else{
+			else {
 				ResumeThread(hWorkerProc);
 			}
 		}
-		else{
+		else {
 			giPkgOptions |= OPTION_USEALTFILEPACK;
 
 			// Create a new archive containing a single file.
 			FilePack fpPack;
 
 			fpPack.Initialize(NULL, &AltFilePackage);
-			
+
 			//This is a lot of memory, but we need it all.
-			char sFileName[MAX_PATH]; 
+			char sFileName[MAX_PATH];
 			char sDirTemp[MAX_PATH]; //Just some memory for AddFile() to use.
 			char sRoot[MAX_PATH + 1];
 			char sDrive[MAX_PATH + 1];
@@ -695,24 +695,24 @@ int ParseCmdLine(CommandLineParser *lpCmd)
 			fpPack.AddFile(sRoot, iRootLen, sDirTemp, iRootLen, sFileName, &AltFilePackage);
 
 			gdwCurrentJobType = JOB_TYPE_PACKING_FILE;
-			if(bAuto == false)
+			if (bAuto == false)
 			{
 				//Don't reset options here.
 				//ResetEncryptionOptions(); //Reset the global encryption flags.
 
-				if(DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_NEWPASS), NULL, NewPassDialog) != 1)
+				if (DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_NEWPASS), NULL, NewPassDialog) != 1)
 				{
 					return 0;
 				}
 			}
 
-			CreateWorker(CreateFileArchiveProc, (LPVOID) sSource);
+			CreateWorker(CreateFileArchiveProc, (LPVOID)sSource);
 
-			if(!gbSilent)
+			if (!gbSilent)
 			{
 				DialogBox(ghAppInstance, MAKEINTRESOURCE(IDD_MAIN), NULL, MainDialog);
 			}
-			else{
+			else {
 				ResumeThread(hWorkerProc);
 			}
 		}
