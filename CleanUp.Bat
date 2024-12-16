@@ -25,5 +25,3 @@ del ShellExtension\*.suo
 del ShellExtension\*.user
 del ShellExtension\*.sdf
 del ShellExtension\Resources\*.aps
-
-del HelpFile\Help.chm
