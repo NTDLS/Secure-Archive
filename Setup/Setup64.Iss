@@ -18,7 +18,7 @@
  LicenseFile                     = Resources/EULA.txt
  Compression                     = ZIP/9
  ChangesAssociations             = Yes
-  MinVersion                      = 0.0,6.1sp1
+ MinVersion                      = 0.0,6.1sp1
  VersionInfoVersion              = {#ApplicationVersion}
  ArchitecturesInstallIn64BitMode = x64os
  ArchitecturesAllowed            = x64os
@@ -47,18 +47,18 @@
  Name: desktopicon\user;   Description: "For the current user only"; GroupDescription: "Additional icons:"; Components: App; Flags: exclusive unchecked
 
 [Files]
-  Source: "..\SelfExtractor\Release\x64\SASE.exe";        DestDir: "{app}"; Flags: IgnoreVersion;  Components: App;
+ Source: "..\SelfExtractor\Release\x64\SASE.exe";        DestDir: "{app}"; Flags: IgnoreVersion;  Components: App;
  Source: "..\Interface\Release\x64\SA.exe";              DestDir: "{app}"; Flags: IgnoreVersion;  Components: App;
  Source: "..\ShellExtension\Release\x64\ShellExt.Dll";   DestDir: "{app}"; Flags: RestartReplace; Components: Shell;
  Source: "..\HelpFile\Help.chm";                         DestDir: "{app}"; Flags: IgnoreVersion;  Components: Help;
 
 [Icons]
- Name: "{group}\{#ApplicationName}";    Filename: "{app}\SA.Exe";         Components: App
- Name: "{group}\HardKey Generator"; Filename: "{app}\SA.Exe";         Parameters:"/HardKeyGen";   IconFilename:"{app}\SA.Exe"; IconIndex:"5";  Components: App
- Name: "{group}\Secure Delete";     Filename: "{app}\SA.Exe";         Parameters:"/SecureDelete"; IconFilename:"{app}\SA.Exe"; IconIndex:"11"; Components: App
- Name: "{group}\Configure";         Filename: "{app}\SA.Exe";         Parameters:"/Configure";    IconFilename:"{app}\SA.Exe"; IconIndex:"1";  Components: App
- Name: "{group}\Documentation";     Filename: "{app}\Help.chm";       Components: Help
- Name: "{group}\Uninstall";         Filename: "{uninstallexe}";       Components: App
+ Name: "{group}\{#ApplicationName}"; Filename: "{app}\SA.Exe";         Components: App
+ Name: "{group}\HardKey Generator";  Filename: "{app}\SA.Exe";         Parameters:"/HardKeyGen";   IconFilename:"{app}\SA.Exe"; IconIndex:"5";  Components: App
+ Name: "{group}\Secure Delete";      Filename: "{app}\SA.Exe";         Parameters:"/SecureDelete"; IconFilename:"{app}\SA.Exe"; IconIndex:"11"; Components: App
+ Name: "{group}\Configure";          Filename: "{app}\SA.Exe";         Parameters:"/Configure";    IconFilename:"{app}\SA.Exe"; IconIndex:"1";  Components: App
+ Name: "{group}\Documentation";      Filename: "{app}\Help.chm";       Components: Help
+ Name: "{group}\Uninstall";          Filename: "{uninstallexe}";       Components: App
 
  Name: "{commondesktop}\{#ApplicationName}"; Filename: "{app}\SA.Exe"; Components: App; Tasks: desktopicon\common;
  Name: "{userdesktop}\{#ApplicationName}";   Filename: "{app}\SA.Exe"; Components: App; Tasks: desktopicon\user;
