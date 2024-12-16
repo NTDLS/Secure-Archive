@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{CFAAC6D6-7730-4D73-A6D4-76AA23DD3AE6}</ProjectGuid>
+    <ProjectGuid>{0000BF6B-E559-43D4-878A-CF943A854549}</ProjectGuid>
     <RootNamespace>SelfExtractor</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
