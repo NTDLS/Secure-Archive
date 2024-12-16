@@ -257,16 +257,7 @@
     <ClCompile Include="..\Library\NSWFL\NSWFL_File.Cpp">
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClCompile>
-    <ClCompile Include="..\Library\NSWFL\NSWFL_Graphics.Cpp">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Library\NSWFL\NSWFL_HighPrecisionTimer.cpp">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClCompile>
     <ClCompile Include="..\Library\NSWFL\NSWFL_InsecureInterface.Cpp">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Library\NSWFL\NSWFL_IsolationLock.cpp">
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClCompile>
     <ClCompile Include="..\Library\NSWFL\NSWFL_KeyGeneration.Cpp">
@@ -309,12 +300,6 @@
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClCompile>
     <ClCompile Include="..\Library\NSWFL\NSWFL_System.Cpp">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Library\NSWFL\NSWFL_Types.Cpp">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Library\NSWFL\NSWFL_URLEncoding.Cpp">
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClCompile>
     <ClCompile Include="..\Library\NSWFL\NSWFL_Windows.Cpp">
@@ -526,16 +511,7 @@
     <ClInclude Include="..\Library\NSWFL\NSWFL_File.H">
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClInclude>
-    <ClInclude Include="..\Library\NSWFL\NSWFL_Graphics.H">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Library\NSWFL\NSWFL_HighPrecisionTimer.h">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClInclude>
     <ClInclude Include="..\Library\NSWFL\NSWFL_InsecureInterface.H">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Library\NSWFL\NSWFL_IsolationLock.h">
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClInclude>
     <ClInclude Include="..\Library\NSWFL\NSWFL_KeyGeneration.H">
@@ -581,21 +557,6 @@
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClInclude>
     <ClInclude Include="..\Library\NSWFL\NSWFL_System.H">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Library\NSWFL\NSWFL_Types.H">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Library\NSWFL\NSWFL_URLEncoding.H">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Library\NSWFL\NSWFL_VectorBinary.H">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Library\NSWFL\NSWFL_VectorString.H">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Library\NSWFL\NSWFL_VectorT.H">
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClInclude>
     <ClInclude Include="..\Library\NSWFL\NSWFL_Windows.H">
@@ -899,63 +860,6 @@
     </None>
     <None Include="Resources\Tick.Wav">
       <Filter>Resource Files\Sounds</Filter>
-    </None>
-    <None Include="..\Library\BlowFish\.git">
-      <Filter>Classes and Modules\BlowFish</Filter>
-    </None>
-    <None Include="..\Library\BlowFish\LICENSE">
-      <Filter>Classes and Modules\BlowFish</Filter>
-    </None>
-    <None Include="..\Library\BlowFish\README.md">
-      <Filter>Classes and Modules\BlowFish</Filter>
-    </None>
-    <None Include="..\Library\NSWFL\.git">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </None>
-    <None Include="..\Library\NSWFL\.gitignore">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </None>
-    <None Include="..\Library\NSWFL\LICENSE">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </None>
-    <None Include="..\Library\NSWFL\README.md">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </None>
-    <None Include="..\Library\Rijndael\.git">
-      <Filter>Classes and Modules\Rijndael</Filter>
-    </None>
-    <None Include="..\Library\Rijndael\LICENSE">
-      <Filter>Classes and Modules\Rijndael</Filter>
-    </None>
-    <None Include="..\Library\Rijndael\README.md">
-      <Filter>Classes and Modules\Rijndael</Filter>
-    </None>
-    <None Include="..\Library\SecureDeleteLibrary\.git">
-      <Filter>Classes and Modules\SecureDeleteLibrary</Filter>
-    </None>
-    <None Include="..\Library\SecureDeleteLibrary\LICENSE">
-      <Filter>Classes and Modules\SecureDeleteLibrary</Filter>
-    </None>
-    <None Include="..\Library\SecureDeleteLibrary\README.md">
-      <Filter>Classes and Modules\SecureDeleteLibrary</Filter>
-    </None>
-    <None Include="..\Library\CTrayIcon\.git">
-      <Filter>Classes and Modules\CTrayIcon</Filter>
-    </None>
-    <None Include="..\Library\CTrayIcon\LICENSE">
-      <Filter>Classes and Modules\CTrayIcon</Filter>
-    </None>
-    <None Include="..\Library\CTrayIcon\README.md">
-      <Filter>Classes and Modules\CTrayIcon</Filter>
-    </None>
-    <None Include="..\Library\NASCCL\.git">
-      <Filter>Classes and Modules\NASCCL</Filter>
-    </None>
-    <None Include="..\Library\NASCCL\LICENSE">
-      <Filter>Classes and Modules\NASCCL</Filter>
-    </None>
-    <None Include="..\Library\NASCCL\README.md">
-      <Filter>Classes and Modules\NASCCL</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

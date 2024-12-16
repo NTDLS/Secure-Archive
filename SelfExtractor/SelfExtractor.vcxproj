@@ -366,10 +366,6 @@
     <ClCompile Include="..\Library\NSWFL\NSWFL_DateTime.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_Debug.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_File.Cpp" />
-    <ClCompile Include="..\Library\NSWFL\NSWFL_Graphics.Cpp" />
-    <ClCompile Include="..\Library\NSWFL\NSWFL_HighPrecisionTimer.cpp" />
-    <ClCompile Include="..\Library\NSWFL\NSWFL_InsecureInterface.Cpp" />
-    <ClCompile Include="..\Library\NSWFL\NSWFL_IsolationLock.cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_KeyGeneration.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_ListBox.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_ListView.Cpp" />
@@ -384,8 +380,6 @@
     <ClCompile Include="..\Library\NSWFL\NSWFL_String.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_StringBuilder.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_System.Cpp" />
-    <ClCompile Include="..\Library\NSWFL\NSWFL_Types.Cpp" />
-    <ClCompile Include="..\Library\NSWFL\NSWFL_URLEncoding.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_Windows.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_XMLReader.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_XMLWriter.Cpp" />
@@ -431,10 +425,6 @@
     <ClInclude Include="..\Library\NSWFL\NSWFL_DateTime.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_Debug.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_File.H" />
-    <ClInclude Include="..\Library\NSWFL\NSWFL_Graphics.H" />
-    <ClInclude Include="..\Library\NSWFL\NSWFL_HighPrecisionTimer.h" />
-    <ClInclude Include="..\Library\NSWFL\NSWFL_InsecureInterface.H" />
-    <ClInclude Include="..\Library\NSWFL\NSWFL_IsolationLock.h" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_KeyGeneration.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_ListBox.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_ListView.H" />
@@ -450,11 +440,6 @@
     <ClInclude Include="..\Library\NSWFL\NSWFL_StringBuilder.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_StringBuilderArray.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_System.H" />
-    <ClInclude Include="..\Library\NSWFL\NSWFL_Types.H" />
-    <ClInclude Include="..\Library\NSWFL\NSWFL_URLEncoding.H" />
-    <ClInclude Include="..\Library\NSWFL\NSWFL_VectorBinary.H" />
-    <ClInclude Include="..\Library\NSWFL\NSWFL_VectorString.H" />
-    <ClInclude Include="..\Library\NSWFL\NSWFL_VectorT.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_Windows.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_XML.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_XMLReader.H" />
@@ -479,19 +464,6 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Library\BlowFish\LICENSE" />
-    <None Include="..\Library\BlowFish\README.md" />
-    <None Include="..\Library\CTrayIcon\LICENSE" />
-    <None Include="..\Library\CTrayIcon\README.md" />
-    <None Include="..\Library\NASCCL\LICENSE" />
-    <None Include="..\Library\NASCCL\README.md" />
-    <None Include="..\Library\NSWFL\.gitignore" />
-    <None Include="..\Library\NSWFL\LICENSE" />
-    <None Include="..\Library\NSWFL\README.md" />
-    <None Include="..\Library\Rijndael\LICENSE" />
-    <None Include="..\Library\Rijndael\README.md" />
-    <None Include="..\Library\SecureDeleteLibrary\LICENSE" />
-    <None Include="..\Library\SecureDeleteLibrary\README.md" />
     <None Include="Resources\TrayStat\TrayStat (0).ico" />
     <None Include="Resources\TrayStat\TrayStat (1).ico" />
     <None Include="Resources\TrayStat\TrayStat (10).ico" />
