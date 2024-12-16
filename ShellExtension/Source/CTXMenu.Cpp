@@ -73,6 +73,10 @@ int InsertMenuEx(HMENU hMenu, unsigned int iFlags,
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+/// <summary>
+/// Gets the address of the ExGetExeEnd and executes it returning the byte position of the end of the executable.
+/// We use this to determine if an exe file is a self-extractor as well to get the executable end.
+/// </summary>
 unsigned long GetExeEnd(const char *sFileName)
 {
 	unsigned long lExeEnd = 0;

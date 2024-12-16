@@ -2,7 +2,7 @@
 //	MODULE:   shexinit.cpp
 //
 //	PURPOSE:   Implements the IShellExtInit member function necessary to support
-//			   the context menu and property sheet portioins of this shell extension.  
+//			   the context menu and property sheet portions of this shell extension.  
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
