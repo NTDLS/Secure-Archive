@@ -294,14 +294,12 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Library\NSWFL\NSWFL_Base64.cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_CommandLineParser.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_Conversion.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_CRC32.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_DateTime.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_Debug.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_File.Cpp" />
-    <ClCompile Include="..\Library\NSWFL\NSWFL_InsecureInterface.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_KeyGeneration.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_ListBox.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_ListView.Cpp" />
@@ -309,16 +307,12 @@
     <ClCompile Include="..\Library\NSWFL\NSWFL_Memory.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_MemoryPool.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_Menu.Cpp" />
-    <ClCompile Include="..\Library\NSWFL\NSWFL_Queue.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_Registry.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_SHA1.cpp" />
-    <ClCompile Include="..\Library\NSWFL\NSWFL_Stack.cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_String.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_StringBuilder.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_System.Cpp" />
     <ClCompile Include="..\Library\NSWFL\NSWFL_Windows.Cpp" />
-    <ClCompile Include="..\Library\NSWFL\NSWFL_XMLReader.Cpp" />
-    <ClCompile Include="..\Library\NSWFL\NSWFL_XMLWriter.Cpp" />
     <ClCompile Include="Source\CTXMenu.Cpp" />
     <ClCompile Include="Source\Priv.Cpp" />
     <ClCompile Include="Source\ShellExt.Cpp" />
@@ -326,14 +320,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Library\NSWFL\NSWFL.h" />
-    <ClInclude Include="..\Library\NSWFL\NSWFL_Base64.h" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_CommandLineParser.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_Conversion.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_CRC32.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_DateTime.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_Debug.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_File.H" />
-    <ClInclude Include="..\Library\NSWFL\NSWFL_InsecureInterface.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_KeyGeneration.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_ListBox.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_ListView.H" />
@@ -341,18 +333,12 @@
     <ClInclude Include="..\Library\NSWFL\NSWFL_Memory.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_MemoryPool.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_Menu.H" />
-    <ClInclude Include="..\Library\NSWFL\NSWFL_Queue.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_Registry.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_SHA1.h" />
-    <ClInclude Include="..\Library\NSWFL\NSWFL_Stack.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_String.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_StringBuilder.H" />
-    <ClInclude Include="..\Library\NSWFL\NSWFL_StringBuilderArray.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_System.H" />
     <ClInclude Include="..\Library\NSWFL\NSWFL_Windows.H" />
-    <ClInclude Include="..\Library\NSWFL\NSWFL_XML.H" />
-    <ClInclude Include="..\Library\NSWFL\NSWFL_XMLReader.H" />
-    <ClInclude Include="..\Library\NSWFL\NSWFL_XMLWriter.H" />
     <ClInclude Include="Source\Priv.H" />
     <ClInclude Include="Source\ShellExt.H" />
     <ClInclude Include="Resources\resource.h" />

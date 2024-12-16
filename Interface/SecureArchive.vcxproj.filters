@@ -236,9 +236,6 @@
     <ClCompile Include="..\Library\Compression\zLib\zutil.c">
       <Filter>Classes and Modules\Compression\zLib</Filter>
     </ClCompile>
-    <ClCompile Include="..\Library\NSWFL\NSWFL_Base64.cpp">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClCompile>
     <ClCompile Include="..\Library\NSWFL\NSWFL_CommandLineParser.Cpp">
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClCompile>
@@ -255,9 +252,6 @@
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClCompile>
     <ClCompile Include="..\Library\NSWFL\NSWFL_File.Cpp">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Library\NSWFL\NSWFL_InsecureInterface.Cpp">
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClCompile>
     <ClCompile Include="..\Library\NSWFL\NSWFL_KeyGeneration.Cpp">
@@ -281,16 +275,7 @@
     <ClCompile Include="..\Library\NSWFL\NSWFL_Menu.Cpp">
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClCompile>
-    <ClCompile Include="..\Library\NSWFL\NSWFL_Queue.Cpp">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClCompile>
     <ClCompile Include="..\Library\NSWFL\NSWFL_Registry.Cpp">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Library\NSWFL\NSWFL_SHA1.cpp">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Library\NSWFL\NSWFL_Stack.cpp">
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClCompile>
     <ClCompile Include="..\Library\NSWFL\NSWFL_String.Cpp">
@@ -303,12 +288,6 @@
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClCompile>
     <ClCompile Include="..\Library\NSWFL\NSWFL_Windows.Cpp">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Library\NSWFL\NSWFL_XMLReader.Cpp">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Library\NSWFL\NSWFL_XMLWriter.Cpp">
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClCompile>
     <ClCompile Include="..\Library\Rijndael\AESCrypp.C">
@@ -340,6 +319,9 @@
     </ClCompile>
     <ClCompile Include="..\Library\NASCCL\NASCCLStream.Cpp">
       <Filter>Classes and Modules\NASCCL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Library\NSWFL\NSWFL_SHA1.cpp">
+      <Filter>Classes and Modules\NSWFL</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -490,9 +472,6 @@
     <ClInclude Include="..\Library\NSWFL\NSWFL.h">
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClInclude>
-    <ClInclude Include="..\Library\NSWFL\NSWFL_Base64.h">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClInclude>
     <ClInclude Include="..\Library\NSWFL\NSWFL_CommandLineParser.H">
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClInclude>
@@ -509,9 +488,6 @@
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClInclude>
     <ClInclude Include="..\Library\NSWFL\NSWFL_File.H">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Library\NSWFL\NSWFL_InsecureInterface.H">
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClInclude>
     <ClInclude Include="..\Library\NSWFL\NSWFL_KeyGeneration.H">
@@ -535,16 +511,7 @@
     <ClInclude Include="..\Library\NSWFL\NSWFL_Menu.H">
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClInclude>
-    <ClInclude Include="..\Library\NSWFL\NSWFL_Queue.H">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClInclude>
     <ClInclude Include="..\Library\NSWFL\NSWFL_Registry.H">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Library\NSWFL\NSWFL_SHA1.h">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Library\NSWFL\NSWFL_Stack.H">
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClInclude>
     <ClInclude Include="..\Library\NSWFL\NSWFL_String.H">
@@ -553,22 +520,10 @@
     <ClInclude Include="..\Library\NSWFL\NSWFL_StringBuilder.H">
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClInclude>
-    <ClInclude Include="..\Library\NSWFL\NSWFL_StringBuilderArray.H">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClInclude>
     <ClInclude Include="..\Library\NSWFL\NSWFL_System.H">
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClInclude>
     <ClInclude Include="..\Library\NSWFL\NSWFL_Windows.H">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Library\NSWFL\NSWFL_XML.H">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Library\NSWFL\NSWFL_XMLReader.H">
-      <Filter>Classes and Modules\NSWFL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Library\NSWFL\NSWFL_XMLWriter.H">
       <Filter>Classes and Modules\NSWFL</Filter>
     </ClInclude>
     <ClInclude Include="..\Library\Rijndael\AES.H">
@@ -597,6 +552,9 @@
     </ClInclude>
     <ClInclude Include="..\Library\NASCCL\NASCCLStream.H">
       <Filter>Classes and Modules\NASCCL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Library\NSWFL\NSWFL_SHA1.h">
+      <Filter>Classes and Modules\NSWFL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

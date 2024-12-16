@@ -59,39 +59,17 @@
 //Debugging functions/
 #include "NSWFL_Debug.H"
 
-//Functions to get around the stupid secure "_s" counterparts to the standard clib.
-#include "NSWFL_InsecureInterface.H"
-
 //Functions for parsing arguments passed to the command line.
 #include "NSWFL_CommandLineParser.H"
 
 //A reasonable string builder for C++, finally!
 #include "NSWFL_StringBuilder.H"
 
-//A array of reasonable string builders for C++ (see what I did there?)
-#include "NSWFL_StringBuilderArray.H"
-
-//Base64 to and from.
-#include "NSWFL_Base64.H"
-
 //CRC32 (cyclic redundancy check) calculation.
 #include "NSWFL_CRC32.H"
 
 //SHA1 hashing functions.
 #include "NSWFL_SHA1.H"
-
-//A FIFO queue for C++
-#include "NSWFL_Queue.H"
-
-//A FIFO or FILO stack for C++
-#include "NSWFL_Stack.H"
-
-//Class for reading and parsing XML.
-#include "NSWFL_XMLReader.H"
-
-//Class for building and writing XML.
-#include "NSWFL_XMLWriter.H"
-#include "NSWFL_XML.H"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #endif
