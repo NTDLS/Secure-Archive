@@ -1,7 +1,7 @@
 ;#define Debug
 #define CompanyName         "NetworkDLS"
 #define ApplicationName     "Secure Archive"
-#define ApplicationVersion  "1.1.0.0"
+#define ApplicationVersion  "1.1.1.0"
 
 [Setup]
 ;-- Main Setup Information
@@ -111,7 +111,7 @@
  ;-- Create Path Keys For Use Within {#ApplicationName}
  Root: HKLM; Subkey: "Software\{#CompanyName}\{#ApplicationName}\Path";
  Root: HKLM; Subkey: "Software\{#CompanyName}\{#ApplicationName}\Path"; ValueType: string;  ValueName: "Path";                      ValueData:"{app}";                Flags: CreateValueIfDoesntExist;
- Root: HKLM; Subkey: "Software\{#CompanyName}\{#ApplicationName}\Path"; ValueType: string;  ValueName: "{#ApplicationName}";            ValueData:"{app}\SA.Exe";         Flags: CreateValueIfDoesntExist;
+ Root: HKLM; Subkey: "Software\{#CompanyName}\{#ApplicationName}\Path"; ValueType: string;  ValueName: "{#ApplicationName}";        ValueData:"{app}\SA.Exe";         Flags: CreateValueIfDoesntExist;
  Root: HKLM; Subkey: "Software\{#CompanyName}\{#ApplicationName}\Path"; ValueType: string;  ValueName: "MenuIcon";                  ValueData:"{app}\MenuIcon.Bmp";   Flags: CreateValueIfDoesntExist;
 
  Root: HKLM; Subkey: "Software\{#CompanyName}\{#ApplicationName}";      ValueType: DWORD;   ValueName: "SecureDeletePasses";        ValueData:"0";                    Flags: CreateValueIfDoesntExist;
@@ -128,7 +128,7 @@
  Root: HKLM; Subkey: "Software\{#CompanyName}\{#ApplicationName}";      ValueType: DWORD;   ValueName: "DfltChkAttributes";         ValueData:"1";                    Flags: CreateValueIfDoesntExist;
  Root: HKLM; Subkey: "Software\{#CompanyName}\{#ApplicationName}";      ValueType: DWORD;   ValueName: "DfltChkCRCs";               ValueData:"1";                    Flags: CreateValueIfDoesntExist;
  Root: HKLM; Subkey: "Software\{#CompanyName}\{#ApplicationName}";      ValueType: DWORD;   ValueName: "DfltChkSavePaths";          ValueData:"1";                    Flags: CreateValueIfDoesntExist;
- Root: HKLM; Subkey: "Software\{#CompanyName}\{#ApplicationName}";      ValueType: String;  ValueName: "DfltEncryptAlgo";           ValueData:"NASCCL";               Flags: CreateValueIfDoesntExist;
+ Root: HKLM; Subkey: "Software\{#CompanyName}\{#ApplicationName}";      ValueType: String;  ValueName: "DfltEncryptAlgo";           ValueData:"AES";                  Flags: CreateValueIfDoesntExist;
  Root: HKLM; Subkey: "Software\{#CompanyName}\{#ApplicationName}";      ValueType: String;  ValueName: "DfltCompressLevel";         ValueData:"Very High";            Flags: CreateValueIfDoesntExist;
  Root: HKLM; Subkey: "Software\{#CompanyName}\{#ApplicationName}";      ValueType: String;  ValueName: "DfltTempFilePath";          ValueData:"";                     Flags: CreateValueIfDoesntExist;
 
