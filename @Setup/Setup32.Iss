@@ -16,7 +16,7 @@
  AppMutex                        = {#ApplicationName}
  SetupIconFile                   = Resources/MainIcon.ico
  LicenseFile                     = Resources/EULA.txt
- Compression                     = ZIP/9
+ Compression                     = lzma2/max
  ChangesAssociations             = Yes
  MinVersion                      = 0.0,6.1sp1
  VersionInfoVersion              = {#ApplicationVersion}
