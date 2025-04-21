@@ -196,11 +196,28 @@ void PopulateProcessors(HWND hListView)
 	BYTE* ptr = (BYTE*)buffer;
 	LV_ITEM lvItem;
 
+	bool supportsEfficiencyCores = false;
+
 	while (ptr < ((BYTE*)buffer + len))
 	{
 		PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX info = (PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX)ptr;
 
-		if (info->Relationship == RelationProcessorCore) {
+		if (info->Relationship == RelationProcessorCore && info->Processor.EfficiencyClass > 0)
+		{
+			supportsEfficiencyCores = true;
+			break;
+
+		}
+		ptr += info->Size;
+	}
+
+	ptr = (BYTE*)buffer;
+	while (ptr < ((BYTE*)buffer + len))
+	{
+		PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX info = (PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX)ptr;
+
+		if (info->Relationship == RelationProcessorCore)
+		{
 			DWORD speedMHz = 0;
 			char regPath[128];
 			sprintf_s(regPath, sizeof(regPath),
@@ -213,11 +230,25 @@ void PopulateProcessors(HWND hListView)
 			lvItem.pszText = sTemp;
 			lvItem.mask = LVIF_TEXT | LVIF_IMAGE;
 			lvItem.iItem = coreIndex;
-			lvItem.iImage = (info->Processor.EfficiencyClass > 0) ? 0 : 1; // 0 = Performance, 1 = Efficiency
+			if (supportsEfficiencyCores)
+			{
+				lvItem.iImage = (info->Processor.EfficiencyClass > 0) ? 0 : 1; // 0 = Performance, 1 = Efficiency
+			}
+			else
+			{
+				lvItem.iImage = 0;
+			}
 			lvItem.iSubItem = 0;
 			ListView_InsertItem(hListView, &lvItem);
 
-			lvItem.pszText = (info->Processor.EfficiencyClass > 0) ? "Performance" : "Efficiency";
+			if (supportsEfficiencyCores)
+			{
+				lvItem.pszText = (info->Processor.EfficiencyClass > 0) ? "Performance" : "Efficiency";
+			}
+			else
+			{
+				lvItem.pszText = "Standard CPU";
+			}
 			lvItem.mask = LVIF_TEXT | LVIF_IMAGE;
 			lvItem.iImage = 0;
 			lvItem.iItem = coreIndex;
