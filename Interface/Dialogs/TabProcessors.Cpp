@@ -225,7 +225,7 @@ void PopulateProcessors(HWND hListView)
 
 			char sTemp[255];
 			memset(sTemp, 0, sizeof(sTemp));
-			sprintf_s(sTemp, sizeof(sTemp), "Core %2d", coreIndex);
+			sprintf_s(sTemp, sizeof(sTemp), "Core %d", coreIndex);
 
 			lvItem.pszText = sTemp;
 			lvItem.mask = LVIF_TEXT | LVIF_IMAGE;

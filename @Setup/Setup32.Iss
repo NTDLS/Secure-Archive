@@ -1,7 +1,7 @@
 ;#define Debug
 #define CompanyName         "NetworkDLS"
 #define ApplicationName     "Secure Archive"
-#define ApplicationVersion  "1.1.1"
+#define ApplicationVersion  "1.1.2"
 
 [Setup]
 ;-- Main Setup Information
