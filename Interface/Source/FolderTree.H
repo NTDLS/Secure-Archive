@@ -12,15 +12,14 @@
 #define TREE_IMAGE_RAMDRIVE		 5
 #define TREE_IMAGE_USB			 6
 #define TREE_IMAGE_DESKTOP		 7
-#define TREE_IMAGE_MYDOCS		 8
-#define TREE_IMAGE_CLOSEDFOLDER	 9
-#define TREE_IMAGE_OPENFOLDER	 10
-#define TREE_IMAGE_MYCOMPUTER	 11
-#define TREE_IMAGE_MYDOCUMENTS	 12
-#define TREE_IMAGE_MYPICTURES	 13
-#define TREE_IMAGE_MYMOVIES		 14
-#define TREE_IMAGE_MYMUSIC		 15
-#define TREE_IMAGE_SECUREARCHIVE 16
+#define TREE_IMAGE_CLOSEDFOLDER	 8
+#define TREE_IMAGE_OPENFOLDER	 9
+#define TREE_IMAGE_MYCOMPUTER	 10
+#define TREE_IMAGE_MYDOCUMENTS	 11
+#define TREE_IMAGE_MYPICTURES	 12
+#define TREE_IMAGE_MYMOVIES		 13
+#define TREE_IMAGE_MYMUSIC		 14
+#define TREE_IMAGE_SECUREARCHIVE 15
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

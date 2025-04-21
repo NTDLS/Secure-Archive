@@ -669,6 +669,10 @@ BEGIN
         BOTTOMMARGIN, 240
     END
 
+    IDD_TABPROCESSORS, DIALOG
+    BEGIN
+    END
+
     IDD_OVERWRITEORAPPEND, DIALOG
     BEGIN
         LEFTMARGIN, 7
@@ -741,8 +745,6 @@ IDI_UNKNOWN32           ICON                    "Unknown.ico"
 
 IDI_SMCPU               ICON                    "SmCPU.ico"
 
-IDI_SECURITY            ICON                    "Security.ico"
-
 IDI_PASSWORD            ICON                    "Password.ico"
 
 IDI_GENERAL             ICON                    "General.ico"
@@ -776,8 +778,6 @@ IDI_ADDFILES_GS         ICON                    "Toolbar\\AddFiles_GS.ico"
 IDI_FILEBAD             ICON                    "FileBad.ico"
 
 IDI_FILEOK              ICON                    "FileOK.ico"
-
-IDI_FOLDER16            ICON                    "16x16Folder.ico"
 
 IDI_LOOKFEEL            ICON                    "LookFeel.ico"
 
@@ -813,6 +813,40 @@ IDI_TRAYSTAT_14         ICON                    "TrayStat\\TrayStat (14).ico"
 
 IDI_TRAYSTAT_15         ICON                    "TrayStat\\TrayStat (15).ico"
 
+IDI_TREE_ARCHIVE        ICON                    "TreeView\\IDI_TREE_ARCHIVE.ico"
+
+IDI_TREE_CDROM          ICON                    "TreeView\\IDI_TREE_CDROM.ico"
+
+IDI_TREE_CLOSEDFOLDER   ICON                    "TreeView\\IDI_TREE_CLOSEDFOLDER.ico"
+
+IDI_TREE_DESKTOP        ICON                    "TreeView\\IDI_TREE_DESKTOP.ico"
+
+IDI_TREE_FIXED          ICON                    "TreeView\\IDI_TREE_FIXED.ico"
+
+IDI_TREE_MYCOMPUTER     ICON                    "TreeView\\IDI_TREE_MYCOMPUTER.ico"
+
+IDI_TREE_MYDOCUMENTS    ICON                    "TreeView\\IDI_TREE_MYDOCUMENTS.ico"
+
+IDI_TREE_MYMOVIES       ICON                    "TreeView\\IDI_TREE_MYMOVIES.ico"
+
+IDI_TREE_MYMUSIC        ICON                    "TreeView\\IDI_TREE_MYMUSIC.ico"
+
+IDI_TREE_MYPICTURES     ICON                    "TreeView\\IDI_TREE_MYPICTURES.ico"
+
+IDI_TREE_NETWORK        ICON                    "TreeView\\IDI_TREE_NETWORK.ico"
+
+IDI_TREE_OPENFOLDER     ICON                    "TreeView\\IDI_TREE_OPENFOLDER.ico"
+
+IDI_TREE_RAMDRIVE       ICON                    "TreeView\\IDI_TREE_RAMDRIVE.ico"
+
+IDI_TREE_REMOVABLE      ICON                    "TreeView\\IDI_TREE_REMOVABLE.ico"
+
+IDI_TREE_UNKNOWN        ICON                    "TreeView\\IDI_TREE_UNKNOWN.ico"
+
+IDI_TREE_USBDRIVE       ICON                    "TreeView\\IDI_TREE_USBDRIVE.ico"
+
+IDI_EFFICIENCYCORE      ICON                    "EfficiencyCore.ico"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -820,44 +854,6 @@ IDI_TRAYSTAT_15         ICON                    "TrayStat\\TrayStat (15).ico"
 //
 
 IDC_HANDCURSOR          CURSOR                  "HandCur.cur"
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Bitmap
-//
-
-IDB_TREE_REMOVABLE      BITMAP                  "Removable.bmp"
-
-IDB_TREE_CLOSEDFOLDER   BITMAP                  "ClosedFolder.bmp"
-
-IDB_TREE_DESKTOP        BITMAP                  "Desktop.bmp"
-
-IDB_TREE_FIXED          BITMAP                  "Fixed.bmp"
-
-IDB_TREE_MYCOMPUTER     BITMAP                  "MyComputer.bmp"
-
-IDB_TREE_MYDOCUMENTS    BITMAP                  "MyDocuments.bmp"
-
-IDB_TREE_NETWORK        BITMAP                  "Network Disk.bmp"
-
-IDB_TREE_OPENFOLDER     BITMAP                  "OpenFolder.bmp"
-
-IDB_TREE_CDROM          BITMAP                  "CDRom Disk.bmp"
-
-IDB_TREE_UNKNOWN        BITMAP                  "Unknown.bmp"
-
-IDB_TREE_RAMDRIVE       BITMAP                  "RamDrive.bmp"
-
-IDB_TREE_ARCHIVE        BITMAP                  "Archive.bmp"
-
-IDB_TREE_USBDRIVE       BITMAP                  "USBDisk.bmp"
-
-IDB_TREE_MYPICTURES     BITMAP                  "MyPictures.bmp"
-
-IDB_TREE_MYMOVIES       BITMAP                  "MyMovies.bmp"
-
-IDB_TREE_MYMUSIC        BITMAP                  "MyMusic.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -940,8 +936,8 @@ IDR_DELETEAVI           AVI                     "Delete.avi"
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,1,0,0
- PRODUCTVERSION 1,1,0,0
+ FILEVERSION 1,1,1,0
+ PRODUCTVERSION 1,1,1,0
  FILEFLAGSMASK 0x17L
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -959,12 +955,12 @@ BEGIN
             VALUE "Comments", "File Encryption Utility"
             VALUE "CompanyName", "NetworkDLS"
             VALUE "FileDescription", "File Encryption Utility"
-            VALUE "FileVersion", "1.1.0.0"
+            VALUE "FileVersion", "1.1.1.0"
             VALUE "InternalName", "Secure Archive"
             VALUE "LegalCopyright", "Copyright © 2025 NetworkDLS"
             VALUE "OriginalFilename", "SA.exe"
             VALUE "ProductName", "Secure Archive"
-            VALUE "ProductVersion", "1.1.0.0"
+            VALUE "ProductVersion", "1.1.1.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -998,7 +994,7 @@ END
 STRINGTABLE
 BEGIN
     IDS_TITLECAPTION        "Secure Archive"
-    IDS_FILEVERSION         "1.1.0.0"
+    IDS_FILEVERSION         "1.1.1.0"
     IDS_APPCOPYRIGHT        "Copyright © 2025 NetworkDLS. All rights reserved."
     IDS_REGISTRYKEY         "Software\\NetworkDLS\\Secure Archive"
     IDS_COMPATIBILITY       "Compatibility Version  000301x"

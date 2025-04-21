@@ -644,77 +644,71 @@ bool FolderTree::PopBrowseTree(void)
 
 bool FolderTree::CreateTreeImageList(void)
 {
-    hImageList = ImageList_Create(16, 16, ILC_COLOR24, 10, 1);
+    hImageList = ImageList_Create(16, 16, ILC_COLOR32, 16, 1);
 
-    HBITMAP hBitMap = NULL;
+	HANDLE hIcon = LoadImage(ghAppInstance, MAKEINTRESOURCE(IDI_TREE_UNKNOWN), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	ImageList_AddIcon(hImageList, (HICON)hIcon);
+    DeleteObject(hIcon);
 
-    hBitMap = LoadBitmap(ghAppInstance, MAKEINTRESOURCE(IDB_TREE_UNKNOWN));
-    ImageList_Add(hImageList, hBitMap, hBitMap);
-    DeleteObject(hBitMap);
+	hIcon = LoadImage(ghAppInstance, MAKEINTRESOURCE(IDI_TREE_REMOVABLE), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	ImageList_AddIcon(hImageList, (HICON)hIcon);
+	DeleteObject(hIcon);
 
-    hBitMap = LoadBitmap(ghAppInstance, MAKEINTRESOURCE(IDB_TREE_REMOVABLE));
-    ImageList_Add(hImageList, hBitMap, hBitMap);
-    DeleteObject(hBitMap);
+	hIcon = LoadImage(ghAppInstance, MAKEINTRESOURCE(IDI_TREE_FIXED), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	ImageList_AddIcon(hImageList, (HICON)hIcon);
+	DeleteObject(hIcon);
 
-    hBitMap = LoadBitmap(ghAppInstance, MAKEINTRESOURCE(IDB_TREE_FIXED));
-    ImageList_Add(hImageList, hBitMap, hBitMap);
-    DeleteObject(hBitMap);
+	hIcon = LoadImage(ghAppInstance, MAKEINTRESOURCE(IDI_TREE_NETWORK), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	ImageList_AddIcon(hImageList, (HICON)hIcon);
+	DeleteObject(hIcon);
 
-    hBitMap = LoadBitmap(ghAppInstance, MAKEINTRESOURCE(IDB_TREE_NETWORK));
-    ImageList_Add(hImageList, hBitMap, hBitMap);
-    DeleteObject(hBitMap);
+	hIcon = LoadImage(ghAppInstance, MAKEINTRESOURCE(IDI_TREE_CDROM), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	ImageList_AddIcon(hImageList, (HICON)hIcon);
+	DeleteObject(hIcon);
 
-    hBitMap = LoadBitmap(ghAppInstance, MAKEINTRESOURCE(IDB_TREE_CDROM));
-    ImageList_Add(hImageList, hBitMap, hBitMap);
-    DeleteObject(hBitMap);
+	hIcon = LoadImage(ghAppInstance, MAKEINTRESOURCE(IDI_TREE_RAMDRIVE), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	ImageList_AddIcon(hImageList, (HICON)hIcon);
+	DeleteObject(hIcon);
 
-    hBitMap = LoadBitmap(ghAppInstance, MAKEINTRESOURCE(IDB_TREE_RAMDRIVE));
-    ImageList_Add(hImageList, hBitMap, hBitMap);
-    DeleteObject(hBitMap);
+	hIcon = LoadImage(ghAppInstance, MAKEINTRESOURCE(IDI_TREE_USBDRIVE), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	ImageList_AddIcon(hImageList, (HICON)hIcon);
+	DeleteObject(hIcon);
 
-	hBitMap = LoadBitmap(ghAppInstance, MAKEINTRESOURCE(IDB_TREE_USBDRIVE));
-    ImageList_Add(hImageList, hBitMap, hBitMap);
-    DeleteObject(hBitMap);
+	hIcon = LoadImage(ghAppInstance, MAKEINTRESOURCE(IDI_TREE_DESKTOP), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	ImageList_AddIcon(hImageList, (HICON)hIcon);
+	DeleteObject(hIcon);
 
-    hBitMap = LoadBitmap(ghAppInstance, MAKEINTRESOURCE(IDB_TREE_DESKTOP));
-    ImageList_Add(hImageList, hBitMap, hBitMap);
-    DeleteObject(hBitMap);
+	hIcon = LoadImage(ghAppInstance, MAKEINTRESOURCE(IDI_TREE_CLOSEDFOLDER), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	ImageList_AddIcon(hImageList, (HICON)hIcon);
+	DeleteObject(hIcon);
 
-    hBitMap = LoadBitmap(ghAppInstance, MAKEINTRESOURCE(IDB_TREE_MYDOCS));
-    ImageList_Add(hImageList, hBitMap, hBitMap);
-    DeleteObject(hBitMap);
+	hIcon = LoadImage(ghAppInstance, MAKEINTRESOURCE(IDI_TREE_OPENFOLDER), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	ImageList_AddIcon(hImageList, (HICON)hIcon);
+	DeleteObject(hIcon);
 
-    hBitMap = LoadBitmap(ghAppInstance, MAKEINTRESOURCE(IDB_TREE_CLOSEDFOLDER));
-    ImageList_Add(hImageList, hBitMap, hBitMap);
-    DeleteObject(hBitMap);
+	hIcon = LoadImage(ghAppInstance, MAKEINTRESOURCE(IDI_TREE_MYCOMPUTER), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	ImageList_AddIcon(hImageList, (HICON)hIcon);
+	DeleteObject(hIcon);
 
-    hBitMap = LoadBitmap(ghAppInstance, MAKEINTRESOURCE(IDB_TREE_OPENFOLDER));
-    ImageList_Add(hImageList, hBitMap, hBitMap);
-    DeleteObject(hBitMap);
+	hIcon = LoadImage(ghAppInstance, MAKEINTRESOURCE(IDI_TREE_MYDOCUMENTS), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	ImageList_AddIcon(hImageList, (HICON)hIcon);
+	DeleteObject(hIcon);
 
-    hBitMap = LoadBitmap(ghAppInstance, MAKEINTRESOURCE(IDB_TREE_MYCOMPUTER));
-    ImageList_Add(hImageList, hBitMap, hBitMap);
-    DeleteObject(hBitMap);
+	hIcon = LoadImage(ghAppInstance, MAKEINTRESOURCE(IDI_TREE_MYPICTURES), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	ImageList_AddIcon(hImageList, (HICON)hIcon);
+	DeleteObject(hIcon);
 
-    hBitMap = LoadBitmap(ghAppInstance, MAKEINTRESOURCE(IDB_TREE_MYDOCUMENTS));
-    ImageList_Add(hImageList, hBitMap, hBitMap);
-    DeleteObject(hBitMap);
+	hIcon = LoadImage(ghAppInstance, MAKEINTRESOURCE(IDI_TREE_MYMOVIES), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	ImageList_AddIcon(hImageList, (HICON)hIcon);
+	DeleteObject(hIcon);
 
-    hBitMap = LoadBitmap(ghAppInstance, MAKEINTRESOURCE(IDB_TREE_MYPICTURES));
-    ImageList_Add(hImageList, hBitMap, hBitMap);
-    DeleteObject(hBitMap);
+	hIcon = LoadImage(ghAppInstance, MAKEINTRESOURCE(IDI_TREE_MYMUSIC), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	ImageList_AddIcon(hImageList, (HICON)hIcon);
+	DeleteObject(hIcon);
 
-    hBitMap = LoadBitmap(ghAppInstance, MAKEINTRESOURCE(IDB_TREE_MYMOVIES));
-    ImageList_Add(hImageList, hBitMap, hBitMap);
-    DeleteObject(hBitMap);
-
-    hBitMap = LoadBitmap(ghAppInstance, MAKEINTRESOURCE(IDB_TREE_MYMUSIC));
-    ImageList_Add(hImageList, hBitMap, hBitMap);
-    DeleteObject(hBitMap);
-
-	hBitMap = LoadBitmap(ghAppInstance, MAKEINTRESOURCE(IDB_TREE_ARCHIVE));
-    ImageList_Add(hImageList, hBitMap, hBitMap);
-    DeleteObject(hBitMap);
+	hIcon = LoadImage(ghAppInstance, MAKEINTRESOURCE(IDI_TREE_ARCHIVE), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	ImageList_AddIcon(hImageList, (HICON)hIcon);
+	DeleteObject(hIcon);
 
     TreeView_SetImageList(lhTreeHandle, hImageList, TVSIL_NORMAL);
 

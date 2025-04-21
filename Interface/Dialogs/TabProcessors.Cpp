@@ -14,23 +14,24 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-using namespace NSWFL::Windows; 
-using namespace NSWFL::Registry; 
-using namespace NSWFL::String; 
+using namespace NSWFL::Windows;
+using namespace NSWFL::Registry;
+using namespace NSWFL::String;
+
+void PopulateProcessors(HWND hListView);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 INT_PTR CALLBACK TabProcessorsDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-    static HWND hCPUs = NULL;
+	static HWND hCPUs = NULL;
 
-	if(uMsg == WM_INITDIALOG)
-    {
+	if (uMsg == WM_INITDIALOG)
+	{
 		char sRegBuf[255];
 		char sTemp[255];
 
 		DWORD dwRegBufSz = 0;
-		float fCPUSpeed = 0;
 
 		LV_COLUMN lvColumn;
 		LV_ITEM lvItem;
@@ -42,165 +43,111 @@ INT_PTR CALLBACK TabProcessorsDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM
 
 		hCPUs = GetDlgItem(hWnd, IDC_CPUS);
 
-		if(gbUseProcessBoost) CheckDlgButton(hWnd, IDC_PROCESSBOOST, BST_CHECKED);
-		if(gbUseThreadBoost) CheckDlgButton(hWnd, IDC_THREADBOOST, BST_CHECKED);
+		if (gbUseProcessBoost) CheckDlgButton(hWnd, IDC_PROCESSBOOST, BST_CHECKED);
+		if (gbUseThreadBoost) CheckDlgButton(hWnd, IDC_THREADBOOST, BST_CHECKED);
+
+		int iLVStyle = LVS_EX_GRIDLINES | LVS_EX_FULLROWSELECT | LVS_EX_CHECKBOXES;
+		SendMessage(hCPUs, (UINT)LVM_SETEXTENDEDLISTVIEWSTYLE, (WPARAM)0, (LPARAM)iLVStyle);
+
+		// Create ImageList begin
+		hImageList = ImageList_Create(GetSystemMetrics(SM_CXSMICON), GetSystemMetrics(SM_CYSMICON), ILC_MASK | ILC_COLOR32, 1, 1);
+
+		HICON hIcon = NULL;
+
+		hIcon = LoadIcon(ghAppInstance, MAKEINTRESOURCE(IDI_SMCPU));
+		ImageList_AddIcon(hImageList, (HICON)hIcon);
+		hIcon = LoadIcon(ghAppInstance, MAKEINTRESOURCE(IDI_EFFICIENCYCORE));
+		ImageList_AddIcon(hImageList, (HICON)hIcon);
+		DeleteObject((HICON)hIcon);
+
+		ListView_SetImageList(hCPUs, hImageList, LVSIL_SMALL);
+
+		// Create Listview columns
+		lvColumn.cx = 150;
+		lvColumn.pszText = "CPU";
+		lvColumn.iSubItem = 0;
+		lvColumn.mask = LVCF_WIDTH | LVCF_TEXT | LVCF_SUBITEM | LVCF_FMT;
+		lvColumn.fmt = LVCFMT_LEFT;
+		ListView_InsertColumn(hCPUs, 0, &lvColumn);
+
+		lvColumn.cx = 150;
+		lvColumn.pszText = "Type";
+		lvColumn.iSubItem = 1;
+		lvColumn.mask = LVCF_WIDTH | LVCF_TEXT | LVCF_SUBITEM | LVCF_FMT;
+		lvColumn.fmt = LVCFMT_LEFT;
+		ListView_InsertColumn(hCPUs, 2, &lvColumn);
+
+		PopulateProcessors(hCPUs);
 
 		SYSTEM_INFO SI;
-        GetSystemInfo(&SI);
-		
-		int iLVStyle = LVS_EX_GRIDLINES | LVS_EX_FULLROWSELECT | LVS_EX_CHECKBOXES;
-        SendMessage(hCPUs, (UINT)LVM_SETEXTENDEDLISTVIEWSTYLE, (WPARAM)0, (LPARAM)iLVStyle);
+		GetSystemInfo(&SI);
+		float fMaxReportedCPUSpeed = 0;
 
-        // Create ImageList begin
-        hImageList = ImageList_Create(GetSystemMetrics(SM_CXSMICON), GetSystemMetrics(SM_CYSMICON), ILC_MASK|ILC_COLOR32, 1, 1);
-
-        HICON hIcon = NULL;
-
-        hIcon = LoadIcon(ghAppInstance, MAKEINTRESOURCE(IDI_SMCPU));
-        ImageList_AddIcon(hImageList, (HICON)hIcon);
-        DeleteObject((HICON)hIcon);
-
-        ListView_SetImageList(hCPUs, hImageList, LVSIL_SMALL);
-
-        // Create Listview columns
-        lvColumn.cx        = 180;
-        lvColumn.pszText   = "CPU";
-        lvColumn.iSubItem  = 0;
-        lvColumn.mask      = LVCF_WIDTH | LVCF_TEXT | LVCF_SUBITEM | LVCF_FMT;
-        lvColumn.fmt       = LVCFMT_LEFT;
-        ListView_InsertColumn(hCPUs, 0, &lvColumn);
-
-        lvColumn.cx        = 45;
-        lvColumn.pszText   = "Model";
-        lvColumn.iSubItem  = 1;
-        lvColumn.mask      = LVCF_WIDTH | LVCF_TEXT | LVCF_SUBITEM | LVCF_FMT;
-        lvColumn.fmt       = LVCFMT_CENTER;
-        ListView_InsertColumn(hCPUs, 1, &lvColumn);
-
-        lvColumn.cx        = 55;
-        lvColumn.pszText   = "Rev.";
-        lvColumn.iSubItem  = 2;
-        lvColumn.mask      = LVCF_WIDTH | LVCF_TEXT | LVCF_SUBITEM | LVCF_FMT;
-        lvColumn.fmt       = LVCFMT_CENTER;
-        ListView_InsertColumn(hCPUs, 2, &lvColumn);
-
-        lvColumn.cx        = 65;
-        lvColumn.pszText   = "Granularity";
-        lvColumn.iSubItem  = 3;
-        lvColumn.mask      = LVCF_WIDTH | LVCF_TEXT | LVCF_SUBITEM | LVCF_FMT;
-        lvColumn.fmt       = LVCFMT_CENTER;
-        ListView_InsertColumn(hCPUs, 3, &lvColumn);
-
-		dwRegBufSz = sizeof(sRegBuf);
-		memset(sRegBuf, 0, dwRegBufSz);
-		if(Get_StringRegistryValue(HKEY_LOCAL_MACHINE, "HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0", "ProcessorNameString", sRegBuf, dwRegBufSz))
+		for (DWORD dwIndex = 0; dwIndex < SI.dwNumberOfProcessors; dwIndex++)
 		{
-			Trim(sRegBuf);
-			Set_Text(GetDlgItem(hWnd, IDC_CPUDESCR), sRegBuf);
-		}
-
-		DWORD dwItem = 0;
-		while(dwItem < SI.dwNumberOfProcessors)
-        {
 			char sKey[1024];
-			sprintf_s(sKey, sizeof(sKey), "HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\%d", dwItem);
-
-			if(!Get_DWORDRegistryValue(HKEY_LOCAL_MACHINE, sKey, "~MHz", dwRegBufSz))
+			sprintf_s(sKey, sizeof(sKey), "HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\%d", dwIndex);
+			if (!Get_DWORDRegistryValue(HKEY_LOCAL_MACHINE, sKey, "~MHz", dwRegBufSz))
 			{
 				dwRegBufSz = 0;
 			}
-			fCPUSpeed = (float)dwRegBufSz;
-
-			dwRegBufSz = sizeof(sRegBuf);
-			memset(sRegBuf, 0, dwRegBufSz);
-			if(!Get_StringRegistryValue(HKEY_LOCAL_MACHINE, sKey, "VendorIdentifier", sRegBuf, dwRegBufSz))
+			if (dwRegBufSz > fMaxReportedCPUSpeed)
 			{
-				strcpy_s(sRegBuf, sizeof(sRegBuf), "");
+				fMaxReportedCPUSpeed = (float)dwRegBufSz;
 			}
 
+			dwIndex++;
+		}
+
+		dwRegBufSz = sizeof(sRegBuf);
+		memset(sRegBuf, 0, dwRegBufSz);
+		if (Get_StringRegistryValue(HKEY_LOCAL_MACHINE, "HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0", "ProcessorNameString", sRegBuf, dwRegBufSz))
+		{
 			Trim(sRegBuf);
 
-			if(fCPUSpeed > 1000)
+			if (fMaxReportedCPUSpeed > 0)
 			{
-				sprintf_s(sTemp, sizeof(sTemp), "%s %.1f0 GHz", sRegBuf, fCPUSpeed / 1000.0f);
-			}
-			else {
-				if(fCPUSpeed > 0)
+				if (fMaxReportedCPUSpeed > 1000)
 				{
-					sprintf_s(sTemp, sizeof(sTemp), "%s %.2f MHz", sRegBuf, fCPUSpeed);
+					sprintf_s(sTemp, sizeof(sTemp), " (%.1f0 GHz)", fMaxReportedCPUSpeed / 1000.0f);
+					strcat_s(sRegBuf, sizeof(sRegBuf), sTemp);
 				}
-				else{
-					strcpy_s(sTemp, sizeof(sTemp), "");
+				else {
+					sprintf_s(sTemp, sizeof(sTemp), "(%.2f MHz)", fMaxReportedCPUSpeed);
+					strcat_s(sRegBuf, sizeof(sRegBuf), sTemp);
 				}
 			}
-			
-			lvItem.pszText = sTemp;
-            lvItem.mask = LVIF_TEXT|LVIF_IMAGE;
-            lvItem.iImage = 0;
-            lvItem.iItem  = dwItem;
-            lvItem.iSubItem = 0;
-            ListView_InsertItem(hCPUs, &lvItem);
 
-			sprintf_s(sTemp, sizeof(sTemp), "%d", HIWORD(SI.wProcessorRevision));
-			lvItem.pszText = sTemp;
-            lvItem.mask = LVIF_TEXT|LVIF_IMAGE;
-            lvItem.iImage = 0;
-            lvItem.iItem  = dwItem;
-            lvItem.iSubItem = 1;
-            ListView_SetItem(hCPUs, &lvItem);
+			Set_Text(GetDlgItem(hWnd, IDC_CPUDESCR), sRegBuf);
+		}
 
-			sprintf_s(sTemp, sizeof(sTemp), "%d", LOWORD(SI.wProcessorRevision));
-            lvItem.pszText = sTemp;
-            lvItem.mask = LVIF_TEXT|LVIF_IMAGE;
-            lvItem.iImage = 0;
-            lvItem.iItem  = dwItem;
-            lvItem.iSubItem = 2;
-            ListView_SetItem(hCPUs, &lvItem);
 
-			sprintf_s(sTemp, sizeof(sTemp), "%0.2f K", ((float)SI.dwAllocationGranularity / 1024.0f));
-            lvItem.pszText = sTemp;
-            lvItem.mask = LVIF_TEXT|LVIF_IMAGE;
-            lvItem.iImage = 0;
-            lvItem.iItem  = dwItem;
-            lvItem.iSubItem = 3;
-            ListView_SetItem(hCPUs, &lvItem);
-
-			if(IsBitSet(gdwCPUAffinityMask, dwItem))
-			{
-				ListView_SetCheckState(hCPUs, dwItem, TRUE);
-			}
-			else {
-				ListView_SetCheckState(hCPUs, dwItem, FALSE);
-			}
-
-            dwItem++;
-        }
 		return TRUE;
-    }
-    else if(uMsg == WM_COMMAND)
-    {
-        if(wParam == IDC_HELPBUTTON)
-        {
-			OpenHelpFile("Configuration/Processor Settings.Html");
-            return TRUE;
-        }
 	}
-	else if(uMsg == WM_NOTIFY)
-    {
-        LPNMHDR pNMH = (LPNMHDR)lParam;
-        if(pNMH->code == PSN_KILLACTIVE)
-        {
-            return FALSE;
-        }
-        if(pNMH->code == PSN_APPLY) // Ok
-        {
+	else if (uMsg == WM_COMMAND)
+	{
+		if (wParam == IDC_HELPBUTTON)
+		{
+			OpenHelpFile("Configuration/Processor Settings.Html");
+			return TRUE;
+		}
+	}
+	else if (uMsg == WM_NOTIFY)
+	{
+		LPNMHDR pNMH = (LPNMHDR)lParam;
+		if (pNMH->code == PSN_KILLACTIVE)
+		{
+			return FALSE;
+		}
+		if (pNMH->code == PSN_APPLY) // Ok
+		{
 			DWORD_PTR dwCPUAffinityMask = 0;
 			DWORD iItems = ListView_GetItemCount(hCPUs);
 			DWORD dwItem = 0;
 
-			while(dwItem < iItems)
+			while (dwItem < iItems)
 			{
-				if(ListView_GetCheckState(hCPUs, dwItem))
+				if (ListView_GetCheckState(hCPUs, dwItem))
 				{
 					SetBit(dwCPUAffinityMask, dwItem);
 				}
@@ -208,11 +155,11 @@ INT_PTR CALLBACK TabProcessorsDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM
 				dwItem++;
 			}
 
-			if(dwCPUAffinityMask == 0)
+			if (dwCPUAffinityMask == 0)
 			{
-                SafeMsgBox(hWnd, "You must select at least one processor.", gsTitleCaption, MB_ICONASTERISK);
-                SetWindowLongPtr(hWnd, DWLP_MSGRESULT, PSNRET_INVALID_NOCHANGEPAGE); // Prevent window from closing
-                return TRUE;
+				SafeMsgBox(hWnd, "You must select at least one processor.", gsTitleCaption, MB_ICONASTERISK);
+				SetWindowLongPtr(hWnd, DWLP_MSGRESULT, PSNRET_INVALID_NOCHANGEPAGE); // Prevent window from closing
+				return TRUE;
 			}
 
 			gbUseProcessBoost = (IsDlgButtonChecked(hWnd, IDC_PROCESSBOOST) == BST_CHECKED);
@@ -226,14 +173,72 @@ INT_PTR CALLBACK TabProcessorsDialog(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM
 			SetProcessPriorityBoost(GetCurrentProcess(), !gbUseProcessBoost);
 
 			return TRUE;
-        }
-        if(pNMH->code == PSN_RESET) // Cancel
-        {
-            return FALSE;
-        }
-    }
+		}
+		if (pNMH->code == PSN_RESET) // Cancel
+		{
+			return FALSE;
+		}
+	}
 
-    return FALSE;
+	return FALSE;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void PopulateProcessors(HWND hListView)
+{
+	DWORD len = 0;
+	GetLogicalProcessorInformationEx(RelationProcessorCore, NULL, &len);
+	PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX buffer = (PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX)malloc(len);
+	GetLogicalProcessorInformationEx(RelationProcessorCore, buffer, &len);
+
+	int coreIndex = 0;
+	BYTE* ptr = (BYTE*)buffer;
+	LV_ITEM lvItem;
+
+	while (ptr < ((BYTE*)buffer + len))
+	{
+		PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX info = (PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX)ptr;
+
+		if (info->Relationship == RelationProcessorCore) {
+			DWORD speedMHz = 0;
+			char regPath[128];
+			sprintf_s(regPath, sizeof(regPath),
+				"HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\%d", coreIndex);
+
+			char sTemp[255];
+			memset(sTemp, 0, sizeof(sTemp));
+			sprintf_s(sTemp, sizeof(sTemp), "Core %2d", coreIndex);
+
+			lvItem.pszText = sTemp;
+			lvItem.mask = LVIF_TEXT | LVIF_IMAGE;
+			lvItem.iItem = coreIndex;
+			lvItem.iImage = (info->Processor.EfficiencyClass > 0) ? 0 : 1; // 0 = Performance, 1 = Efficiency
+			lvItem.iSubItem = 0;
+			ListView_InsertItem(hListView, &lvItem);
+
+			lvItem.pszText = (info->Processor.EfficiencyClass > 0) ? "Performance" : "Efficiency";
+			lvItem.mask = LVIF_TEXT | LVIF_IMAGE;
+			lvItem.iImage = 0;
+			lvItem.iItem = coreIndex;
+			lvItem.iSubItem = 1;
+			ListView_SetItem(hListView, &lvItem);
+
+			if (IsBitSet(gdwCPUAffinityMask, coreIndex))
+			{
+				ListView_SetCheckState(hListView, coreIndex, TRUE);
+			}
+			else {
+				ListView_SetCheckState(hListView, coreIndex, FALSE);
+			}
+
+			coreIndex++;
+		}
+
+		ptr += info->Size;
+	}
+
+	free(buffer);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

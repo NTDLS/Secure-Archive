@@ -564,65 +564,37 @@
     <ClInclude Include="Dialogs\WeakPwdDialog.H" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Archive.bmp" />
-    <None Include="Resources\CDRom Disk.bmp" />
-    <None Include="Resources\ClosedFolder.bmp" />
-    <None Include="Resources\Desktop.bmp" />
-    <None Include="Resources\Fixed.bmp" />
-    <None Include="Resources\MyComputer.bmp" />
-    <None Include="Resources\MyDocuments.bmp" />
-    <None Include="Resources\MyMovies.bmp" />
-    <None Include="Resources\MyMusic.bmp" />
-    <None Include="Resources\MyPictures.bmp" />
-    <None Include="Resources\Network Disk.bmp" />
-    <None Include="Resources\OpenFolder.bmp" />
-    <None Include="Resources\RamDrive.bmp" />
-    <None Include="Resources\Removable.bmp" />
-    <None Include="Resources\Unknown.bmp" />
-    <None Include="Resources\USBDisk.bmp" />
     <None Include="Resources\Decrypt.avi" />
     <None Include="Resources\Delete.avi" />
     <None Include="Resources\Encrypt.avi" />
-    <None Include="16x16Folder.ico" />
-    <None Include="Resources\16x16Folder.ico" />
     <None Include="Resources\Toolbar\AddFiles.ico" />
-    <None Include="Toolbar\AddFiles_GS.ico" />
     <None Include="Resources\Toolbar\AddFiles_GS.ico" />
     <None Include="Resources\Advanced.ico" />
     <None Include="Resources\AppIcon.ico" />
     <None Include="Resources\Toolbar\Configure.ico" />
-    <None Include="Toolbar\Configure_GS.ico" />
     <None Include="Resources\Toolbar\Configure_GS.ico" />
     <None Include="Resources\CPUSelect.ico" />
     <None Include="Resources\Crypto.ico" />
     <None Include="Resources\Toolbar\Delete.ico" />
     <None Include="Resources\Toolbar\Delete_GS.ico" />
-    <None Include="Toolbar\Delete_GS.ico" />
-    <None Include="Resources\Toolbar\exit.ico" />
+    <None Include="Resources\Toolbar\Exit.ico" />
     <None Include="Resources\Toolbar\Exit_GS.ico" />
-    <None Include="Toolbar\Exit_GS.ico" />
     <None Include="Resources\Toolbar\Extract.ico" />
     <None Include="Resources\Toolbar\Extract_GS.ico" />
-    <None Include="Toolbar\Extract_GS.ico" />
     <None Include="Resources\FileBad.ico" />
     <None Include="Resources\FileOK.ico" />
     <None Include="Resources\Toolbar\Find.ico" />
-    <None Include="Toolbar\Find_GS.ico" />
     <None Include="Resources\Toolbar\Find_GS.ico" />
     <None Include="Resources\General.ico" />
-    <None Include="Resources\HardKey.ico" />
     <None Include="Resources\Help.ico" />
     <None Include="Resources\Toolbar\Information.ico" />
     <None Include="Resources\Toolbar\Information_GS.ico" />
-    <None Include="Toolbar\Information_GS.ico" />
     <None Include="Resources\LookFeel.ico" />
     <None Include="Resources\MainIcon.ico" />
     <None Include="Resources\Toolbar\New.ico" />
-    <None Include="Toolbar\New_GS.ico" />
     <None Include="Resources\Toolbar\New_GS.ico" />
     <None Include="Resources\Toolbar\Open.ico" />
     <None Include="Resources\Toolbar\Open_GS.ico" />
-    <None Include="Toolbar\Open_GS.ico" />
     <None Include="Resources\Password.ico" />
     <None Include="Resources\Security.ico" />
     <None Include="Resources\SmCPU.ico" />
@@ -646,7 +618,6 @@
     <None Include="Resources\Unknown.ico" />
     <None Include="Resources\Unknown16.ico" />
     <None Include="Resources\Toolbar\View.ico" />
-    <None Include="Toolbar\View_GS.ico" />
     <None Include="Resources\Toolbar\View_GS.ico" />
     <None Include="Resources\HandCur.cur" />
     <None Include="Resources\Click.Wav" />
@@ -663,6 +634,27 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Resources;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="EfficiencyCore.ico" />
+    <Image Include="Resources\EfficiencyCore.ico" />
+    <Image Include="Resources\toolbar\icon4.ico" />
+    <Image Include="Resources\TreeView\IDI_TREE_ARCHIVE.ico" />
+    <Image Include="Resources\TreeView\IDI_TREE_CDROM.ico" />
+    <Image Include="Resources\TreeView\IDI_TREE_CLOSEDFOLDER.ico" />
+    <Image Include="Resources\TreeView\IDI_TREE_DESKTOP.ico" />
+    <Image Include="Resources\TreeView\IDI_TREE_FIXED.ico" />
+    <Image Include="Resources\TreeView\IDI_TREE_MYCOMPUTER.ico" />
+    <Image Include="Resources\TreeView\IDI_TREE_MYDOCUMENTS.ico" />
+    <Image Include="Resources\TreeView\IDI_TREE_MYMOVIES.ico" />
+    <Image Include="Resources\TreeView\IDI_TREE_MYMUSIC.ico" />
+    <Image Include="Resources\TreeView\IDI_TREE_MYPICTURES.ico" />
+    <Image Include="Resources\TreeView\IDI_TREE_NETWORK.ico" />
+    <Image Include="Resources\TreeView\IDI_TREE_OPENFOLDER.ico" />
+    <Image Include="Resources\TreeView\IDI_TREE_RAMDRIVE.ico" />
+    <Image Include="Resources\TreeView\IDI_TREE_REMOVABLE.ico" />
+    <Image Include="Resources\TreeView\IDI_TREE_UNKNOWN.ico" />
+    <Image Include="Resources\TreeView\IDI_TREE_USBDRIVE.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

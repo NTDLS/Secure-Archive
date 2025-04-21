@@ -2,7 +2,6 @@
 // Microsoft Visual C++ generated include file.
 // Used by Resource.rc
 //
-#define IDC_STATIC                  -1
 #define ID_SEPARATOR                    0
 #define IDS_TITLECAPTION                1
 #define VS_VERSION_INFO                 1
@@ -39,7 +38,6 @@
 #define IDI_GENERAL                     106
 #define IDI_SFILE                       107
 #define IDI_FILE                        108
-#define IDI_SECURITY                    108
 #define IDC_HANDCURSOR                  110
 #define IDI_APPICON                     111
 #define IDI_UNKNOWN                     112
@@ -69,29 +67,18 @@
 #define IDD_EXTRACT                     137
 #define IDD_NEWFOLDER                   138
 #define IDB_BITMAP1                     141
-#define IDB_TREE_REMOVABLE              141
 #define IDD_STATUSDLG                   141
 #define IDB_BITMAP2                     142
-#define IDB_TREE_CLOSEDFOLDER           142
 #define IDB_BITMAP3                     143
-#define IDB_TREE_DESKTOP                143
 #define IDB_BITMAP4                     144
-#define IDB_TREE_FIXED                  144
 #define IDD_TABPROCESSORS               144
 #define IDB_BITMAP5                     145
-#define IDB_TREE_MYCOMPUTER             145
 #define IDB_BITMAP6                     146
 #define IDB_TREE_MYDOCS                 146
 #define IDD_NETLOGO                     146
-#define IDB_TREE_MYDOCUMENTS            146
 #define IDB_BITMAP7                     147
-#define IDB_TREE_NETWORK                147
 #define IDB_BITMAP8                     148
-#define IDB_TREE_OPENFOLDER             148
 #define IDB_BITMAP9                     149
-#define IDB_TREE_CDROM                  149
-#define IDB_TREE_UNKNOWN                150
-#define IDB_TREE_RAMDRIVE               151
 #define IDR_SCANDIRAVI                  153
 #define IDD_REPLACEFILE                 160
 #define IDI_ADDFILES                    162
@@ -166,12 +153,25 @@
 #define IDI_TRAYSTAT_15                 213
 #define IDD_ADVANCEDOPT                 214
 #define IDB_BITMAP10                    215
-#define IDB_TREE_ARCHIVE                215
-#define IDB_TREE_USBDRIVE               216
-#define IDB_TREE_MYPICTURES             217
-#define IDB_TREE_MYMOVIES               218
 #define IDB_BITMAP11                    219
-#define IDB_TREE_MYMUSIC                219
+#define IDI_TREE_ARCHIVE                222
+#define IDI_TREE_CDROM                  223
+#define IDI_TREE_CLOSEDFOLDER           224
+#define IDI_TREE_DESKTOP                225
+#define IDI_TREE_FIXED                  226
+#define IDI_TREE_MYCOMPUTER             227
+#define IDI_TREE_MYDOCUMENTS            228
+#define IDI_TREE_MYMOVIES               229
+#define IDI_TREE_MYMUSIC                230
+#define IDI_TREE_MYPICTURES             231
+#define IDI_TREE_NETWORK                232
+#define IDI_TREE_OPENFOLDER             233
+#define IDI_TREE_RAMDRIVE               234
+#define IDI_TREE_REMOVABLE              235
+#define IDI_TREE_UNKNOWN                236
+#define IDI_TREE_USBDRIVE               237
+#define IDI_ICON4                       239
+#define IDI_EFFICIENCYCORE              239
 #define IDC_PASSWORD1                   1000
 #define IDC_TEXTBOX                     1000
 #define ID_MFCLOC_MANIFEST              1000
@@ -907,12 +907,13 @@
 #define AFX_IDP_E_CANTSAVEFILETOTEMP    0xFEC5
 #define AFX_IDP_E_SEARCHTEXTNOTFOUND    0xFEC6
 #define AFX_IDP_E_REPLACEMENTSTOOLONG   0xFEC7
+#define IDC_STATIC                      -1
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        222
+#define _APS_NEXT_RESOURCE_VALUE        240
 #define _APS_NEXT_COMMAND_VALUE         40041
 #define _APS_NEXT_CONTROL_VALUE         1094
 #define _APS_NEXT_SYMED_VALUE           101
