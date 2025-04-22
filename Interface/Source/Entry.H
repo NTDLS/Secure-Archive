@@ -17,10 +17,6 @@ using namespace NSWFL::Hashing;
 #define DISPLAYACRONYM		"SA-"
 #define DEFAULTEXT          ".SAef"
 #define DEFAULTHARDKEYEXT   ".SAkf"
-#define DEFAULTPRODUCTURL	"http://networkdls.com/Software.Asp?Review=27"
-#define UNREGISTEREDDAYS	30
-#define UNREGISTEREDDATE	3510588L
-#define UNREGISTEREDHASH	1691007L
 
 #define JOB_TYPE_READING				1
 #define JOB_TYPE_PACKING_FOLDER			2
